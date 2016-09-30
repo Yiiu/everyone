@@ -1,0 +1,76 @@
+@import "../../style/color";
+.y-btn {
+    display: inline-block;
+    transition: 0.3s all;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 14px;
+    border-radius: 4px;
+    background: transparent;
+    padding: 4px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,"PingFang SC","Microsoft Yahei","WenQuanYi Micro Hei","微软雅黑",Arial,Verdana,sans-serif !important;
+    outline: none;
+}
+.btn-primarys(@Color, @FColor){
+    color: @FColor;
+    background: @Color;
+    border-color: @Color;
+    &:hover {
+        background: lighten(@Color, 5%);
+    }
+}
+.btn-ghosts(@Color, @FColor, @HFColor:@gray){
+    border-color: @Color ;
+    color: @FColor;
+    &:hover{
+        border-color: lighten(@Color, 10%) ;
+    }
+}
+
+
+.btn-primary {
+    border-style: solid;
+    border-width: 1px;
+}
+.btn-primary {
+    .btn-primarys(@blue, #fff);
+}
+.btn-primary.green {
+    .btn-primarys(@green, #fff);
+}
+.btn-primary.yellow {
+    .btn-primarys(@yellow, #fff);
+}
+.btn-primary.red {
+    .btn-primarys(@red, #fff);
+}
+.btn-primary.gray {
+    .btn-primarys(@Border-C, #fff);
+}
+
+
+.btn-dashed {
+    border-style: dashed;
+    border-width: 1px;
+}
+.btn-ghost {
+    border-style: solid;
+    border-width: 1px;
+}
+.btn-ghost.gray, .btn-dashed.gray{
+    .btn-ghosts(@Border-C, @gray);
+}
+.btn-ghost.blue, .btn-dashed.blue {
+    .btn-ghosts(@blue, @blue, #fff);
+}
+.btn-ghost.green, .btn-dashed.green {
+    .btn-ghosts(@green, @green, #fff);
+}
+.btn-ghost.yellow, .btn-dashed.yellow {
+    .btn-ghosts(@yellow, @yellow, #fff);
+}
+.btn-ghost.red, .btn-dashed.red {
+    .btn-ghosts(@red, @red, #fff);
+}

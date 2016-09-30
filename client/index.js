@@ -4,9 +4,9 @@ import App from './App'
 import router from './router.js'
 import store from './store'
 
-import alert from './components/alert'
+import commonent from './components'
 
-Vue.component(alert.name, alert)
+Vue.use(commonent)
 
 sync(store, router)
 

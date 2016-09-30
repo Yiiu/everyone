@@ -11,6 +11,7 @@
   "author": "yiiu <yu.gintoki@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.16.0",
     "vue": "^2.0.0-rc.7",
     "vue-router": "^2.0.0-rc.5",
     "vuex": "^2.0.0-rc.5",

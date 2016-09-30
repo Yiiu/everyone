@@ -1,51 +1,38 @@
 <template>
-    <div class="modal-box" v-if="data.isshow" transition="mdc" @click.self="b">
-        <div class="modal-content">
-            <div class="m-header">
-                <h2>{{data.title}}</h2>
-            </div>
-            <div class="m-body">
-                <p v-if="data.content">{{data.content}}</p>
-                {{{data.html}}}
-            </div>
-            <div class="m-footer">
+    <transition>
+        <div class="modal-box" v-if="data.show" transition="mdc" @click.self="b">
+            <div class="modal-content">
+                <div class="m-header">
+                    <h2>{{data.title}}</h2>
+                </div>
+                <div class="m-body">
+                    <p v-if="data.content">{{data.content}}</p>
+                </div>
+                <div class="m-footer">
 
-                <button class="btn" 
-                    :class="{
-                        'btn-default' : data.backBtn.type == '',
-                        'btn-primary': data.backBtn.type == 'primary',
-                        'btn-success': data.backBtn.type == 'success',
-                        'btn-warning': data.backBtn.type == 'warning',
-                        'btn-danger': data.backBtn.type == 'danger',
-                    }"
+                    <button class="btn" :class="[]"
 
-                    v-if="data.backBtn.show"
+                        v-if="data.backBtn.show"
 
-                    @click="back"
+                        @click="back"
 
-                >{{data.backBtn.text}}</button>
+                    >{{data.backBtn.text}}</button>
 
-                <button class="btn" 
-                    :class="{
-                        'btn-default' : data.okBtn.type == '',
-                        'btn-primary': data.okBtn.type == 'primary',
-                        'btn-success': data.okBtn.type == 'success',
-                        'btn-warning': data.okBtn.type == 'warning',
-                        'btn-danger': data.okBtn.type == 'danger',
-                    }"
+                    <button class="btn" :class="[]"
+                        v-if="data.okBtn.show"
 
-                    v-if="data.okBtn.show"
+                        @click="ok"
 
-                    @click="ok"
+                    >{{data.okBtn.text}}</button>
 
-                >{{data.okBtn.text}}</button>
-
+                </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 <script>
 export default {
+    name: "y-modal",
     methods:{
         ok: function(){
             if(this.data.ok){
