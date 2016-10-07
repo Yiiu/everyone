@@ -1,0 +1,52 @@
+@import "../../style/color";
+.message {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    .message-content {
+        position: relative;
+        right: 50%;
+        display: flex;
+        border-radius: 4px;
+        border: 1px #d9d9d9 solid;
+        padding: 6px 18px;
+        box-shadow: 0 0 20px -5px #ccc;
+        background: #fff;
+        i {
+            margin-right: 18px;
+            font-size: 18px;
+            line-height: 22px;
+        }
+        p {
+            margin: 0;
+            line-height: 22px;
+        }
+        &.success {
+            .message-info {
+                color: @o-green;
+            }
+        }
+        &.info {
+            .message-info {
+                color: @o-blue;
+            }
+        }
+        &.warning {
+            .message-info {
+                color: @o-yellow;
+            }
+        }
+        &.danger {
+            .message-info {
+                color: @o-red;
+            }
+        }
+    }
+}
+.message {
+    transition: all .5s cubic-bezier(.55,0,.1,1);
+}
+.message-enter, .message-leave-active  {
+    transform: translateY(-100%);
+    opacity: 0;
+}

@@ -1,0 +1,71 @@
+@import "../../style/color";
+.y-alert {
+    position: relative;
+    padding: 8px 8px 8px 16px;
+    border-radius: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    transition: all .3s ease;
+    >.alert-icon {
+        vertical-align: middle;
+        font-size: 22px;
+        margin-right:  12px;
+    }
+    >.alert-c {
+        padding-right: 40px;
+        h1,h2,h3,h4,h5{
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            margin-top: 4px;
+        }
+        span {
+            color: @gray;
+        }
+    }
+    .alert-close {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -10px;
+        font-size: 14px;
+        line-height: 20px;
+        cursor: pointer;
+    }
+}
+.alert-info {
+    .alert-color(lighten(@o-blue, 35%));
+    .alert-icon {
+        color: @o-blue;
+    }
+}
+.alert-success {
+    .alert-color(lighten(@o-green, 30%));
+    .alert-icon {
+        color: @o-green;
+    }
+}
+.alert-warning {
+    .alert-color(lighten(@o-yellow, 35%));
+    .alert-icon {
+        color: @o-yellow;
+    }
+}
+.alert-danger {
+    .alert-color(lighten(@o-red, 35%));
+    .alert-icon {
+        color: @o-red;
+    }
+}
+.alert-color(@color){
+    background: @color;
+    border: 1px darken(@color, 10%) solid;
+}
+/* 必需 */
+.alert-op-enter-active, .alert-op-leave-active {
+    opacity: 0;
+}

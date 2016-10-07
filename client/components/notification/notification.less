@@ -1,0 +1,72 @@
+@import "../../style/color";
+.notification-box {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 999;
+    .notification {
+        position:relative;
+        background: #fff;
+        width: 320px;
+        border: 1px #ebebeb solid;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 40px -5px #ccc;
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 20px;
+        transition: all .5s cubic-bezier(.55,0,.1,1);
+        .notification-c {
+            margin-left: 22px;
+            & *{
+                margin: 8px 0;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            p {
+                color: @gray;
+            }
+        }
+        .notification-del {
+            position: absolute;
+            right: 16px;
+            top: 14px;
+            cursor: pointer;
+            font-size: 18px;
+            color: @gray;
+        }
+        .notification-info {
+            font-size: 52px;
+            margin-left: 12px;
+        }
+        &.success {
+            .notification-info {
+                color: @o-green;
+            }
+        }
+        &.info {
+            .notification-info {
+                color: @o-blue;
+            }
+        }
+        &.warning {
+            .notification-info {
+                color: @o-yellow;
+            }
+        }
+        &.danger {
+            .notification-info {
+                color: @o-red;
+            }
+        }
+    }
+}
+.notification-list {
+    transition: all .5s cubic-bezier(.55,0,.1,1);
+}
+.notification-list-enter, .notification-list-leave-active  {
+    transform: translateX(100%);
+    opacity: 0;
+}
