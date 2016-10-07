@@ -1,17 +1,20 @@
-import Modal from "./modal"
-import Notification from "./notification"
-import Message from "./message"
+import Modal from "./components/modal"
+import Notification from "./components/notification"
+import Message from "./components/message"
+import loading from "./components/loading"
 
 
-import Alert from "./alert"
-import Button from "./button"
+import Alert from "./components/alert"
+import Button from "./components/button"
 
 const install = (Vue) => {
     Vue.component(Alert.name, Alert)
     Vue.component(Button.name, Button)
+
     Vue.prototype.$notify = Notification
     Vue.prototype.$modal = Modal
     Vue.prototype.$message = Message
+    Vue.prototype.$loading = loading
 }
 
 
@@ -23,5 +26,6 @@ module.exports = {
     install,
     Alert,
     Modal,
-    Button
+    Button,
+    Message
 }

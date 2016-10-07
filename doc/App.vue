@@ -13,7 +13,7 @@ export default {
 }
 </script>
 <style lang="less">
-@import "../client/style/init";
+@import "../components/style/init";
 ol,ul {list-style: none;}  
 html {
 }

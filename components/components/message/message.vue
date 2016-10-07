@@ -16,6 +16,7 @@
 </template>
 <script>
 export default {
+    name:"y-message",
     data(){
         return {
             content: "",

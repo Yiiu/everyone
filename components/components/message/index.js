@@ -1,11 +1,11 @@
-import Vue from "Vue"
+import Vue from "vue"
 import message from "./message.vue"
 
 let messageCtr = Vue.extend(message)
 
 let instance;
 
-var Message = (options) => {
+let Message = (options) => {
     instance = new messageCtr({
         data:options
     })

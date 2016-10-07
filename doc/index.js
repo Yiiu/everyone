@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router.js'
 
-import commonent from '../client/components'
+import commonent from '../components/'
 
 Vue.use(commonent)
 
