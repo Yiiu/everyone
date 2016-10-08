@@ -1,0 +1,54 @@
+@import "../../style/color";
+.y-radio {
+	.y-radio-box {
+	    position: relative;
+		.y-radio-dom {
+			transition: .4s all;
+			position: relative;
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			background: #fff;
+			border-radius: 100%;
+			border: 1px solid ;
+			border-color: #ccc;
+			vertical-align: middle;
+			margin-top: -4px;
+			&:after {
+				transition: .4s all;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -4px;
+				margin-top: -4px;
+				width: 8px;
+				height: 8px;
+				background: #fff;
+				border-radius: 100%;
+			    transform: scale(0);
+			}
+			&.checked {
+				border-color: @blue;
+				background: @blue;
+				&:after {
+			    	transform: scale(1);
+				}
+			}
+			&.disabled {
+				background: #e6e6e6 !important;
+				border-color: #ccc;
+			}
+		}
+		input {
+			position: absolute;
+		    left: 0;
+		    z-index: 1;
+		    cursor: pointer;
+		    opacity: 0;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		}
+	}
+}

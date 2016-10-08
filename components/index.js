@@ -6,10 +6,12 @@ import loading from "./components/loading"
 
 import Alert from "./components/alert"
 import Button from "./components/button"
+import Radio from "./components/radio"
 
 const install = (Vue) => {
     Vue.component(Alert.name, Alert)
     Vue.component(Button.name, Button)
+    Vue.component(Radio.name, Radio)
 
     Vue.prototype.$notify = Notification
     Vue.prototype.$modal = Modal

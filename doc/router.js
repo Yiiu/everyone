@@ -9,6 +9,7 @@ import notification from './md/notification.md'
 import alert from './md/alert.md'
 import message from './md/message.md'
 import loading from './md/loading.md'
+import radio from './md/radio.md'
 
 Vue.use(Router)
 
@@ -42,6 +43,10 @@ export default new Router({
         {
           path: '/message',
           component: message
+        },
+        {
+          path: '/radio',
+          component: radio
         }
     ]
 })
