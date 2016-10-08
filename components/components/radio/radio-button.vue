@@ -1,21 +1,20 @@
 <template>
-    <label  class="y-radio">
+    <label  class="y-radio button">
         <span class="y-radio-box">
-            <span class="y-radio-dom" 
+            <y-button @click.native="valueOn" type="ghost"
                 :class="{
                     checked : _value == label,
                     disabled: disabled
                 }"
-            ></span>
+            ><slot></slot></y-button>
             <input type="radio" v-model="_value" :value="label" :disabled="disabled">
         </span>
         <span v-if="!$slots.default" v-text="label"></span>
-        <slot></slot>
     </label>
 </template>
 <script>
 export default {
-    name: 'y-radio',
+    name: 'y-radio-button',
     props: {
         value: [String, Number],
         label: {
@@ -36,6 +35,12 @@ export default {
     },
     created(){
         if(this.checked){
+            this._value = this.label
+        }
+    },
+    methods:{
+        valueOn(){
+            console.log(this._value)
             this._value = this.label
         }
     },

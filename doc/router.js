@@ -10,6 +10,7 @@ import alert from './md/alert.md'
 import message from './md/message.md'
 import loading from './md/loading.md'
 import radio from './md/radio.md'
+import checkbox from './md/checkbox.md'
 
 Vue.use(Router)
 
@@ -47,6 +48,10 @@ export default new Router({
         {
           path: '/radio',
           component: radio
+        },
+        {
+          path: '/checkbox',
+          component: checkbox
         }
     ]
 })

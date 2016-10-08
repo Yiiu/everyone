@@ -14,6 +14,7 @@
 			border-color: #ccc;
 			vertical-align: middle;
 			margin-top: -4px;
+			cursor: pointer;
 			&:after {
 				transition: .4s all;
 				content: "";
@@ -41,6 +42,7 @@
 			}
 		}
 		input {
+			display: none;
 			position: absolute;
 		    left: 0;
 		    z-index: 1;
@@ -50,5 +52,18 @@
 		    bottom: 0;
 		    right: 0;
 		}
+	}
+}
+.y-radio.button {
+	font-size: 0;
+	margin-right: -1px;
+	.y-radio-box {
+		.y-button {
+		}
+	}
+}
+.y-radio-group {
+	.y-btn:first-child {
+    	border-radius: 4px 0 0 4px;
 	}
 }
