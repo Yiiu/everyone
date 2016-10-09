@@ -3,15 +3,25 @@
         <span class="y-checkbox-box">
             <span class="y-checkbox-dom"
                 :class="{
-                    checked : _value == _label,
+                    checked : _checked,
                     disabled : disabled
                 }"
             >
             	<i class="ion-checkmark"></i>
             </span>
-            <input type="checkbox" v-model="_value" 
-                v-bind:true-value="_true" 
-                v-bind:false-value="_false"
+            <input type="checkbox" 
+                v-if="trueLabel || falseLabel"
+                v-model="_value" 
+                v-bind:true-value="trueLabel" 
+                v-bind:false-value="falseLabel"
+                :disabled="disabled"
+            >
+            <input type="checkbox" 
+                v-else
+                v-model="_value"
+                :value="label"
+                v-bind:true-value="label" 
+                v-bind:false-value="''" 
                 :disabled="disabled"
             >
             <slot></slot>
@@ -24,11 +34,9 @@ export default {
     name: "y-checkbox",
     props:{
     	value:[String, Number, Boolean],
-        label: {
-            type: [String, Number, Boolean],
-        },
-        true:[String, Number, Boolean],
-        false:[String, Number, Boolean],
+        label: [String, Number, Boolean],
+        trueLabel:[String, Number, Boolean],
+        falseLabel:[String, Number, Boolean],
         disabled: Boolean,
     },
     computed:{
@@ -44,22 +52,15 @@ export default {
                 }
     		}
     	},
-        _label:function(){
-            if(!this.label) {
-                return this.true === undefined ? true : this.true
-            }else {
-                return this.true === undefined ? this.label : this.true
+        _checked(){
+            var type = Object.prototype.toString.call(this._value);
+            if (type === '[object Boolean]') {
+                return this._value;
+            } else if (type === '[object Array]') {
+                return this._value.indexOf(this.label) > -1;
+            } else if (type === '[object String]' || type === '[object Number]') {
+                return this._value === this.label || this._value === this.trueLabel;
             }
-        },
-        _true:function(){
-            if(!this._label){
-                return this.true === undefined ? true : this.true
-            }else {
-                return this._label
-            }
-        },
-        _false:function(){
-            return this.false === undefined ? false : this.false
         }
     }
 }

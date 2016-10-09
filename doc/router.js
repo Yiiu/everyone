@@ -11,6 +11,7 @@ import message from './md/message.md'
 import loading from './md/loading.md'
 import radio from './md/radio.md'
 import checkbox from './md/checkbox.md'
+import tooltips from './md/tooltips.md'
 
 Vue.use(Router)
 
@@ -52,6 +53,10 @@ export default new Router({
         {
           path: '/checkbox',
           component: checkbox
+        },
+        {
+          path: '/tooltips',
+          component: tooltips
         }
     ]
 })
