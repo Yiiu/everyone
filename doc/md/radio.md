@@ -39,7 +39,8 @@
 <template>
 	<y-radio-group v-model="test2">
 		<y-radio-button label="1" >disabled</y-radio-button>
-		<y-radio-button label="2" >disabled</y-radio-button>
+		<y-radio-button label="2" :disabled="true">disabled</y-radio-button>
+		<y-radio-button label="3" >disabled</y-radio-button>
 	</y-radio-group>
 </template>
 

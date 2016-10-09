@@ -1,11 +1,12 @@
 <template>
-    <label  class="y-radio button">
+    <label class="y-radio button"
+        :class="{
+            checked : _value == label,
+            disabled: disabled
+        }"
+    >
         <span class="y-radio-box">
             <y-button @click.native="valueOn" type="ghost"
-                :class="{
-                    checked : _value == label,
-                    disabled: disabled
-                }"
             ><slot></slot></y-button>
             <input type="radio" v-model="_value" :value="label" :disabled="disabled">
         </span>
@@ -40,8 +41,9 @@ export default {
     },
     methods:{
         valueOn(){
-            console.log(this._value)
-            this._value = this.label
+            if(!this.disabled) {
+                this._value = this.label
+            }
         }
     },
     computed: {
@@ -61,5 +63,5 @@ export default {
 };
 </script>
 <style lang="less">
-@import "radio";
+@import "radio-button";
 </style>

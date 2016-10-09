@@ -17,9 +17,9 @@
 export default {
     name: 'y-radio',
     props: {
-        value: [String, Number],
+        value: [String, Number, Boolean],
         label: {
-            type: [String, Number],
+            type: [String, Number, Boolean],
             required: true
         },
         checked:{
@@ -27,7 +27,6 @@ export default {
             default:false,
         },
         disabled: Boolean,
-        name: String
     },
     data() {
         return {

@@ -10,6 +10,7 @@ import Radio from "./components/radio"
 import RadioGroup from "./components/radio-group"
 import RadioButton from "./components/radio-button"
 import Checkbox from "./components/checkbox"
+import CheckboxGroup from "./components/checkbox-group"
 
 const install = (Vue) => {
     Vue.component(Alert.name, Alert)
@@ -18,6 +19,7 @@ const install = (Vue) => {
     Vue.component(RadioGroup.name, RadioGroup)
     Vue.component(RadioButton.name, RadioButton)
     Vue.component(Checkbox.name, Checkbox)
+    Vue.component(CheckboxGroup.name, CheckboxGroup)
 
     Vue.prototype.$notify = Notification
     Vue.prototype.$modal = Modal
