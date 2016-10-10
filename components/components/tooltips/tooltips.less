@@ -1,0 +1,124 @@
+@import "../../style/color";
+.y-tooltips {
+    position: absolute;
+    .y-tooltips-box{
+        background: darken(fade(@o-blue, 70%),16%);
+        padding: 4px 6px;
+        border-radius: 4px;
+        color: #fff;
+    }
+    .y-tooltips-delta{
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid darken(fade(@o-blue, 70%),16%);
+    }
+    &.top {
+        padding-top: 4px;
+        .y-tooltips-delta {
+            margin-left: -5px;
+            top: 0;
+            left: 50%;
+        }
+    }
+    &.top-left {
+        padding-top: 4px;
+        .y-tooltips-delta {
+            margin-left: -5px;
+            top: 0;
+            left: 15px;
+        }
+    }
+    &.top-right {
+        padding-top: 4px;
+        .y-tooltips-delta {
+            margin-left: -5px;
+            top: 0;
+            right: 15px;
+        }
+    }
+    &.bottom {
+        padding-bottom: 4px;
+        .y-tooltips-delta {
+            transform: rotate(180deg);
+            margin-left: -5px;
+            bottom: 0;
+            left: 50%;
+        }
+    }
+    &.bottom-left {
+        padding-bottom: 4px;
+        .y-tooltips-delta {
+            transform: rotate(180deg);
+            margin-left: -5px;
+            bottom: 0;
+            left: 15px;
+        }
+    }
+    &.bottom-right {
+        padding-bottom: 4px;
+        .y-tooltips-delta {
+            transform: rotate(180deg);
+            margin-left: -5px;
+            bottom: 0;
+            right: 15px;
+        }
+    }
+    &.left {
+        padding-left: 4px;
+        .y-tooltips-delta {
+            transform: rotate(-90deg);
+            margin-top: -2px;
+            top: 50%;
+            left: -2px;
+        }
+    }
+    &.left-top {
+        padding-left: 4px;
+        .y-tooltips-delta {
+            transform: rotate(-90deg);
+            margin-top: -2px;
+            top: 10px;
+            left: -2px;
+        }
+    }
+    &.left-bottom {
+        padding-left: 4px;
+        .y-tooltips-delta {
+            transform: rotate(-90deg);
+            margin-top: -2px;
+            bottom: 10px;
+            left: -2px;
+        }
+    }
+    &.right {
+        padding-right: 4px;
+        .y-tooltips-delta {
+            transform: rotate(90deg);
+            margin-top: -2px;
+            top: 50%;
+            right: -2px;
+        }
+    }
+    &.right-top {
+        padding-right: 4px;
+        .y-tooltips-delta {
+            transform: rotate(90deg);
+            margin-top: -2px;
+            top: 10px;
+            right: -2px;
+        }
+    }
+    &.right-bottom {
+        padding-right: 4px;
+        .y-tooltips-delta {
+            transform: rotate(90deg);
+            margin-top: -2px;
+            top: 10px;
+            right: -2px;
+        }
+    }
+}

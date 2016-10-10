@@ -1,17 +1,22 @@
 <template>
-    <div class="y-tooltips" ref="tool" v-show="show">
+    <span @mouseout="on">
         <slot name="html"></slot>
-    </div>
+        <div class="y-tooltips" ref="tool"
+            :class="placement"
+            v-show="show"
+        >
+            <div class="y-tooltips-delta"></div>
+            <div class="y-tooltips-box">
+                <span>123123</span>
+            </div>
+        </div>
+    </span>
 </template>
 <script>
 import { In, getLeft, getTop } from "../utils"
 export default {
     name: "y-tooltips",
     props:{
-        show:{
-            type:Boolean,
-            default: false
-        },
         title:{
             type:String,
             default:""
@@ -28,21 +33,53 @@ export default {
             type:String,
             default:"top"
         },
-        position:{
-            type:String,
-            default:"centern"
-        },
         trigger:{
             type:String,
             default:"click"
         },
-        style:String,
+    },
+    data(){
+        return {
+            show: false
+        }
+    },
+    computed:{
+        position(){
+            return this.placement.split("-")
+        },
+    },
+    methods:{
+        Offset(){
+
+            let html = [this.$slots.html[0].elm.offsetHeight,this.$slots.html[0].elm.offsetWidth]
+            let ref = [this.$refs.tool.offsetHeight, this.$refs.tool.offsetWidth]
+            let left = this.$slots.html[0].elm.offsetLeft
+            let top = this.$slots.html[0].elm.offsetTop - ref[0]/2
+
+            console.log(this.$refs.tool.offsetHeight)
+            
+            this.$refs.tool.style.top = `${top}px`
+
+            this.$refs.tool.style.left = `${left}px`
+
+        },
+        on(){
+            this.show = true
+            this.Offset()
+        },
+        close(){
+            this.show = false
+        }
+
     },
     mounted(){
-        
-        this.$parent.$el.appendChild(this.$slots.html[0].elm)
 
         document.body.appendChild(this.$refs.tool)
+
+
     },
 }
 </script>
+<style lang="less">
+@import "tooltips";
+</style>

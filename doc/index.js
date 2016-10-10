@@ -6,6 +6,8 @@ import commonent from '../components/'
 
 Vue.use(commonent)
 
+
+
 const app = new Vue({
     router,
     ...App

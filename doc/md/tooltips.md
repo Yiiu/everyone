@@ -1,5 +1,9 @@
 # tooltips
 
 <template>
-    <y-tooltips><y-button slot="html">123</y-button></y-tooltips>
+	aasdfasdfasdfsasdfasdf
+    <y-tooltips>
+    	<span slot="html">123</span>
+    </y-tooltips>
+    <span>1ss23</span>
 </template>
