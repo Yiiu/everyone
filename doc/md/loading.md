@@ -23,10 +23,11 @@ export default {
 
 ## 用法
 
-```javascript
+```html
 <y-button type="primary" @click.native="test">info</y-button>
 <y-button type="primary" @click.native="test1">success</y-button>
 <y-button type="primary" @click.native="test2">warning</y-button>
+<script>
 export default {
     methods:{
         test(){

@@ -20,7 +20,7 @@ var Notification = (options) => {
     if(typeof options === "string"){
         let title = options
         options = {}
-        options.title = title
+        options.content = title
     }
     if(!instance || instance.$data.data.length === 0){
         instance = new notifyCtr();

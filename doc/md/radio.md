@@ -9,7 +9,7 @@
 
 ## 用法
 
-```javascript
+```html
 <y-radio label="1" v-model="test">test</y-radio>
 <y-radio label="2" v-model="test">test1</y-radio>
 <y-radio label="1" v-model="test1" :checked="true" :disabled="true">disabled</y-radio>
@@ -27,7 +27,7 @@
 
 ## 用法
 
-```javascript
+```html
 <y-radio-group v-model="test2">
 	<y-radio label="1" >disabled</y-radio>
 	<y-radio label="2" >disabled</y-radio>
@@ -46,7 +46,7 @@
 
 ## 用法
 
-```javascript
+```html
 <y-radio-group v-model="test2">
 	<y-radio label="1" >disabled</y-radio>
 	<y-radio label="2" >disabled</y-radio>
@@ -64,4 +64,3 @@ export default {
 	}
 }
 </script>
-

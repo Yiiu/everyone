@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import index from './components/index'
+import font from './components/font.md'
+import color from './components/color.md'
 
 import button from './md/button.md'
 import modal from './md/modal.md'
@@ -21,6 +23,14 @@ export default new Router({
         {
           path: '/',
           component: index
+        },
+        {
+          path: '/font',
+          component: font
+        },
+        {
+          path: '/color',
+          component: color
         },
         {
           path: '/button',

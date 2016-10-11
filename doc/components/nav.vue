@@ -27,6 +27,7 @@ nav.doc {
     height: @height;
     width: 100%;
     background: #fff;
+	margin-bottom: 32px;
     ul {
         margin: 0;
         padding: 0;

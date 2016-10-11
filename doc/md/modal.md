@@ -23,7 +23,7 @@ export default {
 
 ## 用法
 
-```javacript
+```js
 this.$modal({
     "title":"teststs",
     "content":"你好呀世界",

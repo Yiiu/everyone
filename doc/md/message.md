@@ -27,7 +27,7 @@ export default {
 
 ## 用法
 
-```javascript
+```js
 this.$message.info("tests", 2000)
 this.$message.warning("tests", 2000)
 this.$message.warning("tests", 2000)

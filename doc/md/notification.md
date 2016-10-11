@@ -26,7 +26,7 @@ export default {
             this.$notify({
                 "title":"test",
                 "content":"sfafasdf",
-                "icon":true, 
+                "icon":true,
                 "time":1000
             })
         },
@@ -79,7 +79,7 @@ export default {
 
 ## 用法
 
-```javacript
+```js
 this.$notify({
     "type": "danger",
     "title":"test",
@@ -90,7 +90,7 @@ this.$notify({
     }
 })
 ```
- 
+
 |   属性  |     说明     |    类型    |        默认值        |          可选值           |
 | ------- | ------------ | ---------- | -------------------- | ------------------------- |
 | type    | 类型         | `String`   | `success`            | `info`,`warning`,`danger` |
