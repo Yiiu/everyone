@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from './components/index'
-import font from './components/font.md'
-import color from './components/color.md'
+import index from './view/index'
+import font from './view/font.md'
+import color from './view/color.md'
 
 import button from './md/button.md'
 import modal from './md/modal.md'
@@ -18,7 +18,7 @@ import tooltips from './md/tooltips.md'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'hash',
+    mode: 'history',
     routes: [
         {
           path: '/',

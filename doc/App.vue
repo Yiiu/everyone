@@ -29,9 +29,9 @@ body {
     padding: 0;
     background: #ececec;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", "WenQuanYi Micro Hei", "\5FAE\8F6F\96C5\9ED1", Arial, Verdana, sans-serif !important;
+    overflow-y: scroll;
 }
 .main {
-	padding: 22px 0;
 	margin: 0 auto;
 	width: 90%;
 	background: #fff;
@@ -40,11 +40,9 @@ body {
 	display: flex;
 	.container {
 		width: 85%;
-		padding: 0  42px;
+		padding: 22px 42px;
 		box-sizing: border-box;
-		h1 {
-			font-size: 32px;
-		}
+        border-left: 1px #e9e9e9 solid;
 	}
 }
 </style>

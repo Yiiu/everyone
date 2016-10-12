@@ -1,7 +1,15 @@
 <template>
     <transition name="alert-op">
         <div class="y-alert" :class="[Class]" v-if="show">
-            <i class="ion-checkmark-circled alert-icon"></i>
+            <i class=" alert-icon"
+                :class="{
+                    'ion-information-circled': type == 'info',
+                    'ion-checkmark-circled': type == 'success',
+                    'ion-alert-circled': type == 'warning',
+                    'ion-close-circled': type == 'danger',
+                }"
+
+            ></i>
             <div class="alert-c" ref="contents">
                 <h1 class="title" v-text="title"></h1>
                 <div class="content" v-text="content"></div>

@@ -38,7 +38,7 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
                     小标题 (h4)
                 </th>
                 <th>
-                    <h4>主标题 加粗 #e6e6e6 18px</h4>
+                    <h4>主标题 加粗 #e6e6e6 16px</h4>
                 </th>
             </tr>
             <tr>
@@ -46,7 +46,31 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
                     正文 (p)
                 </th>
                 <th>
-                    <p>主标题 加粗 #666 18px</p>
+                    <p>正文 加粗 #666 16px</p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    链接 (a)
+                </th>
+                <th>
+                    <a>链接 #47b8e0 16px</a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    辅助文字 (p.note)
+                </th>
+                <th>
+                    <p class="note">辅助文字 #999 14px</p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    失效 (p.lose)
+                </th>
+                <th>
+                    <p class="lose">失效 #ccc 14px</p>
                 </th>
             </tr>
         </tbody>

@@ -1,7 +1,12 @@
 ### demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
 
 <template>
-    <y-button type="ghost" @click.native="test1">test</y-button>
+    <coding>
+        <y-button type="ghost" @click.native="test1">test</y-button>
+    </coding>
+    <y-button type="ghost" @click.native="test8">test</y-button>
+    <y-button type="ghost" @click.native="test9">test</y-button>
+    <y-button type="ghost" @click.native="test10">test</y-button>
     <y-button type="ghost" @click.native="test2">带有icon</y-button>
     <y-button type="ghost" @click.native="test3">带有icon，自动消失</y-button>
     <y-button type="ghost" @click.native="test4">带有icon</y-button>
@@ -13,7 +18,7 @@
 export default {
     methods:{
         test1(){
-            this.$notify("test")
+            this.$notify("成功！")
         },
         test2(){
             this.$notify({
@@ -31,32 +36,28 @@ export default {
             })
         },
         test4(){
-            this.$notify({
-                "type": "success",
+            this.$notify.success({
                 "title":"test",
                 "content":"sfafasdf",
                 "icon":true
             })
         },
         test5(){
-            this.$notify({
-                "type": "info",
+            this.$notify.info({
                 "title":"test",
                 "content":"sfafasdf",
                 "icon":true
             })
         },
         test6(){
-            this.$notify({
-                "type": "warning",
+            this.$notify.warning({
                 "title":"test",
                 "content":"sfafasdf",
                 "icon":true
             })
         },
         test7(){
-            this.$notify({
-                "type": "danger",
+            this.$notify.danger({
                 "title":"test",
                 "content":"sfafasdf",
                 "icon":true
@@ -72,10 +73,19 @@ export default {
                     console.log(1)
                 }
             })
-        }
+        },
+        test8(){
+            this.$notify.danger("危险！")
+        },
+        test9(){
+            this.$notify.info("信息！")
+        },
+        test10(){
+            this.$notify.warning("禁止！")
+        },
     }
 }
-</script>  
+</script>
 
 ## 用法
 

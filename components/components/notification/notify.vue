@@ -1,6 +1,6 @@
 <template>
-    <div class="notification" :class="type">
-        <i class="notification-info" 
+    <div class="notification" :class="[type, {'notification-bg':!icon}]">
+        <i class="notification-info"
             :class="{
                 'ion-checkmark-circled': type == 'success',
                 'ion-information-circled': type == 'info',

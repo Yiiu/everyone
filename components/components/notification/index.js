@@ -36,4 +36,48 @@ var Notification = (options) => {
         instance.data.push(options)
     }
 }
+Notification.success = (options)=>{
+    if(typeof options === "string"){
+        let title = options
+        options = {}
+        options.content = title
+        options.type = "success"
+    }else {
+        options.type = "success"
+    }
+    Notification(options)
+}
+Notification.info = (options)=>{
+    if(typeof options === "string"){
+        let title = options
+        options = {}
+        options.content = title
+        options.type = "info"
+    }else {
+        options.type = "info"
+    }
+    Notification(options)
+}
+Notification.warning = (options)=>{
+    if(typeof options === "string"){
+        let title = options
+        options = {}
+        options.content = title
+        options.type = "warning"
+    }else {
+        options.type = "warning"
+    }
+    Notification(options)
+}
+Notification.danger = (options)=>{
+    if(typeof options === "string"){
+        let title = options
+        options = {}
+        options.content = title
+        options.type = "danger"
+    }else {
+        options.type = "danger"
+    }
+    Notification(options)
+}
 export default Notification

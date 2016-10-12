@@ -19,8 +19,7 @@
     width: 15%;
     ul {
         margin: 0;
-        padding: 0;
-        border-right: 1px #e9e9e9 solid;
+        padding: 22px 0;
         li {
             margin: 0;
             padding: 0;

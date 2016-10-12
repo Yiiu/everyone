@@ -3,6 +3,7 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
+
 module.exports = {
   entry: {
     app: './doc/index.js'
@@ -55,9 +56,9 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      { 
+      {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader!autoprefixer' 
+        loader: 'style-loader!css-loader!less-loader!autoprefixer'
       },
       {
         test: /\.md/,

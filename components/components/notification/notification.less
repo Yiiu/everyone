@@ -41,6 +41,29 @@
             font-size: 52px;
             margin-left: 12px;
         }
+        &.notification-bg{
+            padding: 4px;
+            border: none;
+            .notification-del {
+                top: 50%;
+                margin-top: -12px;
+            }
+            * {
+                color: #fff !important;
+            }
+            &.success {
+                background: fade(@green, 90%);
+            }
+            &.info {
+                background: fade(@blue, 90%);
+            }
+            &.warning {
+                background: fade(@yellow, 90%);
+            }
+            &.danger {
+                background: fade(@red, 90%);
+            }
+        }
         &.success {
             .notification-info {
                 color: @o-green;
