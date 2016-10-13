@@ -12,6 +12,11 @@ import RadioButton from "./components/radio-button"
 import Checkbox from "./components/checkbox"
 import CheckboxGroup from "./components/checkbox-group"
 import Tooltips from "./components/tooltips"
+import Dropdown from "./components/dropdown"
+
+
+// utils
+import click from "./components/utils/clickDel"
 
 const install = (Vue) => {
     Vue.component(Alert.name, Alert)
@@ -22,6 +27,9 @@ const install = (Vue) => {
     Vue.component(Checkbox.name, Checkbox)
     Vue.component(CheckboxGroup.name, CheckboxGroup)
     Vue.component(Tooltips.name, Tooltips)
+    Vue.component(Dropdown.name, Dropdown)
+
+    Vue.use(click)
 
     Vue.prototype.$notify = Notification
     Vue.prototype.$modal = Modal

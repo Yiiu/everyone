@@ -24,9 +24,35 @@
             border-bottom: 4px solid  fade(#000,65%);
         }
     }
+    &.white {
+        .y-tooltips-box {
+            background: #fff;
+            color: #666;
+            border: 1px solid #e6e6e6;
+            box-shadow: 0 0 20px 0px #ccc;
+        }
+        .y-tooltips-delta {
+            border-bottom: 4px solid  #e6e6e6;
+            &:before {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 0;
+                height: 0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-bottom: 4px solid  #fff;
+                margin-left: -4px;
+                margin-top: 1px;
+            }
+        }
+    }
     .y-tooltips-box{
         padding: 4px 6px;
         border-radius: 4px;
+        &.slot {
+            padding: 6px 12px;
+        }
     }
     .y-tooltips-delta{
         position: absolute;

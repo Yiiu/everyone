@@ -1,21 +1,24 @@
 <template>
-    <div class="y-tooltip">
-        <span class="y-tooltip-html" @mouseover="on" @mouseout="close">
+    <div class="y-tooltip"
+    >
+        <span class="y-tooltip-html">
             <slot name="html"></slot>
         </span>
-        <transition name="opacity">
-            <div class="y-tooltips" ref="tool"
-                :class="classNames"
-                v-show="show"
-                @mouseover="on"
-                @mouseout="close"
-            >
-                <div class="y-tooltips-delta"></div>
-                <div class="y-tooltips-box">
-                    <span>123123</span>
+        <template>
+            <transition name="opacity">
+                <div class="y-tooltips"
+                    ref="tool"
+                    :class="classNames"
+                    v-show="show"
+                >
+                    <div class="y-tooltips-delta"></div>
+                    <div class="y-tooltips-box" :class="{slot: $slots.content}">
+                        <span v-text="content" v-if="!$slots.content"></span>
+                        <slot name="content"></slot>
+                    </div>
                 </div>
-            </div>
-        </transition>
+            </transition>
+        </template>
     </div>
 </template>
 <script>
@@ -53,6 +56,14 @@ export default {
             show: false
         }
     },
+    mounted(){
+
+        this.Offset()
+
+        this.events()
+
+
+    },
     methods:{
         Offset(){
             let html = [this.$slots.html[0].elm.offsetHeight,this.$slots.html[0].elm.offsetWidth]
@@ -67,9 +78,51 @@ export default {
             this.Offset()
             this.show = true
         },
+        Open(){
+            if(this.show){
+                this.close()
+            }else {
+                this.on()
+            }
+        },
         close(){
             this.show = false
-        }
+        },
+        // 绑定事件，hover，click，focus
+        events(){
+            let slot = this.$slots.html[0].elm
+            let that = this
+            if(this.trigger == "click"){
+                slot.addEventListener("click",this.Open)
+            }else if(this.trigger == "hover") {
+                this.$refs.tool.addEventListener("mouseover", ()=>{
+                    clearTimeout(that.Timer);
+                })
+                this.$refs.tool.addEventListener("mouseout", ()=>{
+                    that.Timer = setTimeout(()=>{
+                        that.show = false
+                    }, 100)
+                })
+                slot.addEventListener("mouseover", this.Open)
+                slot.addEventListener("mouseout", ()=>{
+                    that.Timer = setTimeout(()=>{
+                        that.show = false
+                    }, 100)
+                })
+            }else if(this.trigger == "focus"){
+                slot.addEventListener("focus", this.on)
+                slot.addEventListener("blur", this.close)
+            }
+
+        },
+        ifEl:function(e){
+            if(!this.show) {
+                return
+            }
+            if(!In(e.target, this.$refs.tool) && !In(e.target, this.$slots.html[0].elm)){
+                this.show = false
+            }
+        },
     },
     computed:{
         classs(){
@@ -117,12 +170,16 @@ export default {
             }
         }
     },
-    mounted(){
-
-        this.Offset()
-
-        document.body.appendChild(this.$refs.tool)
-
+    watch:{
+        "show":function(value){
+            if(value) {
+                if(this.trigger == "click"){
+                    document.addEventListener('click',this.ifEl)
+                }
+            }else {
+                document.removeEventListener("click", this.ifEl)
+            }
+        }
     }
 }
 </script>

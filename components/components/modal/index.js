@@ -8,6 +8,18 @@ let instance;
 let next;
 
 var Modal = (options) => {
+
+    if(typeof options == "string"){
+        let content = options
+        options = {}
+
+        options.content = content
+
+        options.backBtn = {
+            "show": false
+        }
+    }
+
     instance = new modalCtr({
         data: options
     })

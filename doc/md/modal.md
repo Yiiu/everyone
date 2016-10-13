@@ -1,38 +1,124 @@
 # modal
 
+#### 弹出框组件
+
 <template>
-    <y-button type="primary" @click.native="test">sss</y-button>
+    <coding
+        :code="code1"
+        title="基本"
+        content="不带回调"
+    >
+        <y-button type="primary" @click.native="test1">一个基本的弹出框</y-button>
+    </coding>
+    <coding
+        :code="code2"
+        title="带回调"
+        content="$modal返回的是一个promises，可以用then,catch来设置回调"
+    >
+        <y-button type="primary" @click.native="test2">带有回调的弹出框</y-button>
+    </coding>
+    <coding
+        :code="code3"
+        title="按钮"
+        content="设置按钮文本和是否显示"
+    >
+        <y-button type="primary" @click.native="test3">我的确认取消跟别人的不一样</y-button>
+    </coding>
+    <coding
+        :code="code3"
+        title="提示"
+        content="假如你只需要提示客户信息，那么这样会很好"
+    >
+        <y-button type="primary" @click.native="test4">一条信息</y-button>
+    </coding>
 </template>
 
 <script>
 export default {
+    data(){
+        return {
+            code1:
+`
+this.$modal({
+    "title":"我是一个弹出框",
+    "content":"hello world!",
+})
+`,
+            code2:
+`
+this.$modal({
+    "title":"我是一个弹出框",
+    "content":"我是一个带有回调函数的弹出框",
+}).then((value)=>{
+    this.$notify("我是确认的回调函数")
+}).catch((value)=>{
+    this.$notify("我是取消的回调函数")
+})
+`,
+            code3:
+`
+this.$modal({
+    "title":"我是一个弹出框",
+    "content":"我是一个带有回调函数的弹出框",
+    "okBtn":{
+        "show": true,
+        "text": "yes"
+    },
+    "backBtn": {
+        "show": true,
+        "text": "no"
+    }
+})
+`,
+            code4:
+`
+this.$modal("不要在上班的时候直播！")
+`
+        }
+    },
     methods:{
-        test(){
+        test1(){
             this.$modal({
-                "title":"teststs",
-                "content":"你好呀世界",
+                "title":"我是一个弹出框",
+                "content":"hello world!",
+            })
+        },
+        test2(){
+            this.$modal({
+                "title":"我是一个弹出框",
+                "content":"我是一个带有回调函数的弹出框",
             }).then((value)=>{
-                this.$notify("确认")
+                this.$notify("我是确认的回调函数")
             }).catch((value)=>{
-                this.$notify("取消")
+                this.$notify.warning("我是取消的回调函数")
+            })
+        },
+        test3(){
+            this.$modal({
+                "title":"我是一个弹出框",
+                "content":"我是一个带有回调函数的弹出框",
+                "okBtn":{
+                    "show": true,
+                    "text": "yes"
+                },
+                "backBtn": {
+                    "show": true,
+                    "text": "no"
+                }
+            })
+        },
+        test4(){
+            this.$modal("不要在上班的时候直播！")
+            .then(()=>{
+                this.$notify("我偏不！")
             })
         }
+
     }
 }
 </script>
 
-## 用法
-
-```js
-this.$modal({
-    "title":"teststs",
-    "content":"你好呀世界",
-}).then((value)=>{      // 确认回调
-    this.$notify("确认")
-}).catch((value)=>{     // 取消回调
-    this.$notify("取消")
-})
-```
+## 参数设置
 
 
 |   属性  |         说明         |    类型    |          默认值           | 可选值 |

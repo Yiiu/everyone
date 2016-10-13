@@ -1,105 +1,137 @@
-### demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
+# Notification
+
+#### 提示栏组件
 
 <template>
-    <coding>
-        <y-button type="ghost" @click.native="test1">test</y-button>
+    <coding
+        :code="test1Code"
+        title="notification"
+        content="简单的notify，不带内容，只有标题"
+    >
+        <y-button type="ghost" @click.native="test1">成功！</y-button>
+        <y-button type="ghost" @click.native="test2">危险！</y-button>
+        <y-button type="ghost" @click.native="test3">失败！</y-button>
+        <y-button type="ghost" @click.native="test4">禁止！</y-button>
     </coding>
-    <y-button type="ghost" @click.native="test8">test</y-button>
-    <y-button type="ghost" @click.native="test9">test</y-button>
-    <y-button type="ghost" @click.native="test10">test</y-button>
-    <y-button type="ghost" @click.native="test2">带有icon</y-button>
-    <y-button type="ghost" @click.native="test3">带有icon，自动消失</y-button>
-    <y-button type="ghost" @click.native="test4">带有icon</y-button>
-    <y-button type="ghost" @click.native="test5">带有icon</y-button>
-    <y-button type="ghost" @click.native="test6">带有icon</y-button>
-    <y-button type="ghost" @click.native="test7">带有icon,关闭回调</y-button>
+    <coding
+        :code="test2Code"
+        title="带icon大notify"
+        content="带有icon和内容"
+    >
+        <y-button type="ghost" @click.native="test5">成功！</y-button>
+        <y-button type="ghost" @click.native="test6">危险！</y-button>
+        <y-button type="ghost" @click.native="test7">失败！</y-button>
+        <y-button type="ghost" @click.native="test8">禁止！</y-button>
+    </coding>
+    <coding
+        :code="test3Code"
+        title="自动关闭"
+        content="1秒后自动关闭"
+    >
+        <y-button type="ghost" @click.native="test9">自动关闭</y-button>
+    </coding>
 </template>
+
 <script>
 export default {
+    data(){
+        return {
+            test1Code:
+`this.$notify("成功！")
+this.$notify.danger("危险！")
+this.$notify.info("信息！")
+this.$notify.warning("禁止！")
+` ,
+            test2Code:
+`
+this.$notify({
+    "title":"test",
+    "content":"sfafasdf",
+    "icon":true
+})
+this.$notify.success({
+    "title":"test",
+    "content":"sfafasdf",
+    "icon":true
+})
+this.$notify.info({
+    "title":"test",
+    "content":"sfafasdf",
+    "icon":true
+})
+this.$notify.warning({
+    "title":"test",
+    "content":"sfafasdf",
+    "icon":true
+})
+`,
+            test3Code:
+`
+this.$notify({
+    "title":"我会自动关闭",
+    "content":"嘿嘿嘿哈哈哈",
+    "icon":true,
+    "time": 1000
+})
+`
+
+        }
+    },
     methods:{
         test1(){
             this.$notify("成功！")
         },
         test2(){
-            this.$notify({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true
-            })
+            this.$notify.danger("危险！")
         },
         test3(){
-            this.$notify({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true,
-                "time":1000
-            })
+            this.$notify.info("信息！")
         },
         test4(){
-            this.$notify.success({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true
-            })
+            this.$notify.warning("禁止！")
         },
         test5(){
-            this.$notify.info({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true
+            this.$notify({
+                "title":"成功！",
+                "content":"嘿嘿嘿哈哈哈",
+                "icon":true,
             })
         },
         test6(){
-            this.$notify.warning({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true
-            })
-        },
-        test7(){
             this.$notify.danger({
-                "title":"test",
-                "content":"sfafasdf",
-                "icon":true
+                "title":"危险！",
+                "content":"嘿嘿嘿哈哈哈",
+                "icon":true,
             })
         },
         test7(){
-            this.$notify({
-                "type": "danger",
-                "title":"test",
-                "content":"sfafasdf",
+            this.$notify.info({
+                "title":"信息！",
+                "content":"嘿嘿嘿哈哈哈",
                 "icon":true,
-                "onClose":()=>{
-                    console.log(1)
-                }
             })
         },
         test8(){
-            this.$notify.danger("危险！")
+            this.$notify.warning({
+                "title":"禁止！",
+                "content":"嘿嘿嘿哈哈哈",
+                "icon":true,
+            })
         },
         test9(){
-            this.$notify.info("信息！")
-        },
-        test10(){
-            this.$notify.warning("禁止！")
-        },
+            this.$notify({
+                "title":"我会自动关闭",
+                "content":"嘿嘿嘿哈哈哈",
+                "icon":true,
+                "time": 1000
+            })
+        }
     }
 }
 </script>
 
-## 用法
+## 参数设置
 
-```js
-this.$notify({
-    "type": "danger",
-    "title":"test",
-    "content":"sfafasdf",
-    "icon":true,
-    "onClose":()=>{
-        console.log(1)
-    }
-})
-```
 
 |   属性  |     说明     |    类型    |        默认值        |          可选值           |
 | ------- | ------------ | ---------- | -------------------- | ------------------------- |
