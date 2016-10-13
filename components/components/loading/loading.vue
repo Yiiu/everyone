@@ -1,15 +1,15 @@
 <template>
     <transition name="opacity">
-    <div class="loading" v-if="show">
-        <div class="loading-content"
+    <div class="y-loading" v-if="show">
+        <div class="y-loading-content"
             :style="{
                 'width': width+'%',
-                'background': bg 
+                'background': bg
             }"
         ></div>
         <i class="ion-load-c"
             :style="{
-                'color': bg 
+                'color': bg
             }"
         ></i>
     </div>

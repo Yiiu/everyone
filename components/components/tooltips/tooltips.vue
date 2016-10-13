@@ -34,10 +34,6 @@ export default {
             type:String,
             default:""
         },
-        type:{
-            type:String,
-            default:""
-        },
         placement:{
             type:String,
             default:"top"
@@ -61,7 +57,6 @@ export default {
         this.Offset()
 
         this.events()
-
 
     },
     methods:{
@@ -97,13 +92,17 @@ export default {
             }else if(this.trigger == "hover") {
                 this.$refs.tool.addEventListener("mouseover", ()=>{
                     clearTimeout(that.Timer);
+                    this.show = true
                 })
                 this.$refs.tool.addEventListener("mouseout", ()=>{
                     that.Timer = setTimeout(()=>{
                         that.show = false
                     }, 100)
                 })
-                slot.addEventListener("mouseover", this.Open)
+                slot.addEventListener("mouseover",  ()=>{
+                    clearTimeout(that.Timer);
+                    this.show = true
+                })
                 slot.addEventListener("mouseout", ()=>{
                     that.Timer = setTimeout(()=>{
                         that.show = false
@@ -129,7 +128,7 @@ export default {
             return this.placement.split("-")
         },
         classNames(){
-            return `${this.placement} ${this.theme}`
+            return this.classs[1] ? `${this.classs[0]}-${this.classs[1]} ${this.theme}`: `${this.classs[0]} ${this.theme}`
         },
         tops(){
             if(this.classs[0] == "top"){
@@ -172,12 +171,17 @@ export default {
     },
     watch:{
         "show":function(value){
+            this.Offset()
             if(value) {
                 if(this.trigger == "click"){
                     document.addEventListener('click',this.ifEl)
                 }
+                window.addEventListener("scroll", this.Offset)
+                window.addEventListener("resize", this.Offset)
             }else {
                 document.removeEventListener("click", this.ifEl)
+                window.removeEventListener("scroll", this.Offset)
+                window.removeEventListener("resize", this.Offset)
             }
         }
     }

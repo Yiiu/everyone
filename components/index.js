@@ -11,7 +11,10 @@ import RadioGroup from "./components/radio-group"
 import RadioButton from "./components/radio-button"
 import Checkbox from "./components/checkbox"
 import CheckboxGroup from "./components/checkbox-group"
+
 import Tooltips from "./components/tooltips"
+import Popover from "./components/popover"
+
 import Dropdown from "./components/dropdown"
 
 
@@ -27,6 +30,7 @@ const install = (Vue) => {
     Vue.component(Checkbox.name, Checkbox)
     Vue.component(CheckboxGroup.name, CheckboxGroup)
     Vue.component(Tooltips.name, Tooltips)
+    Vue.component(Popover.name, Popover)
     Vue.component(Dropdown.name, Dropdown)
 
     Vue.use(click)

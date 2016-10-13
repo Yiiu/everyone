@@ -14,6 +14,7 @@ import loading from './md/loading.md'
 import radio from './md/radio.md'
 import checkbox from './md/checkbox.md'
 import tooltips from './md/tooltips.md'
+import popover from './md/popover.md'
 import dropdown from './md/dropdown.md'
 
 Vue.use(Router)
@@ -72,6 +73,10 @@ export default new Router({
         {
           path: '/dropdown',
           component: dropdown
+        },
+        {
+          path: '/popover',
+          component: popover
         }
     ]
 })
