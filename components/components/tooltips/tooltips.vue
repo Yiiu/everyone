@@ -12,7 +12,7 @@
                     v-show="show"
                 >
                     <div class="y-tooltips-delta"></div>
-                    <div class="y-tooltips-box" :class="{slot: $slots.content}">
+                    <div class="y-tooltips-box">
                         <span v-text="content" v-if="!$slots.content"></span>
                         <slot name="content"></slot>
                     </div>
@@ -26,6 +26,7 @@ import { In, getLeft, getTop } from "../utils"
 export default {
     name: "y-tooltips",
     props:{
+        value:Boolean,
         title:{
             type:String,
             default:""
@@ -45,12 +46,20 @@ export default {
         theme:{
             type:String,
             default:"blue"
+        },
+        offset:{
+            type:Number,
+            default:5
         }
     },
     data(){
         return {
             show: false
         }
+    },
+    // 默认value
+    beforeMount(){
+        this.show = this.value
     },
     mounted(){
 
@@ -64,6 +73,16 @@ export default {
             let html = [this.$slots.html[0].elm.offsetHeight,this.$slots.html[0].elm.offsetWidth]
             let left = getLeft(this.$slots.html[0].elm)
             let top = getTop(this.$slots.html[0].elm)
+
+            if(this.classs[0] == "top"){
+                top -= this.offset
+            }else if(this.classs[0] == "bottom"){
+                top += this.offset
+            }else if(this.classs[0] == "left"){
+                left += this.offset
+            }else if(this.classs[0] == "right"){
+                left -= this.offset
+            }
 
             this.$refs.tool.style.top = `${top + (html[0] * this.tops)}px`
 
@@ -171,17 +190,27 @@ export default {
     },
     watch:{
         "show":function(value){
-            this.Offset()
             if(value) {
+                this.Offset()
                 if(this.trigger == "click"){
                     document.addEventListener('click',this.ifEl)
                 }
+                this.$emit('input', value);
                 window.addEventListener("scroll", this.Offset)
                 window.addEventListener("resize", this.Offset)
             }else {
+                this.$emit('input', value);
                 document.removeEventListener("click", this.ifEl)
                 window.removeEventListener("scroll", this.Offset)
                 window.removeEventListener("resize", this.Offset)
+            }
+        },
+        // value更新
+        "value":function(value) {
+            if(value) {
+                this.show = true
+            }else {
+                this.show = false
             }
         }
     }

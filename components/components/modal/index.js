@@ -40,13 +40,6 @@ var Modal = (options) => {
         }
     })
 }
-Modal.callback = (value)=>{
-    if(value == "resolve"){
-        next.resolve(1)
-    }else {
-        next.reject(2)
-    }
-}
 
 
 export default Modal

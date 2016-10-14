@@ -9,19 +9,19 @@
             >
             	<i class="ion-checkmark"></i>
             </span>
-            <input type="checkbox" 
+            <input type="checkbox"
                 v-if="trueLabel || falseLabel"
-                v-model="_value" 
-                v-bind:true-value="trueLabel" 
+                v-model="_value"
+                v-bind:true-value="trueLabel"
                 v-bind:false-value="falseLabel"
                 :disabled="disabled"
             >
-            <input type="checkbox" 
+            <input type="checkbox"
                 v-else
                 v-model="_value"
                 :value="label"
-                v-bind:true-value="label" 
-                v-bind:false-value="''" 
+                v-bind:true-value="label"
+                v-bind:false-value="''"
                 :disabled="disabled"
             >
             <slot></slot>
@@ -42,7 +42,7 @@ export default {
     computed:{
     	_value:{
     		get(){
-    			return this.value === undefined ? this.$parent.value : this.value
+                return this.value === undefined ? this.$parent.value : this.value
     		},
     		set(newValue){
                 if (this.value !== undefined) {

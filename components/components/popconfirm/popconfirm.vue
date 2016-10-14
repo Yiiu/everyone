@@ -1,7 +1,7 @@
 <template>
-    <div class="y-popover">
+    <div class="y-popconfirm">
         <y-tooltips
-            theme="white y-popover"
+            theme="white y-popconfirm"
             :trigger="trigger"
             :placement="placement"
         >
@@ -9,9 +9,10 @@
                 <slot name="html"></slot>
             </template>
             <template slot="content">
-                <div class="y-tooltips-title" v-text="title"></div>
+                <div class="y-tooltips-title"><i class="ion-information-circled ion"></i> {{title}}</div>
                 <div class="y-tooltips-content">
-                    <slot name="content"></slot>
+                    <y-button type="ghost">取消</y-button>
+                    <y-button>确认</y-button>
                 </div>
             </template>
         </y-tooltips>
@@ -20,7 +21,7 @@
 </template>
 <script>
 export default {
-    name:"y-popover",
+    name:"y-popconfirm",
     props:{
         title:{
             type: String,
@@ -38,5 +39,5 @@ export default {
 }
 </script>
 <style lang="less">
-@import "popover";
+@import "popconfirm";
 </style>

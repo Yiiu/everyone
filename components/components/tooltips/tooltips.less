@@ -6,22 +6,29 @@
 }
 .y-tooltips {
     position: absolute;
+    z-index: 999999;
     &.blue {
         .y-tooltips-box {
-            background: darken(fade(@o-blue, 70%),16%);
-            color: #fff;
+            background: darken(fade(@o-blue, 95%),15%);
+            *{
+                color: #fff;
+            }
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
         }
         .y-tooltips-delta {
-            border-bottom: 4px solid darken(fade(@o-blue, 70%),16%);
+            border-bottom: 4px solid darken(fade(@o-blue, 90%),16%);
         }
     }
     &.dark {
         .y-tooltips-box {
-            background: fade(#000,65%);
+            background: fade(#000,90%);
             color: #fff;
         }
         .y-tooltips-delta {
-            border-bottom: 4px solid  fade(#000,65%);
+            border-bottom: 4px solid  fade(#000,90%);
         }
     }
     &.white {

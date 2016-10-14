@@ -14,6 +14,7 @@ import CheckboxGroup from "./components/checkbox-group"
 
 import Tooltips from "./components/tooltips"
 import Popover from "./components/popover"
+import Popconfirm from "./components/popconfirm"
 
 import Dropdown from "./components/dropdown"
 
@@ -31,6 +32,7 @@ const install = (Vue) => {
     Vue.component(CheckboxGroup.name, CheckboxGroup)
     Vue.component(Tooltips.name, Tooltips)
     Vue.component(Popover.name, Popover)
+    Vue.component(Popconfirm.name, Popconfirm)
     Vue.component(Dropdown.name, Dropdown)
 
     Vue.use(click)

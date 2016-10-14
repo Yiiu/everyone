@@ -39,7 +39,7 @@ body {
 	box-sizing: border-box;
 	display: flex;
 	.container {
-		width: 85%;
+		width: 75%;
 		padding: 22px 42px;
 		box-sizing: border-box;
         border-left: 1px #e9e9e9 solid;

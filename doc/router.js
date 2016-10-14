@@ -15,6 +15,7 @@ import radio from './md/radio.md'
 import checkbox from './md/checkbox.md'
 import tooltips from './md/tooltips.md'
 import popover from './md/popover.md'
+import popconfirm from './md/popconfirm.md'
 import dropdown from './md/dropdown.md'
 
 Vue.use(Router)
@@ -71,12 +72,16 @@ export default new Router({
           component: tooltips
         },
         {
-          path: '/dropdown',
-          component: dropdown
-        },
-        {
           path: '/popover',
           component: popover
+        },
+        {
+          path: '/popconfirm',
+          component: popconfirm
+        },
+        {
+          path: '/dropdown',
+          component: dropdown
         }
     ]
 })
