@@ -1,7 +1,7 @@
 <template>
     <label  class="y-radio">
         <span class="y-radio-box">
-            <span class="y-radio-dom" 
+            <span class="y-radio-dom"
                 :class="{
                     checked : _value == label,
                     disabled: disabled
@@ -17,7 +17,7 @@
 export default {
     name: 'y-radio',
     props: {
-        value: [String, Number, Boolean],
+        value: {},
         label: {
             type: [String, Number, Boolean],
             required: true
@@ -30,7 +30,8 @@ export default {
     },
     data() {
         return {
-            focus: false
+            focus: false,
+            group: this.$parent.$options._componentTag === 'y-radio-group'
         }
     },
     created(){
@@ -41,10 +42,10 @@ export default {
     computed: {
         _value: {
             get() {
-                return this.value !== undefined ? this.value : this.$parent.value;
+                return this.group ?  this.$parent.value : this.value ;
             },
             set(newValue) {
-                if(this.value !== undefined){
+                if(!this.group){
                     this.$emit('input', newValue);
                 }else {
                     this.$parent.$emit('input', newValue);

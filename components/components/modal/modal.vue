@@ -12,7 +12,7 @@
 
                     <y-button
 
-                        type="ghost" 
+                        type="ghost"
 
                         v-if="backBtn.show"
 
@@ -22,9 +22,9 @@
 
                     ></y-button>
 
-                    <y-button 
+                    <y-button
 
-                        type="primary" 
+                        type="primary"
 
                         v-if="okBtn.show"
 

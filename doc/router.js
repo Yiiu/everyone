@@ -1,22 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from './view/index'
-import font from './view/font.md'
-import color from './view/color.md'
+const index = resolve => require(['./view/index'], resolve)
+const font = resolve => require(['./view/font.md'], resolve)
+const color = resolve => require(['./view/color.md'], resolve)
 
-import button from './md/button.md'
-import modal from './md/modal.md'
-import notification from './md/notification.md'
-import alert from './md/alert.md'
-import message from './md/message.md'
-import loading from './md/loading.md'
-import radio from './md/radio.md'
-import checkbox from './md/checkbox.md'
-import tooltips from './md/tooltips.md'
-import popover from './md/popover.md'
-import popconfirm from './md/popconfirm.md'
-import dropdown from './md/dropdown.md'
+const button = resolve => require(['./md/button.md'], resolve)
+const modal = resolve => require(['./md/modal.md'], resolve)
+const notification = resolve => require(['./md/notification.md'], resolve)
+const alert = resolve => require(['./md/alert.md'], resolve)
+const message = resolve => require(['./md/message.md'], resolve)
+const loading = resolve => require(['./md/loading.md'], resolve)
+const radio = resolve => require(['./md/radio.md'], resolve)
+const checkbox = resolve => require(['./md/checkbox.md'], resolve)
+const tooltips = resolve => require(['./md/tooltips.md'], resolve)
+const popover = resolve => require(['./md/popover.md'], resolve)
+const popconfirm = resolve => require(['./md/popconfirm.md'], resolve)
+const dropdown = resolve => require(['./md/dropdown.md'], resolve)
+
+
 
 Vue.use(Router)
 

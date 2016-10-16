@@ -3,7 +3,7 @@
         <navs></navs>
 		<div class="main">
 			<left-nav></left-nav>
-			<div class="container">
+			<div class="container md">
 				<router-view></router-view>
 			</div>
 		</div>
@@ -38,11 +38,20 @@ body {
 	border-radius: 4px;
 	box-sizing: border-box;
 	display: flex;
+    margin-bottom: 32px;
 	.container {
 		width: 75%;
 		padding: 22px 42px;
 		box-sizing: border-box;
         border-left: 1px #e9e9e9 solid;
+	}
+}
+.md {
+	span.data {
+		background: #e9e9e9;
+		padding: 2px 6px;
+		border-radius: 4px;
+		margin-left: 22px;
 	}
 }
 </style>

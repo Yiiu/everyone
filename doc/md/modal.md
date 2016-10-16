@@ -38,15 +38,13 @@ export default {
     data(){
         return {
             code1:
-`
-this.$modal({
+`this.$modal({
     "title":"我是一个弹出框",
     "content":"hello world!",
 })
 `,
             code2:
-`
-this.$modal({
+`this.$modal({
     "title":"我是一个弹出框",
     "content":"我是一个带有回调函数的弹出框",
 }).then((value)=>{
@@ -56,8 +54,7 @@ this.$modal({
 })
 `,
             code3:
-`
-this.$modal({
+`this.$modal({
     "title":"我是一个弹出框",
     "content":"我是一个带有回调函数的弹出框",
     "okBtn":{
@@ -71,8 +68,7 @@ this.$modal({
 })
 `,
             code4:
-`
-this.$modal("不要在上班的时候直播！")
+`this.$modal("不要在上班的时候直播！")
 `
         }
     },

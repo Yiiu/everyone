@@ -11,18 +11,16 @@
             </span>
             <input type="checkbox"
                 v-if="trueLabel || falseLabel"
-                v-model="_value"
                 v-bind:true-value="trueLabel"
                 v-bind:false-value="falseLabel"
+                v-model="_value"
                 :disabled="disabled"
             >
             <input type="checkbox"
                 v-else
-                v-model="_value"
-                :value="label"
-                v-bind:true-value="label"
-                v-bind:false-value="''"
                 :disabled="disabled"
+                :value="label"
+                v-model="_value"
             >
             <slot></slot>
             <span v-if="!$slots.default" v-text="_value"></span>
@@ -33,19 +31,25 @@
 export default {
     name: "y-checkbox",
     props:{
-    	value:[String, Number, Boolean],
+    	value:{},
         label: [String, Number, Boolean],
         trueLabel:[String, Number, Boolean],
         falseLabel:[String, Number, Boolean],
         disabled: Boolean,
     },
+    data(){
+        return {
+            group: this.$parent.$options._componentTag === 'y-checkbox-group'
+
+        }
+    },
     computed:{
     	_value:{
     		get(){
-                return this.value === undefined ? this.$parent.value : this.value
+                return this.group ? this.$parent.value : this.value
     		},
     		set(newValue){
-                if (this.value !== undefined) {
+                if (!this.group) {
                     this.$emit('input', newValue);
                 } else {
                     this.$parent.$emit('input', newValue);

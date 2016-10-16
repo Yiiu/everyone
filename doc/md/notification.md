@@ -43,8 +43,7 @@ this.$notify.info("信息！")
 this.$notify.warning("禁止！")
 ` ,
             test2Code:
-`
-this.$notify({
+`this.$notify({
     "title":"test",
     "content":"sfafasdf",
     "icon":true
@@ -66,8 +65,7 @@ this.$notify.warning({
 })
 `,
             test3Code:
-`
-this.$notify({
+`this.$notify({
     "title":"我会自动关闭",
     "content":"嘿嘿嘿哈哈哈",
     "icon":true,

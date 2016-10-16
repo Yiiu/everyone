@@ -14,7 +14,8 @@
                 <h1 class="title" v-text="title"></h1>
                 <div class="content" v-text="content"></div>
             </div>
-            <i class="alert-close ion-close-round alert-icon" @click="close"></i>
+            <i class="alert-close ion-close-round alert-icon" @click="closeOn" v-if="close && CloseText === ''"></i>
+            <span class="alert-close alert-icon" v-if="CloseText">{{CloseText}}</span>
         </div>
     </transition>
 </template>
@@ -38,7 +39,7 @@ export default {
             type:String,
             default:"",
         },
-        Close:{
+        close:{
             type: Boolean,
             default:true,
         },
@@ -57,7 +58,7 @@ export default {
         }
     },
     methods:{
-        close(){
+        closeOn(){
             this.show = false
         }
     },

@@ -58,8 +58,13 @@ export default {
         }
     },
     // 默认value
-    beforeMount(){
+    created(){
         this.show = this.value
+    },
+    beforeDestory(){
+        document.removeEventListener("click", this.ifEl)
+        window.removeEventListener("scroll", this.Offset)
+        window.removeEventListener("resize", this.Offset)
     },
     mounted(){
 
@@ -131,7 +136,6 @@ export default {
                 slot.addEventListener("focus", this.on)
                 slot.addEventListener("blur", this.close)
             }
-
         },
         ifEl:function(e){
             if(!this.show) {

@@ -12,7 +12,7 @@
         </div>
         <transition name="code">
             <div class="coding-code" ref="code" v-show="codeShow">
-                <pre><code class="html">{{code}}</code></pre>
+                <pre><code>{{code}}</code></pre>
             </div>
         </transition>
   </div>
