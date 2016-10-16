@@ -172,7 +172,7 @@ export default {
     }
 }
 `,
-            datas:true
+            datas:false
         }
     }
 }

@@ -1,9 +1,12 @@
 <template>
     <div class="left-nav">
         <ul class="menu">
+            <li>
+                <a href="#">首页</a>
+            </li>
             <li v-for="data in components">
                 <router-link :to="data.path">{{data.name}}</router-link>
-                <div class="child" v-if="data.path == ''">
+                <div class="child" v-if="data.child !== ''">
                     <ul v-for="child in data.child">
                         <div class="title">
                             {{child.title}}
@@ -24,10 +27,6 @@
 <script>
 let a = [
     {
-        name:"首页",
-        path:"/"
-    },
-    {
         name:"颜色",
         path:"/color"
     },
@@ -37,7 +36,7 @@ let a = [
     },
     {
         name:"Components",
-        path:"",
+        path:"/components",
         child:[
             {
                 title:"Basic",
@@ -140,6 +139,20 @@ export default {
             padding: 22px 0;
             padding-left: 22px;
             margin: 0
+        }
+    }
+    a.router-link-active {
+        color: #47b8e0;
+        background: #eaf8fe;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            right: -1px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #47b8e0;
         }
     }
     ul {
