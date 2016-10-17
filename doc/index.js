@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router.js'
 
-import commonent from '../components/'
+import commonent from '../dist/everyone.js'
 
 import Coding from "./components/coding"
 

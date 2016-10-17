@@ -6,7 +6,7 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    app: './doc/index.js'
+    everyone: './doc/index.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,6 +19,7 @@ module.exports = {
     alias: {
       'vue': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
+      'components': path.resolve(__dirname, '../components'),
     }
   },
   resolveLoader: {
