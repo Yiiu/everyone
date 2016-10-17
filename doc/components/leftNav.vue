@@ -194,4 +194,13 @@ export default {
         }
     }
 }
+
+@media screen and (max-width:768px) {
+	.left-nav {
+		width: 100%;
+	}
+    .left-nav a.router-link-active:before {
+        right: 0;
+    }
+}
 </style>

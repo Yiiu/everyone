@@ -53,5 +53,16 @@ module.exports = {
     Alert,
     Modal,
     Button,
-    Message
+    Message,
+    Notification,
+    loading,
+    Radio,
+    RadioGroup,
+    RadioButton,
+    Checkbox,
+    CheckboxGroup,
+    Tooltips,
+    Popover,
+    Popconfirm,
+    Dropdown
 }

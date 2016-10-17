@@ -2,17 +2,27 @@
   "name": "everyone",
   "version": "1.0.0",
   "description": "A Vue.js UI",
+  "main":"./components/index.js",
+  "keywords": [
+    "vue",
+    "ui"
+  ],
   "author": "yiiu",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yiiu/everyone.git"
+  },
+  "homepage": "https://yiiu.github.io/everyone",
   "dependencies": {
-    "vue": "^2.0.3",
-    "vue-router": "^2.0.0"
   },
   "devDependencies": {
+    "vue": "^2.0.3",
+    "vue-router": "^2.0.0",
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",

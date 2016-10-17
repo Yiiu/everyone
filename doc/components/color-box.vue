@@ -60,4 +60,10 @@ export default {
     }
 }
 
+@media screen and (max-width:1024px) {
+    .color-box {
+        width: 50%;
+        min-width: 50%;
+    }
+}
 </style>

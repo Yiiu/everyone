@@ -15,23 +15,14 @@ instance.vm = instance.$mount()
 document.body.appendChild(instance.vm.$el)
 
 Loading.open = () => {
-    instance.test = "1"
+    instance.open()
 }
 
 Loading.success = () => {
-    instance.success = true
+    instance.success()
 }
 Loading.err = () => {
-    if(instance){
-
-        instance.err = true
-
-        instance = undefined
-
-    }else {
-        console.warn("请先open")
-    }
-
+    instance.err()
 }
 
 export default Loading

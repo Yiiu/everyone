@@ -1,12 +1,8 @@
-let data = 
+let data =
 [
     {
-        "name":"test",
+        "name":"首页",
         "path":"/"
-    },
-    {
-        "name":"sssdf",
-        "path":"/test"
     }
 ]
 

@@ -131,4 +131,5 @@ export default {
 .code-enter, .code-leave-active {
     max-height: 0 !important;
 }
+
 </style>

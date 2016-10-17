@@ -22,7 +22,7 @@ const dropdown = resolve => require(['./md/dropdown.md'], resolve)
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
     mode: 'hash',
     routes: [
         {
@@ -87,3 +87,16 @@ export default new Router({
         }
     ]
 })
+
+router.beforeEach((to, from, next) => {
+
+	Vue.prototype.$loading.open()
+
+	next()
+})
+router.afterEach(route => {
+
+	Vue.prototype.$loading.success()
+
+})
+export default router

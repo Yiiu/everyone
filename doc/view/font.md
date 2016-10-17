@@ -6,7 +6,7 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
 
 <template>
     <table class="test">
-        <thead align="left">
+        <thead>
             <tr>
                 <th>
                     类型
@@ -16,62 +16,62 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
                 </th>
             </tr>
         </thead>
-        <tbody align="left">
+        <tbody>
             <tr>
-                <th>
+                <td>
                     主标题 (h2)
-                </th>
-                <th>
+                </td>
+                <td>
                     <h2>主标题 加粗 #e6e6e6 24px</h2>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     次级标题 (h3)
-                </th>
-                <th>
+                </td>
+                <td>
                     <h3>主标题 加粗 #e6e6e6 18px</h3>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     小标题 (h4)
-                </th>
-                <th>
+                </td>
+                <td>
                     <h4>主标题 加粗 #e6e6e6 16px</h4>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     正文 (p)
-                </th>
-                <th>
+                </td>
+                <td>
                     <p>正文 加粗 #666 16px</p>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     链接 (a)
-                </th>
-                <th>
+                </td>
+                <td>
                     <a>链接 #47b8e0 16px</a>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     辅助文字 (p.note)
-                </th>
-                <th>
+                </td>
+                <td>
                     <p class="note">辅助文字 #999 14px</p>
-                </th>
+                </td>
             </tr>
             <tr>
-                <th>
+                <td>
                     失效 (p.lose)
-                </th>
-                <th>
+                </td>
+                <td>
                     <p class="lose">失效 #ccc 14px</p>
-                </th>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -85,11 +85,11 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
     thead {
         font-size: 22px;
         th {
-            padding: 2px 0;
+            padding: 12px 10px;
         }
     }
     th {
-        padding: 10px 0;
+        padding: 12px 10px;
     }
 }
 </style>

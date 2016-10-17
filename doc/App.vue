@@ -4,7 +4,9 @@
 		<div class="main">
 			<left-nav></left-nav>
 			<div class="container md">
+				<transition name="opacity" mode="out-in">
 				<router-view></router-view>
+				</tranisition>
 			</div>
 		</div>
 	</div>
@@ -53,5 +55,16 @@ body {
 		border-radius: 4px;
 		margin-left: 22px;
 	}
+}
+@media screen and (max-width:768px) {
+	.main {
+		flex-direction: column;
+		width: 100%;
+		border-radius: 0;
+		.container {
+			width: 100%;
+		}
+	}
+
 }
 </style>
