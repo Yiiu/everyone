@@ -1,4 +1,5 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var VendorChunkPlugin = require('webpack-create-vendor-chunk');
 var webpack = require('webpack')
 var path = require('path')
 
@@ -9,12 +10,12 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
     entry: {
-        everyone: './components/index.js'
+        index: './components/index.js',
+        vue: ["vue"]
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: './',
-        filename: 'everyone.js',
+         filename: '[name].js',
         library: 'everyone',
         libraryTarget: 'umd'
     },
@@ -79,5 +80,16 @@ module.exports = {
                 browsers: ['last 2 versions']
             })
         ]
-    }
+    },
+    plugins:[
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
+            drop_console: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new ExtractTextPlugin("styles.css"),
+        new VendorChunkPlugin('vue'),
+    ]
 }
