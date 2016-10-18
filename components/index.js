@@ -1,4 +1,4 @@
-import Modal from "./components/modal"
+// import Modal from "./components/modal"
 import Notification from "./components/notification"
 import Message from "./components/message"
 import loading from "./components/loading"
@@ -38,7 +38,7 @@ const install = (Vue) => {
     Vue.use(click)
 
     Vue.prototype.$notify = Notification
-    Vue.prototype.$modal = Modal
+//     Vue.prototype.$modal = Modal
     Vue.prototype.$message = Message
     Vue.prototype.$loading = loading
 }

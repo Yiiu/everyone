@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router.js'
 
-import commonent from '../dist/everyone.js'
+import commonent from 'mint-ui'
 
 import Coding from "./components/coding"
 
@@ -15,7 +15,7 @@ Vue.directive('scoped',{
 	bind:function(el, binding, vnode){
 	}
 });
-const app = new Vue({
+new Vue({
     router,
-    ...App
+    render: h => h(App)
 }).$mount('#app')
