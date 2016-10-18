@@ -12,6 +12,7 @@ import RadioButton from "./components/radio-button"
 import Checkbox from "./components/checkbox"
 import CheckboxGroup from "./components/checkbox-group"
 
+import Modal from "./components/modal"
 import Tooltips from "./components/tooltips"
 import Popover from "./components/popover"
 import Popconfirm from "./components/popconfirm"
@@ -38,7 +39,7 @@ const install = (Vue) => {
     Vue.use(click)
 
     Vue.prototype.$notify = Notification
-//     Vue.prototype.$modal = Modal
+    Vue.prototype.$modal = Modal
     Vue.prototype.$message = Message
     Vue.prototype.$loading = loading
 }
