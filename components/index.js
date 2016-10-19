@@ -1,7 +1,6 @@
-// import Modal from "./components/modal"
 import Notification from "./components/notification"
 import Message from "./components/message"
-import loading from "./components/loading"
+import Loading from "./components/loading"
 
 
 import Alert from "./components/alert"
@@ -19,11 +18,17 @@ import Popconfirm from "./components/popconfirm"
 
 import Dropdown from "./components/dropdown"
 
-
 // utils
-import click from "./components/utils/clickDel"
+// import click from "./components/utils/clickDel"
 
 const install = (Vue) => {
+    // Vue.use(click)
+
+    Vue.use(Modal)
+    Vue.use(Notification)
+    Vue.use(Message)
+    Vue.use(Loading)
+
     Vue.component(Alert.name, Alert)
     Vue.component(Button.name, Button)
     Vue.component(Radio.name, Radio)
@@ -36,17 +41,11 @@ const install = (Vue) => {
     Vue.component(Popconfirm.name, Popconfirm)
     Vue.component(Dropdown.name, Dropdown)
 
-    Vue.use(click)
-
-    Vue.prototype.$notify = Notification
-    Vue.prototype.$modal = Modal
-    Vue.prototype.$message = Message
-    Vue.prototype.$loading = loading
 }
 
 
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+    install(window.Vue);
 };
 
 module.exports = {
@@ -56,7 +55,7 @@ module.exports = {
     Button,
     Message,
     Notification,
-    loading,
+    Loading,
     Radio,
     RadioGroup,
     RadioButton,

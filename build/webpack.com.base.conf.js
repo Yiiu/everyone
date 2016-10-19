@@ -6,9 +6,9 @@ var projectRoot = path.resolve(__dirname, '../')
 
 
 module.exports = {
+    devtool: 'source-map',
     entry: {
-        everyone: './components/index.js',
-        vue: ["vue"]
+        everyone:'./components/index.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -20,9 +20,7 @@ module.exports = {
         extensions: ['', '.js', '.vue'],
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
-            'vue': 'vue/dist/vue.common.js',
-            'src': path.resolve(__dirname, '../src'),
-            'components': path.resolve(__dirname, '../components'),
+            root: path.resolve('./')
         }
     },
     resolveLoader: {
@@ -32,13 +30,12 @@ module.exports = {
         loaders: [
             {
                 test: /\.vue$/,
-                loader: 'vue'
+                loader: 'vue',
             },
             {
                 test: /\.js$/,
                 loader: 'babel',
-                include: projectRoot,
-                exclude: /node_modules/
+                exclude: /node_modules|vue\/src|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
             },
             {
                 test: /\.json$/,
@@ -49,7 +46,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                    name: '[name].[ext]?[hash:7]'
                 }
             },
             {
@@ -57,25 +54,18 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    name: '[name].[ext]?[hash:7]'
                 }
             },
             {
                 test: /\.less$/,
                 loader: 'style-loader!css-loader!less-loader!autoprefixer'
-            },
-            {
-                test: /\.md/,
-                loader: 'vue-markdown-loader'
             }
         ]
     },
     vue: {
-        loaders: utils.cssLoaders(),
-        postcss: [
-            require('autoprefixer')({
-                browsers: ['last 2 versions']
-            })
-        ]
-    }
+        loaders: {
+          js: 'babel'
+        }
+    },
 }

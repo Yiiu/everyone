@@ -4,3 +4,10 @@
         <h2 style="text-align: center;">Everyone</h2>
     </div>
 </template>
+<script>
+export default {
+    mounted(){
+        console.log(this)
+    }
+}
+</script>

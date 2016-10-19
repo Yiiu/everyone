@@ -1,45 +1,53 @@
 import modal from "./modal.vue"
-import Vue from "vue"
 
-let modalCtr = Vue.extend(modal)
 
-let instance;
 
-let next;
+const install = (Vue) => {
+    let instance;
 
-var Modal = (options) => {
+    let next;
 
-    if(typeof options == "string"){
-        let content = options
-        options = {}
+    let modalCtr = Vue.extend(modal)
 
-        options.content = content
+    var Modal = (options) => {
 
-        options.backBtn = {
-            "show": false
-        }
-    }
+        if(typeof options == "string"){
+            let content = options
+            options = {}
 
-    instance = new modalCtr({
-        data: options
-    })
+            options.content = content
 
-    instance.vm = instance.$mount()
-
-    document.body.appendChild(instance.vm.$el)
-
-    instance.show = true
-
-    return new Promise(function(resolve, reject){
-        instance.callback = function(value, is){
-            if(value == "resolve"){
-                resolve(is)
-            }else {
-                reject(is)
+            options.backBtn = {
+                "show": false
             }
         }
-    })
+
+        instance = new modalCtr({
+            data: options
+        })
+
+        instance.vm = instance.$mount()
+
+        document.body.appendChild(instance.vm.$el)
+
+        instance.show = true
+
+        return new Promise(function(resolve, reject){
+            instance.callback = function(value, is){
+                if(value == "resolve"){
+                    resolve(is)
+                }else {
+                    reject(is)
+                }
+            }
+        })
+    }
+
+    Vue.prototype.$modal = Modal
+
 }
 
-
-export default Modal
+export default {
+    install,
+    modal
+}

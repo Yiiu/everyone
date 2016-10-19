@@ -1,18 +1,21 @@
-# my-project
+# everyone
 
-> A Vue.js project
+[![build](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
+[![build](https://img.shields.io/badge/npm-v1.0.6-blue.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
 
-## Build Setup
+一个简洁的vue组件库。
 
-``` bash
-# install dependencies
-npm install
+## 安装
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+```
+npm install everyone
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 使用
+
+```js
+import everyone from 'everyone'     // 引入everyone模块
+import 'everyone/everyone.css'      // 引入everyone的css文件
+```
+
+至此，你就可以愉快的使用了~

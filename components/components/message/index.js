@@ -1,82 +1,88 @@
-import Vue from "vue"
 import message from "./message.vue"
 
-let messageCtr = Vue.extend(message)
+const install = (Vue)=>{
 
-let instance;
+    let messageCtr = Vue.extend(message)
 
-let Message = (options) => {
-    instance = new messageCtr({
-        data:options
-    })
+    let instance;
 
-    instance.vm = instance.$mount()
+    let Message = (options) => {
+        instance = new messageCtr({
+            data:options
+        })
 
-    instance.show = true
-    
-    document.body.appendChild(instance.vm.$el)
+        instance.vm = instance.$mount()
+
+        instance.show = true
+
+        document.body.appendChild(instance.vm.$el)
 
 
+    }
+
+    Message.success = (content, time) => {
+        instance = new messageCtr({
+            data:{
+                content:content,
+                time:time,
+                type:"success"
+            }
+        })
+
+        instance.vm = instance.$mount()
+
+        document.body.appendChild(instance.vm.$el)
+
+        instance.show = true
+    }
+    Message.info = (content, time) => {
+        instance = new messageCtr({
+            data:{
+                content:content,
+                time:time,
+                type:"info"
+            }
+        })
+
+        instance.vm = instance.$mount()
+
+        document.body.appendChild(instance.vm.$el)
+
+        instance.show = true
+    }
+    Message.warning = (content, time) => {
+        instance = new messageCtr({
+            data:{
+                content:content,
+                time:time,
+                type:"warning"
+            }
+        })
+
+        instance.vm = instance.$mount()
+
+        document.body.appendChild(instance.vm.$el)
+
+        instance.show = true
+    }
+    Message.danger = (content, time) => {
+        instance = new messageCtr({
+            data:{
+                content:content,
+                time:time,
+                type:"danger"
+            }
+        })
+
+        instance.vm = instance.$mount()
+
+        document.body.appendChild(instance.vm.$el)
+
+        instance.show = true
+    }
+    Vue.prototype.$message = Message
 }
-
-Message.success = (content, time) => {
-    instance = new messageCtr({
-        data:{
-            content:content,
-            time:time,
-            type:"success"
-        }
-    })
-
-    instance.vm = instance.$mount()
-
-    document.body.appendChild(instance.vm.$el)
-    
-    instance.show = true
+export default {
+    install,
+    message
 }
-Message.info = (content, time) => {
-    instance = new messageCtr({
-        data:{
-            content:content,
-            time:time,
-            type:"info"
-        }
-    })
-
-    instance.vm = instance.$mount()
-
-    document.body.appendChild(instance.vm.$el)
-    
-    instance.show = true
-}
-Message.warning = (content, time) => {
-    instance = new messageCtr({
-        data:{
-            content:content,
-            time:time,
-            type:"warning"
-        }
-    })
-
-    instance.vm = instance.$mount()
-
-    document.body.appendChild(instance.vm.$el)
-    
-    instance.show = true
-}
-Message.danger = (content, time) => {
-    instance = new messageCtr({
-        data:{
-            content:content,
-            time:time,
-            type:"danger"
-        }
-    })
-
-    instance.vm = instance.$mount()
-
-    document.body.appendChild(instance.vm.$el)
-    
-    instance.show = true
-}
-export default Message

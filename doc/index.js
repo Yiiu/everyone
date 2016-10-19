@@ -2,8 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router.js'
 
-import commonent from 'everyone/dist/everyone.js'
-require("everyone/dist/everyone.css")
+import commonent from '../components'
 import Coding from "./components/coding"
 
 

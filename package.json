@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "test": "webpack --progress --hide-modules --config  build/webpack.com.conf.js"
+    "test": "webpack --progress --hide-modules --config  build/webpack.com.conf.js",
+    "lll": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
   },
   "license": "MIT",
   "repository": {

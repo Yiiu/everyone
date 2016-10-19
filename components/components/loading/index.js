@@ -1,28 +1,31 @@
-import Vue from "vue"
-
 import loading from "./loading"
 
-let instance,instances;
+const install = (Vue) => {
+    let instance,instances;
 
-let loadingCtr = Vue.extend(loading)
+    let loadingCtr = Vue.extend(loading)
 
-let Loading = function(){};
+    let Loading = function(){};
 
-instance = new loadingCtr()
+    instance = new loadingCtr()
 
-instance.vm = instance.$mount()
+    instance.vm = instance.$mount()
 
-document.body.appendChild(instance.vm.$el)
+    document.body.appendChild(instance.vm.$el)
 
-Loading.open = () => {
-    instance.open()
+    Loading.open = () => {
+        instance.open()
+    }
+
+    Loading.success = () => {
+        instance.success()
+    }
+    Loading.err = () => {
+        instance.err()
+    }
+    Vue.prototype.$loading = Loading
 }
-
-Loading.success = () => {
-    instance.success()
+export default {
+    install,
+    loading
 }
-Loading.err = () => {
-    instance.err()
-}
-
-export default Loading
