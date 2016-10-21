@@ -55,6 +55,9 @@ body {
 		border-radius: 4px;
 		margin-left: 22px;
 	}
+	p{
+		margin-bottom: 12px;
+	}
 }
 @media screen and (max-width:768px) {
 	.main {

@@ -4,6 +4,7 @@
             theme="white y-popconfirm"
             :trigger="trigger"
             :placement="placement"
+            v-model="show"
         >
         	<template slot="html">
                 <slot name="html"></slot>
@@ -11,8 +12,8 @@
             <template slot="content">
                 <div class="y-tooltips-title"><i class="ion-information-circled ion"></i> {{title}}</div>
                 <div class="y-tooltips-content">
-                    <y-button type="ghost">取消</y-button>
-                    <y-button>确认</y-button>
+                    <y-button type="ghost" v-if="backBtn.show" v-text="backBtn.text" @click.native="onBack"></y-button>
+                    <y-button v-if="okBtn.show" v-text="okBtn.text" @click.native="onOk">确认</y-button>
                 </div>
             </template>
         </y-tooltips>
@@ -22,6 +23,11 @@
 <script>
 export default {
     name:"y-popconfirm",
+    data(){
+        return {
+            show:false
+        }
+    },
     props:{
         title:{
             type: String,
@@ -34,6 +40,50 @@ export default {
         placement:{
             type:String,
             default:"top"
+        },
+        okBtn:{
+            type: Object,
+            default: function(){
+                return {
+                    show:true,
+                    text:"确认"
+                }
+            }
+        },
+        backBtn:{
+            type: Object,
+            default: function(){
+                return {
+                    show:true,
+                    text:"取消"
+                }
+            }
+        },
+        okCbk:{
+            type: Function
+        },
+        backCbk:{
+            type: Function
+        }
+    },
+    methods:{
+        onOk(){
+            if(this.okCbk) {
+                this.okCbk()
+
+                this.show = false
+            }else {
+                this.show = false
+            }
+        },
+        onBack(){
+            if(this.backCbk) {
+                this.backCbk()
+
+                this.show = false
+            }else {
+                this.show = false
+            }
         }
     }
 }

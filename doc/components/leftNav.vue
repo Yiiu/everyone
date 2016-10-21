@@ -105,6 +105,11 @@ let a = [
                         name:"Tooltip",
                         cn:"文字提醒",
                         path:"/tooltips"
+                    },
+                    {
+                        name:"Dialog",
+                        cn:"文字提醒",
+                        path:"/dialog"
                     }
                 ]
             },

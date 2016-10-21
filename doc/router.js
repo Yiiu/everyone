@@ -17,6 +17,8 @@ const tooltips = resolve => require(['./md/tooltips.md'], resolve)
 const popover = resolve => require(['./md/popover.md'], resolve)
 const popconfirm = resolve => require(['./md/popconfirm.md'], resolve)
 const dropdown = resolve => require(['./md/dropdown.md'], resolve)
+const dialog = resolve => require(['./md/dialog.md'], resolve)
+const editor = resolve => require(['./md/editor.md'], resolve)
 
 
 
@@ -84,6 +86,14 @@ let router = new Router({
         {
           path: '/dropdown',
           component: dropdown
+        },
+        {
+          path: '/dialog',
+          component: dialog
+        },
+        {
+          path: '/editor',
+          component: editor
         }
     ]
 })

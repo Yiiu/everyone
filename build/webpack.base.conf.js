@@ -3,10 +3,9 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 
-
 module.exports = {
   entry: {
-    everyone: './doc/index.js'
+    app: './doc/index.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -17,9 +16,9 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'vue': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
-      'components': path.resolve(__dirname, '../components'),
+      'assets': path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components')
     }
   },
   resolveLoader: {

@@ -185,7 +185,7 @@ export default {
 
 | 属性         | 说明                      | 类型     | 默认值  | 可选值                                                                                                        |
 | ---------    | ----------------          | -------- | ------- | -------------------                                                                                           |
-| slot:html    | 触发目标（必须）          | `slot`   | -       | -                                                                                                             |
+| slot::html    | 触发目标（必须）          | `slot`   | -       | -                                                                                                             |
 | slot:content | 气泡内容（与content互斥） | `slot`   | -       | -                                                                                                             |
 | content      | 气泡内容                  | `String` | -       | -                                                                                                             |
 | placement    | 气泡位置                  | `String` | `top`   | `top`,`top-left`,`top-right`,`bottom-left`,`bottom-right`,`left-top`,`left-bottom`,`right-top`,`right-bottom` |

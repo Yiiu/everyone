@@ -15,6 +15,8 @@ import Modal from "./components/modal"
 import Tooltips from "./components/tooltips"
 import Popover from "./components/popover"
 import Popconfirm from "./components/popconfirm"
+import Dialog from "./components/dialog"
+import Editor from "./components/editor"
 
 import Dropdown from "./components/dropdown"
 
@@ -40,6 +42,8 @@ const install = (Vue) => {
     Vue.component(Popover.name, Popover)
     Vue.component(Popconfirm.name, Popconfirm)
     Vue.component(Dropdown.name, Dropdown)
+    Vue.component(Editor.name, Editor)
+    Vue.component(Dialog.name, Dialog)
 
 }
 

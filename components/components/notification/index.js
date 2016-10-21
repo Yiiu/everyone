@@ -20,11 +20,18 @@ const install = (Vue) => {
 
         options = options || {};
 
+
         if(typeof options === "string"){
             let title = options
             options = {}
             options.content = title
         }
+
+
+        if(!options.time){
+            options.time = 1000
+        }
+
         if(!instance || instance.$data.data.length === 0){
             instance = new notifyCtr();
             instance.vm = instance.$mount();
@@ -48,6 +55,11 @@ const install = (Vue) => {
         }else {
             options.type = "success"
         }
+
+        if(!options.time){
+            options.time = 1000
+        }
+
         Notification(options)
     }
     Notification.info = (options)=>{
@@ -59,6 +71,11 @@ const install = (Vue) => {
         }else {
             options.type = "info"
         }
+
+        if(!options.time){
+            options.time = 1000
+        }
+
         Notification(options)
     }
     Notification.warning = (options)=>{
@@ -70,6 +87,11 @@ const install = (Vue) => {
         }else {
             options.type = "warning"
         }
+
+        if(!options.time){
+            options.time = 1000
+        }
+
         Notification(options)
     }
     Notification.danger = (options)=>{
@@ -81,6 +103,11 @@ const install = (Vue) => {
         }else {
             options.type = "danger"
         }
+
+        if(!options.time){
+            options.time = 1000
+        }
+
         Notification(options)
     }
 

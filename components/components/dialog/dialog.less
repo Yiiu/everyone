@@ -1,0 +1,56 @@
+@width: 500px;
+.y-dialog {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: fade(#fff, 80%);
+	.y-dialog-content {
+		position: absolute;
+	    transition: all .3s ease;
+	    top:50px;
+		left: 50%;
+		margin-left: -@width/2;
+	    padding: 12px 22px;
+	    width: @width;
+	    height: auto;
+	    border: 1px #ebebeb solid;
+	    background: #fff;
+	    border-radius: 4px;
+	    box-shadow: 0 0 40px -5px #ccc;
+	    box-sizing: border-box;
+	    .y-dialog-title {
+	    	margin-top: 6px;
+	    	margin-bottom: 22px;
+	    	h3 {
+				margin: 0;
+				font-weight: 400;
+				font-size: 22px;
+	    	}
+	    	.ion-close {
+	    		position: absolute;
+	    		right: 22px;
+	    		top: 18px;
+	    		cursor: pointer;
+	    		font-size: 18px;
+	    	}
+	    }
+	    .y-dialog-body {
+	    	margin: 32px 0 ;
+	    }
+	    .y-dialog-footer {
+	    	text-align: right;
+	    	margin-bottom: 6px;
+	    }
+	}
+}
+.dialog-enter-active, .dialog-leave-active {
+  transition: opacity .5s
+}
+.dialog-enter, .dialog-leave-active {
+	opacity: 0 ;
+	.y-dialog-content {
+		transform: translateY(-60px);
+	}
+}
