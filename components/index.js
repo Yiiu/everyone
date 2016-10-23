@@ -17,6 +17,7 @@ import Popover from "./components/popover"
 import Popconfirm from "./components/popconfirm"
 import Dialog from "./components/dialog"
 import Editor from "./components/editor"
+import Preview from "./components/preview"
 
 import Dropdown from "./components/dropdown"
 
@@ -30,6 +31,8 @@ const install = (Vue) => {
     Vue.use(Notification)
     Vue.use(Message)
     Vue.use(Loading)
+
+    Vue.use(Preview)
 
     Vue.component(Alert.name, Alert)
     Vue.component(Button.name, Button)

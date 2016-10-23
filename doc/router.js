@@ -19,6 +19,7 @@ const popconfirm = resolve => require(['./md/popconfirm.md'], resolve)
 const dropdown = resolve => require(['./md/dropdown.md'], resolve)
 const dialog = resolve => require(['./md/dialog.md'], resolve)
 const editor = resolve => require(['./md/editor.md'], resolve)
+const preview = resolve => require(['./md/preview.md'], resolve)
 
 
 
@@ -94,6 +95,10 @@ let router = new Router({
         {
           path: '/editor',
           component: editor
+        },
+        {
+          path: '/preview',
+          component: preview
         }
     ]
 })
