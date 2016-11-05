@@ -9,7 +9,6 @@
 </template>
 <script>
 import navConfig from "../nav.config"
-console.log(navConfig)
 export default {
     data(){
         return {

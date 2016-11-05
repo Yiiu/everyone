@@ -23,7 +23,7 @@
     >
         <y-checkbox-group v-model="test3">
     	    <y-checkbox label="523">asd</y-checkbox>
-    	    <y-checkbox label="2351">asd</y-checkbox>
+    	    <y-checkbox label="2351" content>asd</y-checkbox>
         </y-checkbox-group>
         {{test3}}
     </coding>
@@ -42,7 +42,7 @@ let group =
 `<temlate>
     <y-checkbox-group v-model="test3">
         <y-checkbox label="523">asd</y-checkbox>
-        <y-checkbox label="2351">asd</y-checkbox>
+        <y-checkbox label="2351" content>asd</y-checkbox>
     </y-checkbox-group>
 </template>
 `
@@ -70,3 +70,4 @@ export default {
 | trueLabel  | 选中value   | `String`,`Number`,`Boolean` | -       | -      |
 | falseLabel | 未选中value | `String`,`Number`,`Boolean` | -       | -      |
 | disable    | 禁用状态    | -                           | false   | -      |
+| content    | 不显示value | `Boolean`                   | false   | -      |

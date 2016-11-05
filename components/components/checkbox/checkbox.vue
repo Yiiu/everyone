@@ -22,8 +22,10 @@
                 :value="label"
                 v-model="_value"
             >
-            <slot></slot>
-            <span v-if="!$slots.default" v-text="_value"></span>
+            <span class="check-content" v-if="!content">
+                <slot></slot>
+                <span v-if="!$slots.default" v-text="_value"></span>
+            </span>
         </span>
     </label>
 </template>
@@ -36,11 +38,14 @@ export default {
         trueLabel:[String, Number, Boolean],
         falseLabel:[String, Number, Boolean],
         disabled: Boolean,
+        content:{
+            type: Boolean,
+            default: false
+        }
     },
     data(){
         return {
             group: this.$parent.$options._componentTag === 'y-checkbox-group'
-
         }
     },
     computed:{

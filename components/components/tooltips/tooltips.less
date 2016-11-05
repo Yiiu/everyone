@@ -187,3 +187,37 @@
         }
     }
 }
+// 过渡动画
+
+.tooltips-top-enter-active, .tooltips-top-leave-active{
+    transition: opacity .3s ease-out , margin .3s ease-out;
+    transform: translate3d(0, 0, 0)
+}
+.tooltips-top-enter, .tooltips-top-leave-active {
+    opacity: 0;
+    margin-top: 8px;
+}
+.tooltips-bottom-enter-active, .tooltips-bottom-leave-active{
+    transition: opacity .3s ease-out , margin .3s ease-out;
+    transform: translate3d(0, 0, 0)
+}
+.tooltips-bottom-enter, .tooltips-bottom-leave-active {
+    opacity: 0;
+    margin-top: -8px;
+}
+.tooltips-left-enter-active, .tooltips-left-leave-active{
+    transition: opacity .3s ease-out , margin .3s ease-out;
+    transform: translate3d(0, 0, 0)
+}
+.tooltips-left-enter, .tooltips-left-leave-active {
+    opacity: 0;
+    margin-left: -8px;
+}
+.tooltips-right-enter-active, .tooltips-right-leave-active{
+    transition: opacity .3s ease-out , margin .3s ease-out;
+    transform: translate3d(0, 0, 0)
+}
+.tooltips-right-enter, .tooltips-right-leave-active {
+    opacity: 0;
+    margin-right: -8px;
+}

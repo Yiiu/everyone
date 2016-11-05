@@ -72,11 +72,6 @@ let a = [
                         path:"/alert"
                     },
                     {
-                        name:"Dropdown",
-                        cn:"下拉菜单",
-                        path:"/dropdown"
-                    },
-                    {
                         name:"Message",
                         cn:"全局提醒",
                         path:"/message"
