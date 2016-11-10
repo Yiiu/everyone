@@ -55,6 +55,7 @@
         }
     }
     .y-tooltips-box{
+        overflow: hidden;
         padding: 4px 6px;
         border-radius: 4px;
         &.slot {
@@ -71,7 +72,7 @@
     }
     &.bottom {
         padding-top: 4px;;
-        transform: translate(-50%,0%);
+        transform: translate3d(-50%,0%, 0);
         .y-tooltips-delta {
             margin-left: -4px;
             top: 0;
@@ -80,7 +81,7 @@
     }
     &.bottom-left {
         padding-top: 4px;
-        transform: translate(0%,0%);
+        transform: translate3d(0%,0%, 0);
         .y-tooltips-delta {
             margin-left: -4px;
             top: 0;
@@ -89,7 +90,7 @@
     }
     &.bottom-right {
         padding-top: 4px;
-        transform: translate(-100%,0%);
+        transform: translate3d(-100%,0%, 0);
         .y-tooltips-delta {
             margin-left: -5px;
             top: 0;
@@ -98,7 +99,7 @@
     }
     &.top {
         padding-bottom: 4px;
-        transform: translate(-50%,-100%);
+        transform: translate3d(-50%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -108,7 +109,7 @@
     }
     &.top-left {
         padding-bottom: 4px;
-        transform: translate(0%,-100%);
+        transform: translate3d(0%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -118,7 +119,7 @@
     }
     &.top-right {
         padding-bottom: 4px;
-        transform: translate(-100%,-100%);
+        transform: translate3d(-100%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -128,7 +129,7 @@
     }
     &.left {
         padding-left: 4px;
-        transform: translate(0%,-50%);
+        transform: translate3d(0%,-50%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
@@ -138,7 +139,7 @@
     }
     &.left-top {
         padding-left: 4px;
-        transform: translate(0%,0%);
+        transform: translate3d(0%,0%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
@@ -148,7 +149,7 @@
     }
     &.left-bottom {
         padding-left: 4px;
-        transform: translate(0%,-100%);
+        transform: translate3d(0%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
@@ -158,7 +159,7 @@
     }
     &.right {
         padding-right: 4px;
-        transform: translate(-100%,-50%);
+        transform: translate3d(-100%,-50%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -168,7 +169,7 @@
     }
     &.right-top {
         padding-right: 4px;
-        transform: translate(-100%,0%);
+        transform: translate3d(-100%,0%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -178,7 +179,7 @@
     }
     &.right-bottom {
         padding-right: 4px;
-        transform: translate(-100%,-100%);
+        transform: translate3d(-100%,-100%);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -190,34 +191,32 @@
 // 过渡动画
 
 .tooltips-top-enter-active, .tooltips-top-leave-active{
-    transition: opacity .3s ease-out , margin .3s ease-out;
-    transform: translate3d(0, 0, 0)
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .tooltips-top-enter, .tooltips-top-leave-active {
     opacity: 0;
     margin-top: 8px;
+    transform: translate3d(-50%, -100%, 0) scale3d(.8,.8,1) !important;
 }
 .tooltips-bottom-enter-active, .tooltips-bottom-leave-active{
-    transition: opacity .3s ease-out , margin .3s ease-out;
-    transform: translate3d(0, 0, 0)
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .tooltips-bottom-enter, .tooltips-bottom-leave-active {
     opacity: 0;
     margin-top: -8px;
+    transform: translate3d(-50%, 0%, 0px) scale3d(.8,.8,1) !important;
 }
 .tooltips-left-enter-active, .tooltips-left-leave-active{
-    transition: opacity .3s ease-out , margin .3s ease-out;
-    transform: translate3d(0, 0, 0)
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .tooltips-left-enter, .tooltips-left-leave-active {
     opacity: 0;
     margin-left: -8px;
 }
 .tooltips-right-enter-active, .tooltips-right-leave-active{
-    transition: opacity .3s ease-out , margin .3s ease-out;
-    transform: translate3d(0, 0, 0)
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
 .tooltips-right-enter, .tooltips-right-leave-active {
     opacity: 0;
-    margin-right: -8px;
+    margin-left: 8px;
 }
