@@ -11,9 +11,12 @@
             </template>
             <template slot="content">
                 <div class="y-tooltips-title"><i class="ion-information-circled ion"></i> {{title}}</div>
-                <div class="y-tooltips-content">
+                <div class="y-tooltips-content" v-if="$slots.btn">
+                    <slot name="btn"></slot>
+                </div>
+                <div class="y-tooltips-content" v-else>
                     <y-button type="ghost" v-if="backBtn.show" v-text="backBtn.text" @click.native="onBack"></y-button>
-                    <y-button v-if="okBtn.show" v-text="okBtn.text" @click.native="onOk">确认</y-button>
+                    <y-button v-if="okBtn.show" v-text="okBtn.text" @click.native="onOk"></y-button>
                 </div>
             </template>
         </y-tooltips>
@@ -28,7 +31,12 @@ export default {
             show:false
         }
     },
+    // 初始
+    created(){
+        this.show = this.vaule
+    },
     props:{
+        value:Boolean,
         title:{
             type: String,
             required:true
@@ -81,6 +89,23 @@ export default {
                 this.backCbk()
 
                 this.show = false
+            }else {
+                this.show = false
+            }
+        }
+    },
+    watch:{
+        "show":function(value){
+            if(value) {
+                this.$emit('input', value);
+            }else {
+                this.$emit('input', value);
+            }
+        },
+        // value更新
+        "value":function(value) {
+            if(value) {
+                this.show = true
             }else {
                 this.show = false
             }

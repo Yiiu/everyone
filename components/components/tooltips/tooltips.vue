@@ -5,7 +5,7 @@
             <slot name="html"></slot>
         </span>
         <template>
-            <transition :name="`tooltips-${classs[0]}`">
+            <transition :name="`tooltips-${classs[1] ? classs[0]+classs[1]:classs[0]}`">
                 <div class="y-tooltips"
                     ref="tool"
                     :class="classNames"

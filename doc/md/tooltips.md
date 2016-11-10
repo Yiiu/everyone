@@ -72,52 +72,60 @@
         title="给tooltips绑定一个v-model"
         content="可以给tooltips绑定一个v-model来控制tooltips的隐藏显示。"
     >
-        <div class="top">
+        <div class="top toots" style="margin-left: 56px;">
             <y-tooltips trigger="hover" content="sfasfasdf" placement="top">
-                <y-button slot="html">top</y-button>
+                <y-button slot="html">T</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="top-left">
-                <y-button slot="html">top-left</y-button>
+                <y-button slot="html">TL</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="top-right">
-                <y-button slot="html">top-right</y-button>
+                <y-button slot="html">TR</y-button>
             </y-tooltips>
         </div>
-        <div class="bottom">
-            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom">
-                <y-button slot="html">bottom</y-button>
-            </y-tooltips>
-            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom-left">
-                <y-button slot="html">bottom-left</y-button>
-            </y-tooltips>
-            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom-right">
-                <y-button slot="html">bottom-right</y-button>
-            </y-tooltips>
-        </div>
-        <div class="left">
+        <div class="left toots" style="width: 56px;float: left;">
             <y-tooltips trigger="hover" content="sfasfasdf" placement="left">
-                <y-button slot="html">left</y-button>
+                <y-button slot="html">L</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="left-top">
-                <y-button slot="html">left-top</y-button>
+                <y-button slot="html">LT</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="left-bottom">
-                <y-button slot="html">left-bottom</y-button>
+                <y-button slot="html">LB</y-button>
             </y-tooltips>
         </div>
-        <div class="right">
+        <div class="right toots" style="width: 56px; margin-left: 230px;">
             <y-tooltips trigger="hover" content="sfasfasdf" placement="right">
-                <y-button slot="html">right</y-button>
+                <y-button slot="html">R</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="right-top">
-                <y-button slot="html">right-top</y-button>
+                <y-button slot="html">RT</y-button>
             </y-tooltips>
             <y-tooltips trigger="hover" content="sfasfasdf" placement="right-bottom">
-                <y-button slot="html">right-bottom</y-button>
+                <y-button slot="html">RB</y-button>
+            </y-tooltips>
+        </div>
+        <div class="bottom toots" style="margin-left: 56px;">
+            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom">
+                <y-button slot="html">B</y-button>
+            </y-tooltips>
+            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom-left">
+                <y-button slot="html">BL</y-button>
+            </y-tooltips>
+            <y-tooltips trigger="hover" content="sfasfasdf" placement="bottom-right">
+                <y-button slot="html">BR</y-button>
             </y-tooltips>
         </div>
     </coding>
 </template>
+<style lang="less">
+.toots {
+    .y-btn {
+        width: 52px;
+        margin-bottom: 6px;
+    }
+}
+</style>
 <script>
 export default {
     data(){

@@ -7,6 +7,7 @@
 .y-tooltips {
     position: absolute;
     z-index: 999999;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
     &.blue {
         .y-tooltips-box {
             background: darken(fade(@o-blue, 95%),15%);
@@ -24,11 +25,11 @@
     }
     &.dark {
         .y-tooltips-box {
-            background: fade(#000,90%);
+            background: rgba(64,64,64,.85);
             color: #fff;
         }
         .y-tooltips-delta {
-            border-bottom: 4px solid  fade(#000,90%);
+            border-bottom: 4px solid  rgba(64,64,64,.85);
         }
     }
     &.white {
@@ -56,7 +57,7 @@
     }
     .y-tooltips-box{
         overflow: hidden;
-        padding: 4px 6px;
+        padding: 6px 8px;
         border-radius: 4px;
         &.slot {
             padding: 6px 12px;
@@ -179,7 +180,7 @@
     }
     &.right-bottom {
         padding-right: 4px;
-        transform: translate3d(-100%,-100%);
+        transform: translate3d(-100%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -190,33 +191,73 @@
 }
 // 过渡动画
 
-.tooltips-top-enter-active, .tooltips-top-leave-active{
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
-}
 .tooltips-top-enter, .tooltips-top-leave-active {
     opacity: 0;
     margin-top: 8px;
     transform: translate3d(-50%, -100%, 0) scale3d(.8,.8,1) !important;
 }
-.tooltips-bottom-enter-active, .tooltips-bottom-leave-active{
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
+.tooltips-topleft-enter, .tooltips-topleft-leave-active {
+    opacity: 0;
+    margin-top: 8px;
+    transform: translate3d(-8%, -100%, 0) scale3d(.8,.8,1) !important;
 }
+.tooltips-topright-enter, .tooltips-topright-leave-active {
+    opacity: 0;
+    margin-top: 8px;
+    transform: translate3d(-92%, -100%, 0) scale3d(.8,.8,1) !important;
+}
+
+
 .tooltips-bottom-enter, .tooltips-bottom-leave-active {
     opacity: 0;
     margin-top: -8px;
     transform: translate3d(-50%, 0%, 0px) scale3d(.8,.8,1) !important;
 }
-.tooltips-left-enter-active, .tooltips-left-leave-active{
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
+
+.tooltips-bottomleft-enter, .tooltips-bottomleft-leave-active {
+    opacity: 0;
+    margin-top: -8px;
+    transform: translate3d(-8%, 0%, 0px) scale3d(.8,.8,1) !important;
 }
+
+.tooltips-bottomright-enter, .tooltips-bottomright-leave-active {
+    opacity: 0;
+    margin-top: -8px;
+    transform: translate3d(-92%, 0, 0px) scale3d(.8,.8,1) !important;
+}
+
+
 .tooltips-left-enter, .tooltips-left-leave-active {
     opacity: 0;
     margin-left: -8px;
+    transform: translate3d(0%, -50%, 0px) scale3d(.8,.8,1) !important;
 }
-.tooltips-right-enter-active, .tooltips-right-leave-active{
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
+
+.tooltips-lefttop-enter, .tooltips-lefttop-leave-active {
+    opacity: 0;
+    margin-left: -8px;
+    transform: translate3d(0%, -8%, 0px) scale3d(.8,.8,1) !important;
 }
+
+.tooltips-leftbottom-enter, .tooltips-leftbottom-leave-active {
+    opacity: 0;
+    margin-left: -8px;
+    transform: translate3d(0%, -92%, 0px) scale3d(.8,.8,1) !important;
+}
+
+
 .tooltips-right-enter, .tooltips-right-leave-active {
     opacity: 0;
     margin-left: 8px;
+    transform: translate3d(-100%, -50%, 0px) scale3d(.8,.8,1) !important;
+}
+.tooltips-righttop-enter, .tooltips-righttop-leave-active {
+    opacity: 0;
+    margin-left: 8px;
+    transform: translate3d(-92%, -0%, 0px) scale3d(.8,.8,1) !important;
+}
+.tooltips-rightbottom-enter, .tooltips-rightbottom-leave-active {
+    opacity: 0;
+    margin-left: 8px;
+    transform: translate3d(-92%, -100%, 0px) scale3d(.8,.8,1) !important;
 }
