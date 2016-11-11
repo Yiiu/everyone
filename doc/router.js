@@ -20,6 +20,7 @@ const dropdown = resolve => require(['./md/dropdown.md'], resolve)
 const dialog = resolve => require(['./md/dialog.md'], resolve)
 const editor = resolve => require(['./md/editor.md'], resolve)
 const preview = resolve => require(['./md/preview.md'], resolve)
+const select = resolve => require(['./md/select.md'], resolve)
 
 
 
@@ -99,6 +100,10 @@ let router = new Router({
         {
           path: '/preview',
           component: preview
+        },
+        {
+          path: '/select',
+          component: select
         }
     ]
 })

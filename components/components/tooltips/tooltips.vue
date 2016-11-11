@@ -1,9 +1,6 @@
 <template>
-    <div class="y-tooltip"
-    >
-        <span class="y-tooltip-html">
-            <slot name="html"></slot>
-        </span>
+    <span>
+        <slot name="html"></slot>
         <template>
             <transition :name="`tooltips-${classs[1] ? classs[0]+classs[1]:classs[0]}`">
                 <div class="y-tooltips"
@@ -11,7 +8,7 @@
                     :class="classNames"
                     v-show="show"
                 >
-                    <div class="y-tooltips-delta"></div>
+                    <div class="y-tooltips-delta" v-if="!delta"></div>
                     <div class="y-tooltips-box">
                         <span v-text="content" v-if="!$slots.content"></span>
                         <slot name="content"></slot>
@@ -19,7 +16,7 @@
                 </div>
             </transition>
         </template>
-    </div>
+    </span>
 </template>
 <script>
 import { In, getLeft, getTop } from "../utils"
@@ -50,34 +47,55 @@ export default {
         offset:{
             type:Number,
             default:5
+        },
+        delta:{
+            type:Boolean
         }
     },
     data(){
         return {
-            show: false
+            show: false,
+            html:Object,
         }
     },
     // 默认value
     created(){
         this.show = this.value
     },
-    beforeDestory(){
+    destroyed(){
+        document.body.removeChild(this.$refs.tool)
         document.removeEventListener("click", this.ifEl)
         window.removeEventListener("scroll", this.Offset)
         window.removeEventListener("resize", this.Offset)
     },
     mounted(){
+        // this.html
+        if(this.$refs.html){
+            this.html = this.$refs.html
+        }else {
+            this.html = this.$slots.html[0].elm
+        }
+
+        document.body.appendChild(this.$refs.tool)
+        
+        // this.html
+        if(this.$refs.html){
+            this.$el.parentElement.removeChild(this.$el)
+        }else {
+            this.$el.parentElement.replaceChild(this.$slots.html[0].elm,this.$el)
+        }
 
         this.Offset()
-
+        
         this.events()
+
 
     },
     methods:{
         Offset(){
-            let html = [this.$slots.html[0].elm.offsetHeight,this.$slots.html[0].elm.offsetWidth]
-            let left = getLeft(this.$slots.html[0].elm)
-            let top = getTop(this.$slots.html[0].elm)
+            let html = [this.html.offsetHeight,this.html.offsetWidth]
+            let left = getLeft(this.html)
+            let top = getTop(this.html)
 
             if(this.classs[0] == "top"){
                 top -= this.offset
@@ -109,10 +127,9 @@ export default {
         },
         // 绑定事件，hover，click，focus
         events(){
-            let slot = this.$slots.html[0].elm
             let that = this
             if(this.trigger == "click"){
-                slot.addEventListener("click",this.Open)
+                this.html.addEventListener("click",this.Open)
             }else if(this.trigger == "hover") {
                 this.$refs.tool.addEventListener("mouseover", ()=>{
                     clearTimeout(that.Timer);
@@ -123,25 +140,25 @@ export default {
                         that.show = false
                     }, 100)
                 })
-                slot.addEventListener("mouseover",  ()=>{
+                this.html.addEventListener("mouseover",  ()=>{
                     clearTimeout(that.Timer);
                     this.show = true
                 })
-                slot.addEventListener("mouseout", ()=>{
+                this.html.addEventListener("mouseout", ()=>{
                     that.Timer = setTimeout(()=>{
                         that.show = false
                     }, 100)
                 })
             }else if(this.trigger == "focus"){
-                slot.addEventListener("focus", this.on)
-                slot.addEventListener("blur", this.close)
+                this.html.addEventListener("focus", this.on)
+                this.html.addEventListener("blur", this.close)
             }
         },
         ifEl:function(e){
             if(!this.show) {
                 return
             }
-            if(!In(e.target, this.$refs.tool) && !In(e.target, this.$slots.html[0].elm)){
+            if(!In(e.target, this.$refs.tool) && !In(e.target, this.html)){
                 this.show = false
             }
         },

@@ -25,106 +25,11 @@
     {{a}}
 </template>
 <script>
-let a = [
-    {
-        name:"颜色",
-        path:"/color"
-    },
-    {
-        name:"字体",
-        path:"/font",
-    },
-    {
-        name:"Components",
-        path:"/components",
-        child:[
-            {
-                title:"Basic",
-                components:[
-                    {
-                        name:"Button",
-                        cn:"按钮",
-                        path:"/button"
-                    }
-                ]
-            },
-            {
-                title:"Form Controls",
-                components:[
-                    {
-                        name:"Checkbox",
-                        cn:"多选框",
-                        path:"/checkbox"
-                    },
-                    {
-                        name:"Radio",
-                        cn:"单选框",
-                        path:"/radio"
-                    }
-                ]
-            },
-            {
-                title:"Views",
-                components:[
-                    {
-                        name:"Alert",
-                        cn:"警告提示",
-                        path:"/alert"
-                    },
-                    {
-                        name:"Message",
-                        cn:"全局提醒",
-                        path:"/message"
-                    },
-                    {
-                        name:"Modal",
-                        cn:"对话框",
-                        path:"/modal"
-                    },
-                    {
-                        name:"Notification",
-                        cn:"通知提醒框",
-                        path:"/notification"
-                    },
-                    {
-                        name:"Popconfirm",
-                        cn:"气泡确认框",
-                        path:"/popconfirm"
-                    },
-                    {
-                        name:"Popover",
-                        cn:"气泡卡片",
-                        path:"/popover"
-                    },
-                    {
-                        name:"Tooltip",
-                        cn:"文字提醒",
-                        path:"/tooltips"
-                    },
-                    {
-                        name:"Dialog",
-                        cn:"文字提醒",
-                        path:"/dialog"
-                    }
-                ]
-            },
-            {
-                title:"Other",
-                components:[
-                    {
-                        name:"Loading",
-                        cn:"加载条",
-                        path:"/loading"
-                    }
-                ]
-            }
-        ]
-    }
-]
+import {leftnav} from "../nav.config"
 export default {
     data(){
         return {
-            components:a,
+            components:leftnav,
         }
     }
 }

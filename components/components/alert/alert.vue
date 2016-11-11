@@ -15,7 +15,7 @@
                 <div class="content" v-text="content"></div>
             </div>
             <i class="alert-close ion-close-round alert-icon" @click="closeOn" v-if="close && CloseText === ''"></i>
-            <span class="alert-close alert-icon" v-if="CloseText">{{CloseText}}</span>
+            <span class="alert-close alert-icon" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
         </div>
     </transition>
 </template>

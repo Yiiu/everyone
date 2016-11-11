@@ -8,15 +8,12 @@
     </nav>
 </template>
 <script>
-import navConfig from "../nav.config"
+import { nav } from "../nav.config"
 export default {
     data(){
         return {
-            data:[],
+            data:nav,
         }
-    },
-    created(){
-        this.data = navConfig
     }
 }
 </script>

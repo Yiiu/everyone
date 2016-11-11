@@ -25,7 +25,7 @@
         <y-button type="primary" @click.native="test3">我的确认取消跟别人的不一样</y-button>
     </coding>
     <coding
-        :code="code3"
+        :code="code4"
         title="提示"
         content="假如你只需要提示客户信息，那么这样会很好"
     >
@@ -69,6 +69,9 @@ export default {
 `,
             code4:
 `this.$modal("不要在上班的时候直播！")
+.then(()=>{
+    this.$notify("我偏不！")
+})
 `
         }
     },

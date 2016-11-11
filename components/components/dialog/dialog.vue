@@ -33,6 +33,9 @@ export default {
 			this.show = false
 		}
 	},
+	mounted(){
+        document.body.appendChild(this.$el)
+	},
 	watch:{
         // value更新
         "value":function(value) {

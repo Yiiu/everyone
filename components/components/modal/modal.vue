@@ -59,6 +59,9 @@ export default {
             callback:()=>{},
         }
     },
+    mounted(){
+        document.body.appendChild(this.$el)
+    },
     methods:{
         next(value){
             if(this.vis){

@@ -18,6 +18,8 @@ import Popconfirm from "./components/popconfirm"
 import Dialog from "./components/dialog"
 import Editor from "./components/editor"
 import Preview from "./components/preview"
+import Select from "./components/select"
+import Option from "./components/option"
 
 import Dropdown from "./components/dropdown"
 
@@ -31,6 +33,7 @@ const install = (Vue) => {
     Vue.use(Notification)
     Vue.use(Message)
     Vue.use(Loading)
+    Vue.use(Tooltips)
 
     Vue.use(Preview)
 
@@ -47,6 +50,8 @@ const install = (Vue) => {
     Vue.component(Dropdown.name, Dropdown)
     Vue.component(Editor.name, Editor)
     Vue.component(Dialog.name, Dialog)
+    Vue.component(Select.name, Select)
+    Vue.component(Option.name, Option)
 
 }
 
@@ -71,5 +76,7 @@ module.exports = {
     Tooltips,
     Popover,
     Popconfirm,
-    Dropdown
+    Dropdown,
+    Select,
+    Option
 }
