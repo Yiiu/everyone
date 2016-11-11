@@ -1,8 +1,20 @@
 <template>
     <div class="y-select">
-        <div class="y-select-input" @click="clicks" ref="html">
-            <span class="default" v-if="value === ''">请选择</span>
-            <span v-text="value" v-else></span>
+        <div class="y-select-i" 
+            @mouseenter="hover = true"
+            @mouseleave="hover = false"
+        >
+            <input 
+                type="text" 
+                class="y-select-input"  
+                ref="html" 
+                v-model="value" 
+                readOnly="true" 
+                placeholder="请选择"
+                @click.self="clicks"
+            >
+            <i class="ion-chevron-down ion dr" :class="{active:show}" v-show="clearable ? !hover : true" @click.stop="clicks"></i>
+            <i class="ion-close-round ion" @click="delVaule" :class="{active:show}" v-show="hover && clearable"></i>
         </div>
         <transition name="y-select">
             <ul class="y-select-dropdown" v-show="show" ref="dropdown">
@@ -16,16 +28,23 @@ import { In, getLeft, getTop } from "../utils"
 export default {
     name:"y-select",
     props:{
-        value:{}
+        value:{},
+        clearable:{       // 可清空
+            type:Boolean,
+            default:false
+        }
     },
     data(){
         return {
             show:false,
             top:0,
-            left:0
+            left:0,
+            hover:false,     // 清空状态
+            data:""
         }
     },
     mounted(){
+        this.data = this.value
         document.addEventListener('click',this.ifEl)
         document.body.appendChild(this.$refs.dropdown)
         window.addEventListener("scroll", this.offset)
@@ -69,8 +88,17 @@ export default {
                 this.show = false
             }
         },
-        asdf(){
-            console.log(1)
+        delVaule(){
+            this.data = null
+            this.show = false
+        }
+    },
+    watch:{
+        "value":function(value){
+            this.data = this.value
+        },
+        "data":function(value){
+            this.$emit("input", value)
         }
     }
 }

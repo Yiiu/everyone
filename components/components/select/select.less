@@ -1,11 +1,46 @@
 .y-select {
     width: 150px;
+    .y-select-i {
+        position: relative;
+        .ion {
+            cursor: pointer;
+            transition: transform .3s;
+            display: block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            top: 50%;
+            margin-top: -12px;
+            right: 0;
+            position: absolute;
+            &.dr {
+                transform-origin: 50% 50%; 
+                transform: rotateZ(0deg);
+                &.active {
+                    transform: rotateZ(-180deg);
+                }
+            }
+            &:before {
+                display: block;
+                text-align: center;
+                font-size: 8px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -8px;
+                margin-left: -9px;
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+            }
+        }
+    }
     .y-select-input {
         cursor: pointer;
         width: 100%;
         outline: none;
         border: 1px solid #ccc;
-        padding: 6px;
+        padding: 6px 28px 6px 6px;
         border-radius: 4px;
         font-size: 14px;
         user-select: none;
