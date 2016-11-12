@@ -12,6 +12,7 @@
                 readOnly="true" 
                 placeholder="请选择"
                 @click.self="clicks"
+                :disabled="!disabled ? null : 'disabled'"
             >
             <i class="ion-chevron-down ion dr" :class="{active:show}" v-show="clearable ? !hover : true" @click.stop="clicks"></i>
             <i class="ion-close-round ion" @click="delVaule" :class="{active:show}" v-show="hover && clearable"></i>
@@ -30,6 +31,10 @@ export default {
     props:{
         value:{},
         clearable:{       // 可清空
+            type:Boolean,
+            default:false
+        },
+        disabled:{       // 禁用
             type:Boolean,
             default:false
         }
@@ -59,6 +64,9 @@ export default {
     },
     methods:{
         clicks(){
+            if(this.disabled){
+                return
+            }
             this.offset()
             if(this.show){
                 this.show = false
@@ -89,6 +97,9 @@ export default {
             }
         },
         delVaule(){
+            if(this.disabled){
+                return
+            }
             this.data = null
             this.show = false
         }
