@@ -21,6 +21,7 @@ const dialog = resolve => require(['./md/dialog.md'], resolve)
 const editor = resolve => require(['./md/editor.md'], resolve)
 const preview = resolve => require(['./md/preview.md'], resolve)
 const select = resolve => require(['./md/select.md'], resolve)
+const tag = resolve => require(['./md/tag.md'], resolve)
 
 
 
@@ -104,6 +105,10 @@ let router = new Router({
         {
           path: '/select',
           component: select
+        },
+        {
+          path: '/tag',
+          component: tag
         }
     ]
 })

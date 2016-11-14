@@ -1,0 +1,59 @@
+@import "../../style/color";
+.y-tag {
+    transition: all 0.2s;
+    display: inline-block;
+    padding: 0 6px;
+    background: #ccc;
+    font-size: 12px;
+    line-height: 20px;
+    height: 22px;
+    border-radius: 4px;
+    margin-right: 6px;
+    i {
+        font-size: 12px;
+        padding: 0 2px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+
+    overflow: hidden;
+    &:hover {
+        opacity: .75;
+    }
+}
+
+.y-tag-gray {
+    background: lighten(@gray, 45%);
+    color: lighten(@gray, 10%);
+    border: 1px solid lighten(@gray, 25%);
+}
+
+.y-tag-info {
+    background: lighten(@blue, 35%);
+    color: @blue;
+    border: 1px solid lighten(@blue, 15%);
+}
+
+.y-tag-success {
+    background: lighten(@green, 35%);
+    color: @green;
+    border: 1px solid lighten(@green, 15%);
+}
+
+.y-tag-warning {
+    background: lighten(@yellow, 30%);
+    color: darken(@yellow, 15%);
+    border: 1px solid lighten(@yellow, 15%);
+}
+.y-tag-danger {
+    background: lighten(@red, 25%);
+    color: @red;
+    border: 1px solid lighten(@red, 15%);
+}
+.tag-enter, .tag-leave-active  {
+    transform: scale3d(.2,.2,.2);
+    width: 0;
+    margin-right: 0;
+    padding: 0;
+    opacity: 0;
+}

@@ -21,6 +21,8 @@ import Preview from "./components/preview"
 import Select from "./components/select"
 import Option from "./components/option"
 
+import Tag from "./components/tag"
+
 import Dropdown from "./components/dropdown"
 
 // utils
@@ -52,6 +54,7 @@ const install = (Vue) => {
     Vue.component(Dialog.name, Dialog)
     Vue.component(Select.name, Select)
     Vue.component(Option.name, Option)
+    Vue.component(Tag.name, Tag)
 
 }
 
@@ -78,5 +81,6 @@ module.exports = {
     Popconfirm,
     Dropdown,
     Select,
-    Option
+    Option,
+    Tag
 }

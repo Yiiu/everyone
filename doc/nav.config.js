@@ -96,6 +96,16 @@ export const leftnav =
                 ]
             },
             {
+                title:"Data Display",
+                components:[
+                    {
+                        name:"Tag",
+                        cn:"便签",
+                        path:"/tag"
+                    }
+                ]
+            },
+            {
                 title:"Other",
                 components:[
                     {

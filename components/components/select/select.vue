@@ -8,7 +8,7 @@
                 type="text" 
                 class="y-select-input"  
                 ref="html" 
-                v-model="value" 
+                v-model="selectLabel" 
                 readOnly="true" 
                 placeholder="请选择"
                 @click.self="clicks"
@@ -42,14 +42,13 @@ export default {
     data(){
         return {
             show:false,
-            top:0,
-            left:0,
             hover:false,     // 清空状态
-            data:""
+            selectValue:"",
+            selectLabel:""
         }
     },
     mounted(){
-        this.data = this.value
+        this.selectValue = this.value
         document.addEventListener('click',this.ifEl)
         document.body.appendChild(this.$refs.dropdown)
         window.addEventListener("scroll", this.offset)
@@ -100,15 +99,16 @@ export default {
             if(this.disabled){
                 return
             }
-            this.data = null
+            this.selectValue = null
+            this.selectLabel = null
             this.show = false
         }
     },
     watch:{
         "value":function(value){
-            this.data = this.value
+            this.selectValue = this.value
         },
-        "data":function(value){
+        "selectValue":function(value){
             this.$emit("input", value)
         }
     }

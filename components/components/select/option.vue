@@ -1,7 +1,8 @@
 <template>
-    <li class="y-select-item" @click="clicks" :class="{active:value == _value, disabled:disabled}">
-        <slot></slot>
-    </li>
+    <li class="y-select-item" 
+        @click="clicks" 
+        :class="{active:value == _value, disabled:disabled}" 
+        >{{label ? label : value}}</li>
 </template>
 <script>
 export default {
@@ -17,10 +18,14 @@ export default {
     methods:{
         clicks(){
             if(!this.disabled){
+                this.$parent.$data.selectLabel = this.label
                 this.$parent.$emit('input', this.value)
                 this.$parent.$data.show = false
             }
         }
+    },
+    created(){
+        console.log(this.$parent)
     },
     computed:{
         _value:{
