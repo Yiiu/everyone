@@ -1,5 +1,5 @@
 <template>
-    <transition name="tag" v-on:before-enter="beforeEnter">
+    <transition appear name="y-tag" @before-enter="beforeEnter">
         <span class="y-tag" :class="type ? 'y-tag-' + type : ''" v-if="show"><slot></slot><i class="ion-android-close" v-if="closable" @click="del"></i></span>
     </transition>
 </template>
@@ -11,23 +11,29 @@ export default {
         closable: {
             type: Boolean,
             default: false
-        }
+        },
+        close:Function,
     },
     data(){
         return {
-            show:true
+            show: true,
         }
     },
     methods:{
         del(){
-            this.show = false
+            let that = this
+            if(this.close !== undefined){
+                this.close()
+            }else {
+                this.show = false
+            }
         },
         beforeEnter(){
-            this.$el.style.width = this.$el.clientWidth + "px"
+            if(this.$el){
+                this.$el.style.width = this.$el.clientWidth + "px"
+            }
         }
     },
-    mounted(){
-    }
 }
 </script>
 <style lang="less">

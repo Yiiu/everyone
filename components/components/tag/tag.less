@@ -1,6 +1,6 @@
 @import "../../style/color";
 .y-tag {
-    transition: all 0.2s;
+    transition: all .2s;
     display: inline-block;
     padding: 0 6px;
     background: #ccc;
@@ -9,6 +9,7 @@
     height: 22px;
     border-radius: 4px;
     margin-right: 6px;
+    vertical-align: middle;
     i {
         font-size: 12px;
         padding: 0 2px;
@@ -50,7 +51,10 @@
     color: @red;
     border: 1px solid lighten(@red, 15%);
 }
-.tag-enter, .tag-leave-active  {
+.y-tag-enter-active, .y-tag-leave-active {
+    will-change: opacity, transform;
+}
+.y-tag-enter, .y-tag-leave-active {
     transform: scale3d(.2,.2,.2);
     width: 0;
     margin-right: 0;

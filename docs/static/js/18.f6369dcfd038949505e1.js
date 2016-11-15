@@ -1,2 +1,0 @@
-webpackJsonp([18,20],{369:function(t,n,e){var o,r,i=e(426);r=o=o||{},"object"!=typeof o.default&&"function"!=typeof o.default||(r=o=o.default),"function"==typeof r&&(r=r.options),r.render=i.render,r.staticRenderFns=i.staticRenderFns,t.exports=o},426:function(module,exports){module.exports={render:function(){with(this)return _h("section",[_m(0)," ",[_h("y-dropdown",[_h("y-button",["test"])])]])},staticRenderFns:[function(){with(this)return _h("h1",["dropdown"])}]}},434:function(t,n,e){t.exports=e(369)}});
-//# sourceMappingURL=18.f6369dcfd038949505e1.js.map

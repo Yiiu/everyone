@@ -24,9 +24,6 @@ export default {
             }
         }
     },
-    created(){
-        console.log(this.$parent)
-    },
     computed:{
         _value:{
             get(){
