@@ -69,27 +69,27 @@ export default {
         window.removeEventListener("resize", this.Offset)
     },
     mounted(){
-        // this.html
-        if(this.$refs.html){
-            this.html = this.$refs.html
-        }else {
-            this.html = this.$slots.html[0].elm
-        }
+        this.$nextTick(function(){
+            // this.html
+            if(this.$refs.html){
+                this.html = this.$refs.html
+            }else {
+                this.html = this.$slots.html[0].elm
+            }
 
-        document.body.appendChild(this.$refs.tool)
-        
-        // this.html
-        if(this.$refs.html){
-            this.$el.parentElement.removeChild(this.$el)
-        }else {
-            this.$el.parentElement.replaceChild(this.$slots.html[0].elm,this.$el)
-        }
+            document.body.appendChild(this.$refs.tool)
+            
+            // this.html
+            if(this.$refs.html){
+                this.$el.parentElement.removeChild(this.$el)
+            }else {
+                this.$el.parentElement.replaceChild(this.$slots.html[0].elm,this.$el)
+            }
 
-        this.Offset()
-        
-        this.events()
-
-
+            this.Offset()
+            
+            this.events()
+        })
     },
     methods:{
         Offset(){

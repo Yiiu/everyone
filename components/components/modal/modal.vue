@@ -60,7 +60,9 @@ export default {
         }
     },
     mounted(){
-        document.body.appendChild(this.$el)
+        this.$nextTick(function(){
+            document.body.appendChild(this.$el)
+        })
     },
     methods:{
         next(value){

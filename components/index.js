@@ -23,7 +23,6 @@ import Option from "./components/option"
 
 import Tag from "./components/tag"
 
-import Dropdown from "./components/dropdown"
 
 // utils
 // import click from "./components/utils/clickDel"
@@ -49,7 +48,6 @@ const install = (Vue) => {
     Vue.component(Tooltips.name, Tooltips)
     Vue.component(Popover.name, Popover)
     Vue.component(Popconfirm.name, Popconfirm)
-    Vue.component(Dropdown.name, Dropdown)
     Vue.component(Editor.name, Editor)
     Vue.component(Dialog.name, Dialog)
     Vue.component(Select.name, Select)
@@ -79,7 +77,6 @@ module.exports = {
     Tooltips,
     Popover,
     Popconfirm,
-    Dropdown,
     Select,
     Option,
     Tag

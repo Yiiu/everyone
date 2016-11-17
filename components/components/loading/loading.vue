@@ -1,22 +1,19 @@
 <template>
-    <div>
-
     <transition name="opacity">
-    <div class="y-loading" v-if="show">
-        <div class="y-loading-content"
-            :style="{
-                'width': width+'%',
-                'background': bg
-            }"
-        ></div>
-        <i class="ion-load-c"
-            :style="{
-                'color': bg
-            }"
-        ></i>
-    </div>
+        <div class="y-loading" v-if="show">
+            <div class="y-loading-content"
+                :style="{
+                    'width': width+'%',
+                    'background': bg
+                }"
+            ></div>
+            <i class="ion-load-c"
+                :style="{
+                    'color': bg
+                }"
+            ></i>
+        </div>
     </transition>
-</div>
 </template>
 <script>
 export default {

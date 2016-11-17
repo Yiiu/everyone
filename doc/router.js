@@ -110,7 +110,7 @@ let router = new Router({
           path: '/tag',
           component: tag
         }
-    ]
+    ],
 })
 
 router.beforeEach((to, from, next) => {
