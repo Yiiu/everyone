@@ -3,8 +3,7 @@ import App from './App'
 import router from './router.js'
 
 import commonent from '../components'
-import Coding from "./components/coding"
-
+import Coding from './components/coding'
 
 Vue.use(commonent)
 

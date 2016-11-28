@@ -1,13 +1,13 @@
-import loading from "./loading"
+import loading from './loading'
 
 const install = (Vue) => {
-    let instance,instances;
+    let instance
 
-    let loadingCtr = Vue.extend(loading)
+    let LoadingCtr = Vue.extend(loading)
 
-    let Loading = function(){};
+    let Loading = function () {}
 
-    instance = new loadingCtr()
+    instance = new LoadingCtr()
 
     instance.vm = instance.$mount()
 

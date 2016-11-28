@@ -25,11 +25,12 @@
     {{a}}
 </template>
 <script>
-import {leftnav} from "../nav.config"
+import nav from '../nav.config.json'
+console.log(nav)
 export default {
-    data(){
+    data () {
         return {
-            components:leftnav,
+            components: nav.leftnav
         }
     }
 }

@@ -20,19 +20,19 @@
 </template>
 <script>
 export default {
-    name:"y-popover",
-    props:{
-        title:{
+    name: 'y-popover',
+    props: {
+        title: {
             type: String,
-            required:true
+            required: true
         },
-        trigger:{
-            type:String,
-            default:"click"
+        trigger: {
+            type: String,
+            default: 'click'
         },
-        placement:{
-            type:String,
-            default:"top"
+        placement: {
+            type: String,
+            default: 'top'
         }
     }
 }

@@ -1,23 +1,23 @@
 <template>
-	<div id="app">
+    <div id="app">
         <navs></navs>
-		<div class="main">
-			<left-nav></left-nav>
-			<div class="container md">
-				<transition name="opacity" mode="out-in">
-				<router-view></router-view>
-				</tranisition>
-			</div>
-		</div>
-	</div>
+        <div class="main">
+            <left-nav></left-nav>
+            <div class="container md">
+                <transition name="opacity" mode="out-in">
+                <router-view></router-view>
+                </tranisition>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
-import navs from "./components/nav"
-import leftNav from "./components/leftNav"
+import navs from './components/nav'
+import leftNav from './components/leftNav'
 export default {
-    components:{
+    components: {
         navs,
-		leftNav
+        leftNav
     }
 }
 </script>
@@ -34,37 +34,153 @@ body {
     overflow-y: scroll;
 }
 .main {
-	margin: 0 auto;
-	width: 90%;
-	background: #fff;
-	border-radius: 4px;
-	box-sizing: border-box;
-	display: flex;
+    margin: 0 auto;
+    width: 90%;
+    background: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
     margin-bottom: 32px;
-	.container {
-		width: 75%;
-		padding: 22px 42px;
-		box-sizing: border-box;
+    .container {
+        width: 75%;
+        padding: 22px 42px;
+        box-sizing: border-box;
         border-left: 1px #e9e9e9 solid;
-	}
+    }
 }
 .md {
-	span.data {
-		background: #e9e9e9;
-		padding: 2px 6px;
-		border-radius: 4px;
-		margin-left: 22px;
-	}
+    margin-bottom: 62px;
+    padding-top: 1px;
+    * {
+        font-size: 16px;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+    }
+    font-size: 16px;
+    h1,h2,h3,h4,h5,h6 {
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 12px !important;
+    }
+    h1 {
+        font-size: 34px;
+        padding: 0;
+        margin: 0;
+        margin-top: 24px;
+    }
+    h2 {
+        font-size: 26px;
+        margin-top: 24px;
+    }
+    h3,h4,h5 {
+        font-size: 22px;
+        margin-top: 24px;
+    }
+    h6 {
+        margin-top: 24px;
+        font-size: 20px;
+    }
+    ol {
+        list-style-type: decimal;
+        padding-left: 24px;
+    }
+    hr {
+        display: block;
+        border: none;
+        background: #e7e7e7 repeating-linear-gradient(-45deg,#fff,#fff .25rem,transparent .25rem,transparent .5rem);
+    }
+    p {
+        margin: 0;
+        margin-bottom: 18px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    pre {
+        background-color: fade(#000, 2%);
+        padding: 12px;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 18px;
+    }
+    img {
+        display: block;
+        transition: 0.3s all;
+    }
+    img.emoji {
+        display: inline-block;
+        height: 1.2em;
+        vertical-align: sub;
+        width: auto;
+        margin: 0;
+    }
+    table{
+        font-size: 16px;
+        border:1px solid #e9e9e9
+    }
+    table thead{
+        background:#f7f7f7
+    }
+    table thead tr{
+        border-bottom:1px solid #e9e9e9
+    }
+    table thead tr th{
+        padding: 6px 4px;
+        border-left:1px solid #e9e9e9
+    }
+    table tbody tr{
+        border-bottom:1px solid #e9e9e9
+    }
+    table tbody tr td{
+        padding:12px 18px;
+        border-left:1px solid #e9e9e9
+    }
+    img {
+        width: 106%;
+        margin-left: -3%;
+        transform-origin: 50% 25%;
+        max-width: 100%;
+        max-height: 650px;
+        &.opens-mask {
+            position: relative;
+            z-index: 9999;
+            cursor: zoom-out;
+        }
+    }
+    blockquote {
+        padding: 24px 20px;
+        margin: 0 0 20px;
+        font-size: 17.5px;
+        border-left: 5px solid #eee;
+        p {
+            color: fade(#000, 60%);
+            padding: 0;
+            margin: 0;
+        }
+    }
+    code {
+        background-color: fade(#000, 4%);
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-size: 90%;
+        color: fade(#000, 70%);
+    }
+    pre code {
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre-wrap;
+        background-color: transparent;
+        border-radius: 0;
+    }
 }
 @media screen and (max-width:768px) {
-	.main {
-		flex-direction: column;
-		width: 100%;
-		border-radius: 0;
-		.container {
-			width: 100%;
-		}
-	}
+    .main {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 0;
+        .container {
+            width: 100%;
+        }
+    }
 
 }
 </style>

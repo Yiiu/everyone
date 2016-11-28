@@ -52,7 +52,9 @@
                 color: #fff !important;
             }
             &.success {
-                background: fade(@green, 90%);
+                path {
+                    fill: @yellow;
+                }
             }
             &.info {
                 background: fade(@blue, 90%);
@@ -66,22 +68,30 @@
         }
         &.success {
             .notification-info {
-                color: @o-green;
+                path {
+                    fill: @o-green;
+                }
             }
         }
         &.info {
             .notification-info {
-                color: @o-blue;
+                path {
+                    fill: @o-blue;
+                }
             }
         }
         &.warning {
             .notification-info {
-                color: @o-yellow;
+                path {
+                    fill: @o-yellow;
+                }
             }
         }
         &.danger {
             .notification-info {
-                color: @o-red;
+                path {
+                    fill: @o-red;
+                }
             }
         }
     }

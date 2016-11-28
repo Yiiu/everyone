@@ -1,21 +1,13 @@
 <template>
     <transition name="alert-op">
         <div class="y-alert" :class="[Class]" v-if="show">
-            <i class=" alert-icon"
-                :class="{
-                    'ion-information-circled': type == 'info',
-                    'ion-checkmark-circled': type == 'success',
-                    'ion-alert-circled': type == 'warning',
-                    'ion-close-circled': type == 'danger',
-                }"
-
-            ></i>
+            <y-svg :type="svgClass"></y-svg>
             <div class="alert-c" ref="contents">
                 <h1 class="title" v-text="title"></h1>
                 <div class="content" v-text="content"></div>
             </div>
-            <i class="alert-close ion-close-round alert-icon" @click="closeOn" v-if="close && CloseText === ''"></i>
-            <span class="alert-close alert-icon" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
+            <y-svg type="x" @click.native="closeOn" v-if="close && CloseText === ''" class="alert-close" width="18"></y-svg>
+            <span class="alert-close" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
         </div>
     </transition>
 </template>
@@ -24,47 +16,61 @@
 </style>
 <script>
 export default {
-    name:"y-alert",
-    props:{
-        type:{
+    name: 'y-alert',
+    props: {
+        type: {
             type: String,
-            default: "info",
+            default: 'info'
         },
-        title:{
+        title: {
             type: String,
-            default:"",
+            default: '',
             required: true
         },
-        content:{
-            type:String,
-            default:"",
+        content: {
+            type: String,
+            default: ''
         },
-        close:{
+        close: {
             type: Boolean,
-            default:true,
+            default: true
         },
-        CloseText:{
-            type:String,
-            default:"",
+        CloseText: {
+            type: String,
+            default: ''
         },
-        Icon:{
-            type:Boolean,
-            default:true
+        Icon: {
+            type: Boolean,
+            default: true
         }
     },
-    data(){
+    data () {
         return {
-            show:true,
+            show: true
         }
     },
-    methods:{
-        closeOn(){
+    methods: {
+        closeOn () {
             this.show = false
         }
     },
-    computed:{
-        "Class":function(){
+    computed: {
+        'Class': function () {
             return `alert-${this.type}`
+        },
+        'svgClass': function () {
+            if (this.type === 'info') {
+                return 'info'
+            }
+            if (this.type === 'success') {
+                return 'checkmark'
+            }
+            if (this.type === 'warning') {
+                return 'help'
+            }
+            if (this.type === 'danger') {
+                return 'close'
+            }
         }
     }
 }

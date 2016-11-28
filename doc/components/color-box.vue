@@ -10,10 +10,10 @@
 
 <script>
 export default {
-    props:{
-        color:String,
-        name:String,
-        content:String
+    props: {
+        color: String,
+        name: String,
+        content: String
     },
     computed: {},
     mounted () {},
@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style lang="less">
-
 .color-box {
     width: 33.3%;
     min-width: 33.3%;

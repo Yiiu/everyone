@@ -6,11 +6,14 @@
             :placement="placement"
             v-model="show"
         >
-        	<template slot="html">
+            <template slot="html">
                 <slot name="html"></slot>
             </template>
             <template slot="content">
-                <div class="y-tooltips-title"><i class="ion-information-circled ion"></i> {{title}}</div>
+                <div class="y-tooltips-title">
+                    <y-svg type="help" :width="20" class="icon"></y-svg> 
+                    <p>{{title}}</p>
+                </div>
                 <div class="y-tooltips-content" v-if="$slots.btn">
                     <slot name="btn"></slot>
                 </div>
@@ -25,88 +28,88 @@
 </template>
 <script>
 export default {
-    name:"y-popconfirm",
-    data(){
+    name: 'y-popconfirm',
+    data () {
         return {
-            show:false
+            show: false
         }
     },
     // 初始
-    created(){
+    created () {
         this.show = this.vaule
     },
-    props:{
-        value:Boolean,
-        title:{
+    props: {
+        value: Boolean,
+        title: {
             type: String,
-            required:true
+            required: true
         },
-        trigger:{
-            type:String,
-            default:"click"
+        trigger: {
+            type: String,
+            default: 'click'
         },
-        placement:{
-            type:String,
-            default:"top"
+        placement: {
+            type: String,
+            default: 'top'
         },
-        okBtn:{
+        okBtn: {
             type: Object,
-            default: function(){
+            default: function () {
                 return {
-                    show:true,
-                    text:"确认"
+                    show: true,
+                    text: '确认'
                 }
             }
         },
-        backBtn:{
+        backBtn: {
             type: Object,
-            default: function(){
+            default: function () {
                 return {
-                    show:true,
-                    text:"取消"
+                    show: true,
+                    text: '取消'
                 }
             }
         },
-        okCbk:{
+        okCbk: {
             type: Function
         },
-        backCbk:{
+        backCbk: {
             type: Function
         }
     },
-    methods:{
-        onOk(){
-            if(this.okCbk) {
+    methods: {
+        onOk () {
+            if (this.okCbk) {
                 this.okCbk()
 
                 this.show = false
-            }else {
+            } else {
                 this.show = false
             }
         },
-        onBack(){
-            if(this.backCbk) {
+        onBack () {
+            if (this.backCbk) {
                 this.backCbk()
 
                 this.show = false
-            }else {
+            } else {
                 this.show = false
             }
         }
     },
-    watch:{
-        "show":function(value){
-            if(value) {
-                this.$emit('input', value);
-            }else {
-                this.$emit('input', value);
+    watch: {
+        'show': function (value) {
+            if (value) {
+                this.$emit('input', value)
+            } else {
+                this.$emit('input', value)
             }
         },
         // value更新
-        "value":function(value) {
-            if(value) {
+        'value': function (value) {
+            if (value) {
                 this.show = true
-            }else {
+            } else {
                 this.show = false
             }
         }

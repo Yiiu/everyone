@@ -1,6 +1,6 @@
-import alert from "./alert"
+import alert from './alert'
 
-alert.install = function(Vue) {
+alert.install = function (Vue) {
     Vue.component(alert.name, alert)
 }
 

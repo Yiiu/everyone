@@ -7,7 +7,7 @@
                     disabled : disabled
                 }"
             >
-            	<i class="ion-checkmark"></i>
+                <y-svg type="check" :width="14" color="#fff"></y-svg>
             </span>
             <input type="checkbox"
                 v-if="trueLabel || falseLabel"
@@ -31,44 +31,44 @@
 </template>
 <script>
 export default {
-    name: "y-checkbox",
-    props:{
-    	value:{},
+    name: 'y-checkbox',
+    props: {
+        value: {},
         label: [String, Number, Boolean],
-        trueLabel:[String, Number, Boolean],
-        falseLabel:[String, Number, Boolean],
+        trueLabel: [String, Number, Boolean],
+        falseLabel: [String, Number, Boolean],
         disabled: Boolean,
-        content:{
+        content: {
             type: Boolean,
             default: false
         }
     },
-    data(){
+    data () {
         return {
             group: this.$parent.$options._componentTag === 'y-checkbox-group'
         }
     },
-    computed:{
-    	_value:{
-    		get(){
+    computed: {
+        _value: {
+            get () {
                 return this.group ? this.$parent.value : this.value
-    		},
-    		set(newValue){
+            },
+            set (newValue) {
                 if (!this.group) {
-                    this.$emit('input', newValue);
+                    this.$emit('input', newValue)
                 } else {
-                    this.$parent.$emit('input', newValue);
+                    this.$parent.$emit('input', newValue)
                 }
-    		}
-    	},
-        _checked(){
-            var type = Object.prototype.toString.call(this._value);
+            }
+        },
+        _checked () {
+            var type = Object.prototype.toString.call(this._value)
             if (type === '[object Boolean]') {
-                return this._value;
+                return this._value
             } else if (type === '[object Array]') {
-                return this._value.indexOf(this.label) > -1;
+                return this._value.indexOf(this.label) > -1
             } else if (type === '[object String]' || type === '[object Number]') {
-                return this._value === this.label || this._value === this.trueLabel;
+                return this._value === this.label || this._value === this.trueLabel
             }
         }
     }

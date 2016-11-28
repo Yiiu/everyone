@@ -13,9 +13,14 @@
             margin-top: -12px;
             right: 0;
             position: absolute;
-            &.dr {
-                transform-origin: 50% 50%; 
+            svg {
+                transition: .2s cubic-bezier(.645,.045,.355,1) all;
+                margin-top: 4px;
+                margin-left: 4px;
                 transform: rotateZ(0deg);
+                &.x {
+                    transition: none;
+                }
                 &.active {
                     transform: rotateZ(-180deg);
                 }

@@ -22,45 +22,45 @@ export default {
             type: [String, Number],
             required: true
         },
-        checked:{
-            type:Boolean,
-            default:false,
+        checked: {
+            type: Boolean,
+            default: false
         },
         disabled: Boolean,
         name: String
     },
-    data() {
+    data () {
         return {
             focus: false
         }
     },
-    created(){
-        if(this.checked){
+    created () {
+        if (this.checked) {
             this._value = this.label
         }
     },
-    methods:{
-        valueOn(){
-            if(!this.disabled) {
+    methods: {
+        valueOn () {
+            if (!this.disabled) {
                 this._value = this.label
             }
         }
     },
     computed: {
         _value: {
-            get() {
-                return this.value !== undefined ? this.value : this.$parent.value;
+            get () {
+                return this.value !== undefined ? this.value : this.$parent.value
             },
-            set(newValue) {
-                if(this.value !== undefined){
-                    this.$emit('input', newValue);
-                }else {
-                    this.$parent.$emit('input', newValue);
+            set (newValue) {
+                if (this.value !== undefined) {
+                    this.$emit('input', newValue)
+                } else {
+                    this.$parent.$emit('input', newValue)
                 }
             }
         }
     }
-};
+}
 </script>
 <style lang="less">
 @import "radio-button";

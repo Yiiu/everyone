@@ -10,10 +10,8 @@
     display: flex;
     align-items: center;
     transition: all .3s ease;
-    >.alert-icon {
-        vertical-align: middle;
-        font-size: 22px;
-        margin-right:  12px;
+    >svg {
+        margin-right: 6px;
     }
     >.alert-c {
         padding-right: 40px;
@@ -31,7 +29,8 @@
         position: absolute;
         top: 50%;
         right: 0;
-        margin-top: -10px;
+        margin-right: 12px;
+        margin-top: -9px;
         font-size: 14px;
         line-height: 20px;
         cursor: pointer;
@@ -39,25 +38,45 @@
 }
 .alert-info {
     .alert-color(lighten(@blue, 35%));
-    .alert-icon {
+    svg {
+        path {
+            fill: @blue;
+        }
+    }
+    .alert-close {
         color: @blue;
     }
 }
 .alert-success {
     .alert-color(lighten(@green, 28%));
-    .alert-icon {
+    svg {
+        path {
+            fill: @green;
+        }
+    }
+    .alert-close {
         color: @green;
     }
 }
 .alert-warning {
     .alert-color(lighten(@yellow, 25%));
-    .alert-icon {
+    svg {
+        path {
+            fill: @yellow;
+        }
+    }
+    .alert-close {
         color: @yellow;
     }
 }
 .alert-danger {
     .alert-color(lighten(@o-red, 40%));
-    .alert-icon {
+    svg {
+        path {
+            fill: @o-red;
+        }
+    }
+    .alert-close {
         color: @o-red;
     }
 }

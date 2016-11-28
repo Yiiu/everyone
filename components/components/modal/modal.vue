@@ -41,50 +41,50 @@
 </template>
 <script>
 export default {
-    name: "y-modal",
-    data(){
+    name: 'y-modal',
+    data () {
         return {
-            show:false,
-            title:"",
-            content:"",
-            okBtn:{
-                show:true,
-                text:"确认"
+            show: false,
+            title: '',
+            content: '',
+            okBtn: {
+                show: true,
+                text: '确认'
             },
-            backBtn:{
-                show:true,
-                text:"取消"
+            backBtn: {
+                show: true,
+                text: '取消'
             },
-            vis:true,
-            callback:()=>{},
+            vis: true,
+            callback: () => {}
         }
     },
-    mounted(){
-        this.$nextTick(function(){
+    mounted () {
+        this.$nextTick(function () {
             document.body.appendChild(this.$el)
         })
     },
-    methods:{
-        next(value){
-            if(this.vis){
+    methods: {
+        next (value) {
+            if (this.vis) {
                 this.show = false
             }
-            let callback = this.callback;
+            let callback = this.callback
             callback(value, this)
         },
-        del(){
+        del () {
             this.show = false
         }
     },
-    watch:{
-        show:function(value){
-            if(!value){
+    watch: {
+        show: function (value) {
+            if (!value) {
                 this.$el.addEventListener('transitionend', () => {
-                    this.$destroy(true);
-                    if(this.$el.parentNode){
-                        this.$el.parentNode.removeChild(this.$el);
+                    this.$destroy(true)
+                    if (this.$el.parentNode) {
+                        this.$el.parentNode.removeChild(this.$el)
                     }
-                });
+                })
             }
         }
     }

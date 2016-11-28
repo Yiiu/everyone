@@ -1,14 +1,13 @@
-import message from "./message.vue"
+import message from './message.vue'
 
-const install = (Vue)=>{
+const install = (Vue) => {
+    let MessageCtr = Vue.extend(message)
 
-    let messageCtr = Vue.extend(message)
-
-    let instance;
+    let instance
 
     let Message = (options) => {
-        instance = new messageCtr({
-            data:options
+        instance = new MessageCtr({
+            data: options
         })
 
         instance.vm = instance.$mount()
@@ -16,16 +15,14 @@ const install = (Vue)=>{
         instance.show = true
 
         document.body.appendChild(instance.vm.$el)
-
-
     }
 
     Message.success = (content, time) => {
-        instance = new messageCtr({
-            data:{
-                content:content,
-                time:time,
-                type:"success"
+        instance = new MessageCtr({
+            data: {
+                content: content,
+                time: time,
+                type: 'success'
             }
         })
 
@@ -36,11 +33,11 @@ const install = (Vue)=>{
         instance.show = true
     }
     Message.info = (content, time) => {
-        instance = new messageCtr({
-            data:{
-                content:content,
-                time:time,
-                type:"info"
+        instance = new MessageCtr({
+            data: {
+                content: content,
+                time: time,
+                type: 'info'
             }
         })
 
@@ -51,11 +48,11 @@ const install = (Vue)=>{
         instance.show = true
     }
     Message.warning = (content, time) => {
-        instance = new messageCtr({
-            data:{
-                content:content,
-                time:time,
-                type:"warning"
+        instance = new MessageCtr({
+            data: {
+                content: content,
+                time: time,
+                type: 'warning'
             }
         })
 
@@ -66,11 +63,11 @@ const install = (Vue)=>{
         instance.show = true
     }
     Message.danger = (content, time) => {
-        instance = new messageCtr({
-            data:{
-                content:content,
-                time:time,
-                type:"danger"
+        instance = new MessageCtr({
+            data: {
+                content: content,
+                time: time,
+                type: 'danger'
             }
         })
 

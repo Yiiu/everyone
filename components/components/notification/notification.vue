@@ -17,30 +17,30 @@
     </div>
 </template>
 <script>
-import notify from "./notify"
+import notify from './notify'
 
 export default {
-    data(){
+    data () {
         return {
-            show:false,
-            data:[]
+            show: false,
+            data: []
         }
     },
-    methods:{
-        closes(id){
+    methods: {
+        closes (id) {
             this.data.splice(id, 1)
         }
     },
-    components:{
+    components: {
         notify
     },
-    watch:{
-        data: function(vaule) {
-            if(vaule.length == 0){
+    watch: {
+        data: function (vaule) {
+            if (vaule.length === 0) {
                 this.$el.addEventListener('transitionend', () => {
-                    this.$destroy(true);
-                    this.$el.parentNode.removeChild(this.$el);
-                });
+                    this.$destroy(true)
+                    this.$el.parentNode.removeChild(this.$el)
+                })
             }
         }
     }

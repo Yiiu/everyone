@@ -1,35 +1,34 @@
-import Notification from "./components/notification"
-import Message from "./components/message"
-import Loading from "./components/loading"
+import Notification from './components/notification'
+import Message from './components/message'
+import Loading from './components/loading'
 
+import Alert from './components/alert'
+import Button from './components/button'
+import Radio from './components/radio'
+import RadioGroup from './components/radio-group'
+import RadioButton from './components/radio-button'
+import Checkbox from './components/checkbox'
+import CheckboxGroup from './components/checkbox-group'
 
-import Alert from "./components/alert"
-import Button from "./components/button"
-import Radio from "./components/radio"
-import RadioGroup from "./components/radio-group"
-import RadioButton from "./components/radio-button"
-import Checkbox from "./components/checkbox"
-import CheckboxGroup from "./components/checkbox-group"
+import Modal from './components/modal'
+import Tooltips from './components/tooltips'
+import Popover from './components/popover'
+import Popconfirm from './components/popconfirm'
+import Dialog from './components/dialog'
+import Editor from './components/editor'
+import Preview from './components/preview'
+import Select from './components/select'
+import Option from './components/option'
 
-import Modal from "./components/modal"
-import Tooltips from "./components/tooltips"
-import Popover from "./components/popover"
-import Popconfirm from "./components/popconfirm"
-import Dialog from "./components/dialog"
-import Editor from "./components/editor"
-import Preview from "./components/preview"
-import Select from "./components/select"
-import Option from "./components/option"
+import Tag from './components/tag'
 
-import Tag from "./components/tag"
-
+import Svg from './components/svg'
 
 // utils
 // import click from "./components/utils/clickDel"
 
 const install = (Vue) => {
     // Vue.use(click)
-
     Vue.use(Modal)
     Vue.use(Notification)
     Vue.use(Message)
@@ -53,12 +52,11 @@ const install = (Vue) => {
     Vue.component(Select.name, Select)
     Vue.component(Option.name, Option)
     Vue.component(Tag.name, Tag)
-
+    Vue.component(Svg.name, Svg)
 }
 
-
 if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
+    install(window.Vue)
 };
 
 module.exports = {

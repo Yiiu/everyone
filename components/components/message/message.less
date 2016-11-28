@@ -21,23 +21,37 @@
             margin: 0;
             line-height: 22px;
         }
+        .message-info {
+            margin-left: -12px;
+            margin-right: 6px;
+            height: 22px;
+        }
         &.success {
             .message-info {
-                color: @o-green;
+                path {
+                    fill: @o-green;
+                }
             }
         }
         &.info {
             .message-info {
-                color: @o-blue;
+                path {
+                    fill: @blue;
+                }
             }
         }
         &.warning {
             .message-info {
-                color: @o-yellow;
+                path {
+                    fill: @o-yellow;
+                }
             }
         }
         &.danger {
             .message-info {
+                path {
+                    fill: @o-red;
+                }
                 color: @o-red;
             }
         }

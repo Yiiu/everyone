@@ -50,7 +50,7 @@
 export default {
     data(){
         return {
-            a:"",
+            a:"1",
             b:"",
             c:"",
 data:

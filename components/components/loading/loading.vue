@@ -7,65 +7,61 @@
                     'background': bg
                 }"
             ></div>
-            <i class="ion-load-c"
-                :style="{
-                    'color': bg
-                }"
-            ></i>
+            <y-svg type="loading" class="ion-load-c" :color="bg"></y-svg>
         </div>
     </transition>
 </template>
 <script>
 export default {
-    name:"y-loading",
-    data(){
+    name: 'y-loading',
+    data () {
         return {
             width: 0,
-            bg:"#77b6ff",
-            show: false,
+            bg: '#77b6ff',
+            show: false
         }
     },
-    methods:{
-        open(){
+    methods: {
+        open () {
             this.show = true
             this.init()
-            this.timer = setInterval(()=>{
-                this.increase();
+            this.timer = setInterval(() => {
+                this.increase()
             }, 400)
         },
-        init(){
-            clearInterval(this.timer);
-            this.timer = null;
+        init () {
+            clearInterval(this.timer)
+            this.timer = null
             this.width = 0
-            this.bg = "#77b6ff"
+            this.bg = '#77b6ff'
         },
-        success(){
+        success () {
             this.width = 100
-            this.bg = "#67D5B5"
-            setTimeout(()=>{
+            this.bg = '#67D5B5'
+            setTimeout(() => {
                 this.init()
                 this.show = false
-            },600)
+            }, 600)
         },
-        err(){
+        err () {
             this.width = 100
-            this.bg = "#ff7473"
-            setTimeout(()=>{
+            this.bg = '#ff7473'
+            setTimeout(() => {
                 this.init()
                 this.show = false
-            },600)
+            }, 600)
         },
-        increase() {
-            if(this.width >= 80){
-                if(this.width >= 92){
+        increase () {
+            if (this.width >= 80) {
+                if (this.width >= 92) {
                     clearInterval(this.timer)
-                }else {
-                    this.width+=2
+                } else {
+                    this.width += 2
                 }
-            }else {
-                this.width+=4
+            } else {
+                this.width += 4
             }
-        },
+        }
     }
 }
 </script>

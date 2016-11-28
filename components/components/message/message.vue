@@ -2,13 +2,7 @@
     <transition name="message">
         <div class="message" v-if="show">
             <div class="message-content" :class="type">
-                <i class="message-info" 
-                    :class="{
-                        'ion-checkmark-circled': type == 'success',
-                        'ion-information-circled': type == 'info',
-                        'ion-alert-circled': type == 'warning',
-                        'ion-close-circled': type == 'danger',
-                    }"></i>
+                <y-svg :type="svgClass" class="message-info"></y-svg>
                 <p v-text="content"></p>
             </div>
         </div>
@@ -16,32 +10,48 @@
 </template>
 <script>
 export default {
-    name:"y-message",
-    data(){
+    name: 'y-message',
+    data () {
         return {
-            content: "",
-            type: "info",
+            content: '',
+            type: 'info',
             time: 1500,
-            show:false
+            show: false
         }
     },
-    methods:{
-        close(){
+    methods: {
+        close () {
             this.show = false
         }
     },
-    mounted(){
+    mounted () {
         setTimeout(this.close, this.time)
     },
-    watch:{
-        show:function(value){
-            if(!value) {
+    watch: {
+        show: function (value) {
+            if (!value) {
                 this.$el.addEventListener('transitionend', () => {
-                    this.$destroy(true);
-                    if(this.$el.parentNode){
-                        this.$el.parentNode.removeChild(this.$el);
+                    this.$destroy(true)
+                    if (this.$el.parentNode) {
+                        this.$el.parentNode.removeChild(this.$el)
                     }
-                });
+                })
+            }
+        }
+    },
+    computed: {
+        'svgClass': function () {
+            if (this.type === 'info') {
+                return 'info'
+            }
+            if (this.type === 'success') {
+                return 'checkmark'
+            }
+            if (this.type === 'warning') {
+                return 'help'
+            }
+            if (this.type === 'danger') {
+                return 'close'
             }
         }
     }

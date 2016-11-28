@@ -6,9 +6,14 @@
         .y-tooltips-title {
             padding: 12px;
             font-size: 14px;
-            .ion {
-                color: darken(@yellow, 15%);
-                margin-right: 4px;
+            .icon {
+                position: absolute;
+                path {
+                    fill: darken(@yellow, 15%);
+                }
+            }
+            p {
+                margin-left: 24px;
             }
         }
         .y-tooltips-content {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const index = resolve => require(['./view/index'], resolve)
+const index = resolve => require(['./view/index.md'], resolve)
 const font = resolve => require(['./view/font.md'], resolve)
 const color = resolve => require(['./view/color.md'], resolve)
 
@@ -22,8 +22,7 @@ const editor = resolve => require(['./md/editor.md'], resolve)
 const preview = resolve => require(['./md/preview.md'], resolve)
 const select = resolve => require(['./md/select.md'], resolve)
 const tag = resolve => require(['./md/tag.md'], resolve)
-
-
+const svg = resolve => require(['./md/svg.md'], resolve)
 
 Vue.use(Router)
 
@@ -31,97 +30,97 @@ let router = new Router({
     mode: 'hash',
     routes: [
         {
-          path: '/',
-          component: index
+            path: '/',
+            component: index
         },
         {
-          path: '/font',
-          component: font
+            path: '/font',
+            component: font
         },
         {
-          path: '/color',
-          component: color
+            path: '/color',
+            component: color
         },
         {
-          path: '/button',
-          component: button
+            path: '/button',
+            component: button
         },
         {
-          path: '/notification',
-          component: notification
+            path: '/notification',
+            component: notification
         },
         {
-          path: '/modal',
-          component: modal
+            path: '/modal',
+            component: modal
         },
         {
-          path: '/alert',
-          component: alert
+            path: '/alert',
+            component: alert
         },
         {
-          path: '/loading',
-          component: loading
+            path: '/loading',
+            component: loading
         },
         {
-          path: '/message',
-          component: message
+            path: '/message',
+            component: message
         },
         {
-          path: '/radio',
-          component: radio
+            path: '/radio',
+            component: radio
         },
         {
-          path: '/checkbox',
-          component: checkbox
+            path: '/checkbox',
+            component: checkbox
         },
         {
-          path: '/tooltips',
-          component: tooltips
+            path: '/tooltips',
+            component: tooltips
         },
         {
-          path: '/popover',
-          component: popover
+            path: '/popover',
+            component: popover
         },
         {
-          path: '/popconfirm',
-          component: popconfirm
+            path: '/popconfirm',
+            component: popconfirm
         },
         {
-          path: '/dropdown',
-          component: dropdown
+            path: '/dropdown',
+            component: dropdown
         },
         {
-          path: '/dialog',
-          component: dialog
+            path: '/dialog',
+            component: dialog
         },
         {
-          path: '/editor',
-          component: editor
+            path: '/editor',
+            component: editor
         },
         {
-          path: '/preview',
-          component: preview
+            path: '/preview',
+            component: preview
         },
         {
-          path: '/select',
-          component: select
+            path: '/select',
+            component: select
         },
         {
-          path: '/tag',
-          component: tag
+            path: '/tag',
+            component: tag
+        },
+        {
+            path: '/svg',
+            component: svg
         }
-    ],
+    ]
 })
 
 router.beforeEach((to, from, next) => {
-
-	Vue.prototype.$loading.open()
-
-	next()
+    Vue.prototype.$loading.open()
+    next()
 })
 router.afterEach(route => {
-
-	Vue.prototype.$loading.success()
-
+    Vue.prototype.$loading.success()
 })
 export default router

@@ -1,49 +1,49 @@
 <template>
     <button class="y-btn" :class="style">
         <transition name="opacity">
-            <i class="ion-load-c" v-if="loading"></i>
+            <y-svg v-if="loading" :width="18" color="#fff" type="loading"></y-svg>
         </transition>
         <slot></slot>
     </button>
 </template>
 <script>
 export default {
-    name:"y-button",
-    props:{
-        type:{
-            type:String,
-            default:"primary",
+    name: 'y-button',
+    props: {
+        type: {
+            type: String,
+            default: 'primary'
         },
-        size:{
-            type:String,
-            default:"",
+        size: {
+            type: String,
+            default: ''
         },
-        disabled:{
-            type:Boolean,
-            default:false
+        disabled: {
+            type: Boolean,
+            default: false
         },
-        loading:{
-            type:Boolean,
-            default:false
+        loading: {
+            type: Boolean,
+            default: false
         },
-        color:{
-            type:String,
-            default:"blue"
+        color: {
+            type: String,
+            default: 'blue'
         }
     },
-    computed:{
-        "style":function(){
+    computed: {
+        'style': function () {
             let style = ``
 
             style += `btn-${this.type} ${this.color} `
 
-            if(this.size != ""){
+            if (this.size !== '') {
                 style += ` ${this.size}`
             }
-            if(this.disabled){
+            if (this.disabled) {
                 style += ` disabled`
             }
-            if(this.loading){
+            if (this.loading) {
                 style += ` loading`
             }
             return style

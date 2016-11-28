@@ -8,11 +8,11 @@
     </nav>
 </template>
 <script>
-import { nav } from "../nav.config"
+import nav from '../nav.config.json'
 export default {
-    data(){
+    data () {
         return {
-            data:nav,
+            data: nav.nav
         }
     }
 }

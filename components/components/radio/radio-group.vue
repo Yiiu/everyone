@@ -5,14 +5,14 @@
 </template>
 <script>
 export default {
-    name:"y-radio-group",
+    name: 'y-radio-group',
     props: {
-        value: [String, Number],
+        value: [String, Number]
     },
     watch: {
-        value(newValue) {
-            this.$emit('input', newValue);
+        value (newValue) {
+            this.$emit('input', newValue)
         }
-    },
+    }
 }
 </script>

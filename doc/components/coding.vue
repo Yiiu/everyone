@@ -18,21 +18,21 @@
   </div>
 </template>
 <script>
-import hljs from "highlight.js"
+import hljs from 'highlight.js'
 export default {
-    name:"coding",
-    data(){
+    name: 'coding',
+    data () {
         return {
-            codeShow:false
+            codeShow: false
         }
     },
-    props:{
-        code:String,
+    props: {
+        code: String,
         title: String,
-        content:String,
+        content: String
     },
     mounted () {
-        /*console.log(this)
+        /* console.log(this)
         let children = this.$slots.default[0].elm
 
         children = Array.prototype.filter.call(children, function (node) {
@@ -48,15 +48,14 @@ export default {
                 return dom.elm.outerHTML.replace(/\t| {4}/g, '')
             }).join('\n')
         }
-        this.$refs.code.innerText = this.code*/
-        let node = document.createElement("div")
+        this.$refs.code.innerText = this.code */
         hljs.highlightBlock(this.$refs.code)
     },
     methods: {
-        dom(){
-            if(this.codeShow){
+        dom () {
+            if (this.codeShow) {
                 this.codeShow = false
-            }else {
+            } else {
                 this.codeShow = true
             }
         }

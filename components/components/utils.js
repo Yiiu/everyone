@@ -1,4 +1,4 @@
-export function In (target, parent){
+export function In (target, parent) {
     let path = []
     let parentNode = target
     while (parentNode && parentNode !== document.body) {
@@ -7,25 +7,23 @@ export function In (target, parent){
     }
     return path.indexOf(parent) !== -1
 }
-export function getLeft(element){
+export function getLeft (element) {
+    var actualLeft = element.offsetLeft
+    var current = element.offsetParent
 
-    var actualLeft = element.offsetLeft;
-    var current = element.offsetParent;
-
-    while (current !== null){
-        actualLeft += current.offsetLeft;
-        current = current.offsetParent;
+    while (current !== null) {
+        actualLeft += current.offsetLeft
+        current = current.offsetParent
     }
-    return actualLeft;
+    return actualLeft
 }
-export function getTop(element){
-
-    var actualTop = element.offsetTop;
-    var current = element.offsetParent;
-    while (current !== null){
-        actualTop += current.offsetTop;
-        current = current.offsetParent;
+export function getTop (element) {
+    var actualTop = element.offsetTop
+    var current = element.offsetParent
+    while (current !== null) {
+        actualTop += current.offsetTop
+        current = current.offsetParent
     }
 
-    return actualTop;
+    return actualTop
 }

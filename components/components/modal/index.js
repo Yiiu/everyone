@@ -1,28 +1,23 @@
-import modal from "./modal.vue"
-
-
+import modal from './modal.vue'
 
 const install = (Vue) => {
-    let instance;
+    let instance
 
-    let next;
-
-    let modalCtr = Vue.extend(modal)
+    let ModalCtr = Vue.extend(modal)
 
     var Modal = (options) => {
-
-        if(typeof options == "string"){
+        if (typeof options === 'string') {
             let content = options
             options = {}
 
             options.content = content
 
             options.backBtn = {
-                "show": false
+                'show': false
             }
         }
 
-        instance = new modalCtr({
+        instance = new ModalCtr({
             data: options
         })
 
@@ -32,19 +27,17 @@ const install = (Vue) => {
 
         instance.show = true
 
-        return new Promise(function(resolve, reject){
-            instance.callback = function(value, is){
-                if(value == "resolve"){
+        return new Promise(function (resolve, reject) {
+            instance.callback = function (value, is) {
+                if (value === 'resolve') {
                     resolve(is)
-                }else {
+                } else {
                     reject(is)
                 }
             }
         })
     }
-
     Vue.prototype.$modal = Modal
-
 }
 
 export default {

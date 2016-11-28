@@ -1,3 +1,3 @@
-import popover from "./popover"
+import popover from './popover'
 
 export default popover

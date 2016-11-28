@@ -25,10 +25,22 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.vue$/,
+        loader: 'eslint',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
       },
       {
         test: /\.js$/,
@@ -65,6 +77,9 @@ module.exports = {
         loader: 'vue-markdown-loader'
       }
     ]
+  },
+  eslint: {
+    formatter: require('eslint-friendly-formatter')
   },
   vue: {
     loaders: utils.cssLoaders(),

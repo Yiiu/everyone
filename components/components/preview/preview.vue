@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-    name:"y-preview"
+    name: 'y-preview'
 }
 </script>
 <style lang="less">

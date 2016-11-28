@@ -22,38 +22,38 @@ export default {
             type: [String, Number, Boolean],
             required: true
         },
-        checked:{
-            type:Boolean,
-            default:false,
+        checked: {
+            type: Boolean,
+            default: false
         },
-        disabled: Boolean,
+        disabled: Boolean
     },
-    data() {
+    data () {
         return {
             focus: false,
             group: this.$parent.$options._componentTag === 'y-radio-group'
         }
     },
-    created(){
-        if(this.checked){
+    created () {
+        if (this.checked) {
             this._value = this.label
         }
     },
     computed: {
         _value: {
-            get() {
-                return this.group ?  this.$parent.value : this.value ;
+            get () {
+                return this.group ? this.$parent.value : this.value
             },
-            set(newValue) {
-                if(!this.group){
-                    this.$emit('input', newValue);
-                }else {
-                    this.$parent.$emit('input', newValue);
+            set (newValue) {
+                if (!this.group) {
+                    this.$emit('input', newValue)
+                } else {
+                    this.$parent.$emit('input', newValue)
                 }
             }
         }
     }
-};
+}
 </script>
 <style lang="less">
 @import "radio";
