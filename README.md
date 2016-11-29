@@ -3,7 +3,7 @@
 > 一个基于vue2的antd风组件库。
 
 [![build](https://img.shields.io/wercker/ci/wercker/docs.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
-[![build](https://img.shields.io/badge/npm-v1.1.9-blue.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
+[![build](https://img.shields.io/badge/npm-v1.2.0-blue.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
 [![build](https://img.shields.io/badge/Vue-2.0-blue.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
 [![build](https://img.shields.io/npm/l/express.svg?style=flat-square)](https://www.npmjs.com/package/everyone)
 
