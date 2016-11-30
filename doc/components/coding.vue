@@ -7,7 +7,7 @@
             <span class="coding-title" v-text="title"></span>
             <p class="note" v-text="content"></p>
             <div class="coding-button">
-                <i class="ion-arrow-down-b" @click="dom" :class="{top:codeShow}"></i>
+                <y-svg type="arrow" :class="{top:codeShow}" @click.native="dom" :width="16"></y-svg>
             </div>
         </div>
         <transition name="code">
@@ -32,24 +32,9 @@ export default {
         content: String
     },
     mounted () {
-        /* console.log(this)
-        let children = this.$slots.default[0].elm
-
-        children = Array.prototype.filter.call(children, function (node) {
-            return node.nodeType === 1
+        this.$nextTick(() => {
+            hljs.highlightBlock(this.$refs.code)
         })
-         fixme 暂时没有处理文本节点
-        let code = children.map(function (dom) {
-        return dom.outerHTML.replace(/\t| {4}/g, '')
-        }).join('\n')
-        console.log(code)
-        if (!this.code) {
-            this.code = this.$slots.default.map(function (dom) {
-                return dom.elm.outerHTML.replace(/\t| {4}/g, '')
-            }).join('\n')
-        }
-        this.$refs.code.innerText = this.code */
-        hljs.highlightBlock(this.$refs.code)
     },
     methods: {
         dom () {
@@ -78,6 +63,9 @@ export default {
     .coding-bottom {
         padding: 16px 22px;
         position: relative;
+        p.note {
+            margin: 0;
+        }
         .coding-title {
             height: 20px;
             line-height: 20px;
@@ -93,16 +81,12 @@ export default {
             height: 20px;
             line-height: 20px;
             right: 16px;
-            bottom: 16px;
+            top: 20px;
             font-size: 20px;
-            i {
-                &:before {
-                    transition: .3s all;
-                }
+            svg {
+                transition: .3s all;
                 &.top {
-                    &:before {
-                        transform: rotateZ(180deg);
-                    }
+                    transform: rotateZ(180deg);
                 }
             }
         }

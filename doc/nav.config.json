@@ -105,6 +105,11 @@
                             "name": "Tag",
                             "cn": "便签",
                             "path": "/tag"
+                        },
+                        {
+                            "name": "Pagination",
+                            "cn": "分页",
+                            "path": "/pagination"
                         }
                     ]
                 },

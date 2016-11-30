@@ -13,19 +13,18 @@
     >svg {
         margin-right: 6px;
     }
-    >.alert-c {
+    >.y-alert-c {
         padding-right: 40px;
-        h1,h2,h3,h4,h5{
+        .y-title {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 6px;
-            margin-top: 4px;
+            padding: 6px 0;
         }
         span {
             color: @gray;
         }
     }
-    .alert-close {
+    .y-alert-close {
         position: absolute;
         top: 50%;
         right: 0;
@@ -36,47 +35,47 @@
         cursor: pointer;
     }
 }
-.alert-info {
+.y-alert-info {
     .alert-color(lighten(@blue, 35%));
     svg {
         path {
             fill: @blue;
         }
     }
-    .alert-close {
+    .y-alert-close {
         color: @blue;
     }
 }
-.alert-success {
+.y-alert-success {
     .alert-color(lighten(@green, 28%));
     svg {
         path {
             fill: @green;
         }
     }
-    .alert-close {
+    .y-alert-close {
         color: @green;
     }
 }
-.alert-warning {
+.y-alert-warning {
     .alert-color(lighten(@yellow, 25%));
     svg {
         path {
             fill: @yellow;
         }
     }
-    .alert-close {
+    .y-alert-close {
         color: @yellow;
     }
 }
-.alert-danger {
+.y-alert-danger {
     .alert-color(lighten(@o-red, 40%));
     svg {
         path {
             fill: @o-red;
         }
     }
-    .alert-close {
+    .y-alert-close {
         color: @o-red;
     }
 }

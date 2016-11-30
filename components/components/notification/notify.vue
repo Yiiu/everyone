@@ -5,7 +5,7 @@
             <h2 slot="title">{{title}}</h2>
             <p slot="description">{{content}}</p>
         </div>
-        <i class="ion-close-round notification-del" @click="close"></i>
+        <y-svg type="x"class="ion-close-round notification-del" @click.native="close" :width="18"></y-svg>
     </div>
 </template>
 <script>

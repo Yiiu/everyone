@@ -19,13 +19,11 @@ import Editor from './components/editor'
 import Preview from './components/preview'
 import Select from './components/select'
 import Option from './components/option'
+import Pagination from './components/pagination'
 
 import Tag from './components/tag'
 
 import Svg from './components/svg'
-
-// utils
-// import click from "./components/utils/clickDel"
 
 const install = (Vue) => {
     // Vue.use(click)
@@ -53,11 +51,12 @@ const install = (Vue) => {
     Vue.component(Option.name, Option)
     Vue.component(Tag.name, Tag)
     Vue.component(Svg.name, Svg)
+    Vue.component(Pagination.name, Pagination)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue)
-};
+}
 
 module.exports = {
     install,
@@ -77,5 +76,6 @@ module.exports = {
     Popconfirm,
     Select,
     Option,
-    Tag
+    Tag,
+    Pagination
 }

@@ -2,12 +2,12 @@
     <transition name="alert-op">
         <div class="y-alert" :class="[Class]" v-if="show">
             <y-svg :type="svgClass"></y-svg>
-            <div class="alert-c" ref="contents">
-                <h1 class="title" v-text="title"></h1>
-                <div class="content" v-text="content"></div>
+            <div class="y-alert-c" ref="contents">
+                <div class="y-title" v-text="title"></div>
+                <div class="y-content" v-text="content"></div>
             </div>
-            <y-svg type="x" @click.native="closeOn" v-if="close && CloseText === ''" class="alert-close" width="18"></y-svg>
-            <span class="alert-close" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
+            <y-svg type="x" @click.native="closeOn" v-if="close && CloseText === ''" class="y-alert-close" width="18"></y-svg>
+            <span class="y-alert-close" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
         </div>
     </transition>
 </template>
@@ -56,7 +56,7 @@ export default {
     },
     computed: {
         'Class': function () {
-            return `alert-${this.type}`
+            return `y-alert-${this.type}`
         },
         'svgClass': function () {
             if (this.type === 'info') {

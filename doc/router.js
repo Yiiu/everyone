@@ -23,6 +23,7 @@ const preview = resolve => require(['./md/preview.md'], resolve)
 const select = resolve => require(['./md/select.md'], resolve)
 const tag = resolve => require(['./md/tag.md'], resolve)
 const svg = resolve => require(['./md/svg.md'], resolve)
+const pagination = resolve => require(['./md/pagination.md'], resolve)
 
 Vue.use(Router)
 
@@ -112,6 +113,10 @@ let router = new Router({
         {
             path: '/svg',
             component: svg
+        },
+        {
+            path: '/pagination',
+            component: pagination
         }
     ]
 })
@@ -120,7 +125,9 @@ router.beforeEach((to, from, next) => {
     Vue.prototype.$loading.open()
     next()
 })
+
 router.afterEach(route => {
     Vue.prototype.$loading.success()
 })
+
 export default router
