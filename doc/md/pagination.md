@@ -1,5 +1,5 @@
 # Pagination
 
 <template>
-	<y-Pagination :total="5"></y-Pagination>
+	<y-Pagination :total="15"></y-Pagination>
 </template>

@@ -1,14 +1,16 @@
 <template>
     <ul class="y-pagination">
 
-        <li class="prev page" 
+        <li 
+            class="prev page" 
             :class="{disabled: current === 1}" 
             @click="onPagerPrev"
         >
             <y-svg type="v" :width="14"></y-svg>
         </li>
 
-        <li class="dd page" 
+        <li 
+            class="dd page" 
             @mouseenter="hoverddOn('prev')" 
             @mouseleave="hoverddClose('prev')" 
             v-if="pageCount > 1"
@@ -25,8 +27,8 @@
             ></y-svg>
         </li>
 
-        <li 
-            v-for="i in total" 
+        <li
+            v-for="i in pageArr" 
             :class="{active: i === current}" 
             @click="onPagerClick(i)"
         >{{i}}</li>
@@ -34,7 +36,7 @@
         <li class="dd page" 
             @mouseover="hoverddOn('next')" 
             @mouseout="hoverddClose('next')" 
-            v-if="pageCount > 1"
+            v-if="pageCount !== pageAll"
         >
             <y-svg 
                 type="more" 
@@ -50,7 +52,7 @@
         </li>
 
         <li class="next page" 
-            :class="{disabled: current === pageSize}" 
+            :class="{disabled: current === total}" 
             @click="onPagerNext"
         >
             <y-svg 
@@ -113,11 +115,39 @@ export default {
             }
         },
         onPagerNext () {
-            if (this.current < this.pageSize) {
+            if (this.current < this.total) {
                 this.current++
             } else {
                 return
             }
+        }
+    },
+    watch: {
+        'current': function (value) {
+            if (value === this.total) {
+                return
+            } else {
+                let valueCount = value / this.pageSize
+                if (valueCount % 1) {
+                    console.log(0)
+                } else {
+                    this.pageCount = valueCount + 1
+                }
+            }
+        }
+    },
+    computed: {
+        pageArr: function () {
+            let pages = []
+            let num = 0
+            for (let i = this.pageSize * (this.pageCount - 1) + 1; i <= this.pageCount * this.pageSize; i++) {
+                pages[num] = i
+                num++
+            }
+            return pages
+        },
+        pageAll: function () {
+            return Math.ceil(this.total / this.pageSize)
         }
     }
 }
