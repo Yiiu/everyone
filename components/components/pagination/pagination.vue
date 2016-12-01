@@ -5,19 +5,26 @@
             class="prev page" 
             :class="{disabled: current === 1}" 
             @click="onPagerPrev"
+            :title="1"
         >
             <y-svg type="v" :width="14"></y-svg>
         </li>
+
+        <li
+            @click="onPagerClick(1)"
+            v-if="pageMin"
+        >1</li>
 
         <li 
             class="dd page" 
             @mouseenter="hoverddOn('prev')" 
             @mouseleave="hoverddClose('prev')" 
-            v-if="pageCount > 1"
+            v-if="pageMin"
+            @click="onPagerClick(current-5)"
         >
             <y-svg 
                 type="more" 
-                :width="16" 
+                :width="18" 
                 v-if="!hoverddprev"
             ></y-svg>
             <y-svg 
@@ -31,16 +38,19 @@
             v-for="i in pageArr" 
             :class="{active: i === current}" 
             @click="onPagerClick(i)"
+            :key="i"
+            :title="i"
         >{{i}}</li>
 
         <li class="dd page" 
             @mouseover="hoverddOn('next')" 
             @mouseout="hoverddClose('next')" 
-            v-if="pageCount !== pageAll"
+            @click="onPagerClick(current+5)"
+            v-if="pageMax"
         >
             <y-svg 
                 type="more" 
-                :width="16" 
+                :width="18" 
                 v-if="!hoverddnext"
             ></y-svg>
             <y-svg 
@@ -50,6 +60,12 @@
                 class="next"
             ></y-svg>
         </li>
+
+        <li
+            @click="onPagerClick(total)"
+            v-if="pageMax"
+            :title="total"
+        >{{total}}</li>
 
         <li class="next page" 
             :class="{disabled: current === total}" 
@@ -61,6 +77,12 @@
             ></y-svg>
             
         </li>
+        <div class="y-pagination-options">
+            <div class="y-pagination-jumper" v-if="showQuickJumper">
+                Goto
+                <input type="" name="" v-model="pages" @keyup.enter="onJumper">
+            </div>
+        </div>
     </ul>
 </template>
 <script>
@@ -72,7 +94,8 @@ export default {
             hoverddprev: false,
             hoverddnext: false,
             pageCount: 1,
-            current: this.defaultCurrent
+            current: this.defaultCurrent,
+            pages: null
         }
     },
     props: {
@@ -87,6 +110,10 @@ export default {
         pageSize: {
             type: Number,
             default: 5
+        },
+        showQuickJumper: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -104,8 +131,23 @@ export default {
                 this.hoverddnext = false
             }
         },
+        onJumper () {
+            let result = /\d+/g
+            if (result.test(this.pages)) {
+                this.pages = parseInt(this.pages)
+            } else {
+                this.pages = 1
+            }
+            this.onPagerClick(this.pages)
+        },
         onPagerClick (e) {
-            this.current = e
+            if (e > this.total) {
+                this.current = this.total
+            } else if (e < 1) {
+                this.current = 1
+            } else {
+                this.current = e
+            }
         },
         onPagerPrev () {
             if (this.current > 1) {
@@ -124,23 +166,21 @@ export default {
     },
     watch: {
         'current': function (value) {
-            if (value === this.total) {
-                return
-            } else {
-                let valueCount = value / this.pageSize
-                if (valueCount % 1) {
-                    console.log(0)
-                } else {
-                    this.pageCount = valueCount + 1
+            let valueCount = value / this.pageSize
+            this.pageCount = Math.ceil(valueCount)
+            if (this.pageAll !== 1) {
+                if (this.current === this.pageSize) {
+                    this.pageCount++
                 }
             }
+            this.$emit('current-change', value)
         }
     },
     computed: {
         pageArr: function () {
             let pages = []
             let num = 0
-            for (let i = this.pageSize * (this.pageCount - 1) + 1; i <= this.pageCount * this.pageSize; i++) {
+            for (let i = this.pageLeft; i <= this.pageRight; i++) {
                 pages[num] = i
                 num++
             }
@@ -148,82 +188,61 @@ export default {
         },
         pageAll: function () {
             return Math.ceil(this.total / this.pageSize)
+        },
+        pageLeft: function () {
+            let ban = parseInt(this.pageSize / 2)
+            if (this.pageAll > 1) {
+                if (this.pageCount === 1) {
+                    return 1
+                } else {
+                    if (this.current + ban >= this.total) {
+                        return this.total - 5
+                    } else {
+                        return this.current - ban
+                    }
+                }
+            } else {
+                return 1
+            }
+        },
+        pageRight: function () {
+            let ban = parseInt(this.pageSize / 2)
+            if (this.pageAll > 1) {
+                if (this.pageCount === 1) {
+                    return this.pageSize
+                } else {
+                    if (this.current + ban >= this.total) {
+                        return this.total
+                    } else {
+                        return this.current + ban
+                    }
+                }
+            } else {
+                return this.pageSize
+            }
+        },
+        pageMin: function () {
+            if (this.pageCount === 1) {
+                return false
+            } else {
+                return true
+            }
+        },
+        pageMax: function () {
+            let ban = parseInt(this.pageSize / 2)
+            if (this.pageAll > 1) {
+                if (this.current + ban >= this.total) {
+                    return false
+                } else {
+                    return true
+                }
+            } else {
+                return false
+            }
         }
     }
 }
 </script>
 <style lang="less">
-.y-pagination {
-    display: flex;
-    li {
-        cursor: pointer;
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-        line-height: 28px;
-        text-align: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: #d9d9d9;
-        margin-right: 6px;
-        border-radius: 4px;
-        font-size: 14px;
-        transition: all .3s;
-        user-select:none;
-        &:hover {
-            border-color: #108ee9;
-            color: #108ee9;
-            svg {
-                path {
-                    fill: #108ee9;
-                }
-            }
-        }
-        &.disabled {
-            cursor: not-allowed;
-            border-color: lighten(#d9d9d9, 3%);
-            color: lighten(#d9d9d9, 3%);
-            svg {
-                path {
-                    fill: lighten(#d9d9d9, 3%);
-                }
-            }
-        }
-        &.prev {
-            svg {
-                transform: rotateZ(90deg);
-            }
-        }
-        &.next {
-            svg {
-                transform: rotateZ(-90deg);
-            }
-        }
-        &.dd {
-            transition: none;
-            border: none;
-            svg {
-                path {
-                    fill: #d9d9d9;
-                }
-            }
-            .next {
-                transform: rotateZ(-180deg);
-            }
-            .prev {
-                transform: rotateZ(0deg);
-            }
-        }
-        &.page {
-            display: flex;
-            algin-item: center;
-            justify-content: center;
-        }
-        &.active {
-            background: #108ee9;
-            border-color: #108ee9;
-            color: #fff;
-        }
-    }
-}
+@import "./pagination";
 </style>
