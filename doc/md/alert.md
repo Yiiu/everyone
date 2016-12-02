@@ -5,16 +5,18 @@
         :code="def"
         title="简单的"
         content="有4种样式"
+        lang="html"
     >
-        <y-alert title="一个小小的alert"></y-alert>
-        <y-alert title="一个小小的alert" type="success"></y-alert>
-        <y-alert title="一个小小的alert" type="warning"></y-alert>
-        <y-alert title="一个小小的alert" type="danger"></y-alert>
+        <y-alert content="一个小小的alert"></y-alert>
+        <y-alert content="一个小小的alert" type="success"></y-alert>
+        <y-alert content="一个小小的alert" type="warning"></y-alert>
+        <y-alert content="一个小小的alert" type="danger"></y-alert>
     </coding>
     <coding
         :code="def"
         title="内容"
         content="内容多的可以这样使用"
+        lang="html"
     >
         <y-alert title="一个小小的alert" type="danger" content="一个小小的alert"></y-alert>
         <y-alert title="一个小小的alert" type="danger" content="一个小小的alert" close-text="删除"></y-alert>
@@ -23,15 +25,15 @@
 <script>
 let def =
 `<template>
-    <y-alert title="一个小小的alert"></y-alert>
-    <y-alert title="一个小小的alert" type="success"></y-alert>
-    <y-alert title="一个小小的alert" type="warning"></y-alert>
-    <y-alert title="一个小小的alert" type="danger"></y-alert>
-</template`
+    <y-alert content="一个小小的alert"></y-alert>
+    <y-alert content="一个小小的alert" type="success"></y-alert>
+    <y-alert content="一个小小的alert" type="warning"></y-alert>
+    <y-alert content="一个小小的alert" type="danger"></y-alert>
+</template>`
 let cont =
 `<template>
-    <y-alert title="一个小小的alert" type="danger" content="一个小小的alert"></y-alert>
-    <y-alert title="一个小小的alert" type="danger" content="一个小小的alert" close-text="删除"></y-alert>
+    <y-alert content="一个小小的alert" type="danger" content="一个小小的alert"></y-alert>
+    <y-alert content="一个小小的alert" type="danger" content="一个小小的alert" close-text="删除"></y-alert>
 </template`
 export default {
     data(){

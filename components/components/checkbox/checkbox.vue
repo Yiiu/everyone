@@ -1,12 +1,11 @@
 <template>
-    <label class="y-checkbox">
+    <label class="y-checkbox"
+    :class="{
+        checked : _checked,
+        disabled : disabled
+    }">
         <span class="y-checkbox-box">
-            <span class="y-checkbox-dom"
-                :class="{
-                    checked : _checked,
-                    disabled : disabled
-                }"
-            >
+            <span class="y-checkbox-dom">
                 <y-svg type="check" :width="14" color="#fff"></y-svg>
             </span>
             <input type="checkbox"

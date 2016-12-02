@@ -1,4 +1,14 @@
 @import "../../style/color";
+
+.colors (@color) {
+    background: lighten(@color, 35%);
+    color: @color;
+    border: 1px solid lighten(@color, 15%);
+    path {
+        fill: @color;
+    }
+}
+
 .y-tag {
     transition: all .2s;
     display: inline-block;
@@ -24,7 +34,7 @@
     .close {
         cursor: pointer;
         margin-left: 4px;
-        margin-top: 3px;
+        margin-top: 5px;
         float: right;
         display: block;
         line-height: 18px;
@@ -32,32 +42,22 @@
 }
 
 .y-tag-gray {
-    background: lighten(@gray, 45%);
-    color: lighten(@gray, 10%);
-    border: 1px solid lighten(@gray, 25%);
+    .colors(@gray)
 }
 
 .y-tag-info {
-    background: lighten(@blue, 35%);
-    color: @blue;
-    border: 1px solid lighten(@blue, 15%);
+    .colors(@blue)
 }
 
 .y-tag-success {
-    background: lighten(@green, 35%);
-    color: @green;
-    border: 1px solid lighten(@green, 15%);
+    .colors(@green)
 }
 
 .y-tag-warning {
-    background: lighten(@yellow, 30%);
-    color: darken(@yellow, 15%);
-    border: 1px solid lighten(@yellow, 15%);
+    .colors(@yellow)
 }
 .y-tag-danger {
-    background: lighten(@red, 25%);
-    color: @red;
-    border: 1px solid lighten(@red, 15%);
+    .colors(@red)
 }
 .y-tag-enter-active, .y-tag-leave-active {
     will-change: opacity, transform;

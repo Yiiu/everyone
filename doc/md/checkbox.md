@@ -5,6 +5,7 @@
         :code="disabled"
         title="禁止"
         content="可以禁止checkbox的默认事件"
+        lang="html"
     >
         <y-checkbox v-model="test" label="523" :disabled="true">disabled</y-checkbox>
         <y-checkbox v-model="test" label="1" :disabled="true">disabled</y-checkbox>
@@ -13,6 +14,7 @@
         :code="label"
         title="label"
         content="可以指定checkbox的label"
+        lang="html"
     >
         <y-checkbox v-model="test1" true-label="可用" false-label="不可用"></y-checkbox>
     </coding>
@@ -20,6 +22,7 @@
         :code="group"
         title="checkbox-group"
         content="多个checkbox可以使用checkbox-group"
+        lang="html"
     >
         <y-checkbox-group v-model="test3">
     	    <y-checkbox label="523">asd</y-checkbox>
@@ -30,13 +33,15 @@
 </template>
 <script>
 let disabled =
-`<temlate>
+`<template>
     <y-checkbox v-model="test1" true-label="可用" false-label="不可用"></y-checkbox>
 </template>
 `
 let label =
-`<y-checkbox v-model="test" label="523" :disabled="true">一个小小的checkbox</y-checkbox>
-<y-checkbox v-model="test" label="1" :disabled="true">一个小小的checkbox</y-checkbox>
+`<template>
+    <y-checkbox v-model="test" label="523" :disabled="true">一个小小的checkbox</y-checkbox>
+    <y-checkbox v-model="test" label="1" :disabled="true">一个小小的checkbox</y-checkbox>
+</template>
 `
 let group =
 `<temlate>

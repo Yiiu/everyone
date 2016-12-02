@@ -5,6 +5,7 @@
         :code="code"
         title="基本"
         content="只需要传入2个参数，一个是文本，一个是消失时间"
+        lang="js"
     >
         <y-button type="primary" @click.native="test">info</y-button>
         <y-button type="primary" @click.native="test1">success</y-button>

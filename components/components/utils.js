@@ -7,6 +7,7 @@ export function In (target, parent) {
     }
     return path.indexOf(parent) !== -1
 }
+
 export function getLeft (element) {
     var actualLeft = element.offsetLeft
     var current = element.offsetParent
@@ -17,6 +18,7 @@ export function getLeft (element) {
     }
     return actualLeft
 }
+
 export function getTop (element) {
     var actualTop = element.offsetTop
     var current = element.offsetParent

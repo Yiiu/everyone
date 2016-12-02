@@ -1,12 +1,12 @@
 <template>
     <transition name="alert-op">
         <div class="y-alert" :class="[Class]" v-if="show">
-            <y-svg :type="svgClass"></y-svg>
+            <y-svg :type="svgClass" width="20"></y-svg>
             <div class="y-alert-c" ref="contents">
-                <div class="y-title" v-text="title"></div>
-                <div class="y-content" v-text="content"></div>
+                <div class="y-title" v-text="title" v-if="title"></div>
+                <div class="y-content" v-text="content" v-if="content"></div>
             </div>
-            <y-svg type="x" @click.native="closeOn" v-if="close && CloseText === ''" class="y-alert-close" width="18"></y-svg>
+            <y-svg type="x" @click.native="closeOn" v-if="close && CloseText === ''" class="y-alert-close" width="14"></y-svg>
             <span class="y-alert-close" v-if="CloseText" @click="closeOn">{{CloseText}}</span>
         </div>
     </transition>

@@ -1,7 +1,7 @@
 <template>
     <li class="y-select-item" 
         @click="clicks" 
-        :class="{active:value == _value, disabled:disabled}" 
+        :class="{active:value == _value, disabled: disabled}" 
         >{{label ? label : value}}</li>
 </template>
 <script>

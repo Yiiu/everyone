@@ -1,88 +1,122 @@
 <template>
-    <ul class="y-pagination">
+    <ul class="y-pagination" :class="{simple:simple}" :title="`${current} / ${total}`">
+        <template v-if="!simple">
+            <li 
+                class="prev page" 
+                :class="{disabled: current === 1}" 
+                @click="onPagerPrev"
+                :title="1"
+            >
+                <y-svg type="v" :width="14"></y-svg>
+            </li>
 
-        <li 
-            class="prev page" 
-            :class="{disabled: current === 1}" 
-            @click="onPagerPrev"
-            :title="1"
-        >
-            <y-svg type="v" :width="14"></y-svg>
-        </li>
+            <li
+                @click="onPagerClick(1)"
+                v-if="pageMin"
+            >1</li>
 
-        <li
-            @click="onPagerClick(1)"
-            v-if="pageMin"
-        >1</li>
+            <li 
+                class="dd page" 
+                @mouseenter="hoverddOn('prev')" 
+                @mouseleave="hoverddClose('prev')" 
+                v-if="pageMin"
+                @click="onPagerClick(current-5)"
+            >
+                <y-svg 
+                    type="more" 
+                    :width="18" 
+                    v-if="!hoverddprev"
+                ></y-svg>
+                <y-svg 
+                    type="vv" 
+                    :width="14" 
+                    v-else class="prev"
+                ></y-svg>
+            </li>
 
-        <li 
-            class="dd page" 
-            @mouseenter="hoverddOn('prev')" 
-            @mouseleave="hoverddClose('prev')" 
-            v-if="pageMin"
-            @click="onPagerClick(current-5)"
-        >
-            <y-svg 
-                type="more" 
-                :width="18" 
-                v-if="!hoverddprev"
-            ></y-svg>
-            <y-svg 
+            <li
+                v-for="i in pageArr" 
+                :class="{active: i === current}" 
+                @click="onPagerClick(i)"
+                :key="i"
+                :title="i"
+            >{{i}}</li>
+
+            <li class="dd page" 
+                @mouseover="hoverddOn('next')" 
+                @mouseout="hoverddClose('next')" 
+                @click="onPagerClick(current+5)"
+                v-if="pageMax"
+            >
+                <y-svg 
+                    type="more" 
+                    :width="18" 
+                    v-if="!hoverddnext"
+                ></y-svg>
+                <y-svg 
                 type="vv" 
-                :width="14" 
-                v-else class="prev"
-            ></y-svg>
-        </li>
+                    :width="14" 
+                    v-else 
+                    class="next"
+                ></y-svg>
+            </li>
 
-        <li
-            v-for="i in pageArr" 
-            :class="{active: i === current}" 
-            @click="onPagerClick(i)"
-            :key="i"
-            :title="i"
-        >{{i}}</li>
+            <li
+                @click="onPagerClick(total)"
+                v-if="pageMax"
+                :title="total"
+            >{{total}}</li>
 
-        <li class="dd page" 
-            @mouseover="hoverddOn('next')" 
-            @mouseout="hoverddClose('next')" 
-            @click="onPagerClick(current+5)"
-            v-if="pageMax"
-        >
-            <y-svg 
-                type="more" 
-                :width="18" 
-                v-if="!hoverddnext"
-            ></y-svg>
-            <y-svg 
-            type="vv" 
-                :width="14" 
-                v-else 
-                class="next"
-            ></y-svg>
-        </li>
-
-        <li
-            @click="onPagerClick(total)"
-            v-if="pageMax"
-            :title="total"
-        >{{total}}</li>
-
-        <li class="next page" 
-            :class="{disabled: current === total}" 
-            @click="onPagerNext"
-        >
-            <y-svg 
-                type="v" 
-                :width="14"
-            ></y-svg>
-            
-        </li>
-        <div class="y-pagination-options">
-            <div class="y-pagination-jumper" v-if="showQuickJumper">
-                Goto
-                <input type="" name="" v-model="pages" @keyup.enter="onJumper">
+            <li class="next page" 
+                :class="{disabled: current === total}" 
+                @click="onPagerNext"
+            >
+                <y-svg 
+                    type="v" 
+                    :width="14"
+                ></y-svg>
+                
+            </li>
+            <div class="y-pagination-options">
+                <div class="y-pagination-jumper" v-if="showQuickJumper">
+                    Goto
+                    <input type="" name="" v-model="pages" @keyup.enter="onJumper">
+                </div>
             </div>
-        </div>
+        </template>
+        <template v-else>
+            <li 
+                class="prev page" 
+                :class="{disabled: current === 1}" 
+                @click="onPagerPrev"
+                :title="1"
+            >
+                <y-svg type="v" :width="14"></y-svg>
+            </li>
+            <div class="y-pagination-options">
+                <div class="y-pagination-jumper">
+                    <input type="" name="" v-model="pages" @keyup.enter="onJumper">
+                </div>
+            </div>
+            <span class="y-pagination-slash">/</span>
+            {{total}}
+            <li
+                @click="onPagerClick(total)"
+                v-if="pageMax"
+                :title="total"
+            >{{total}}</li>
+
+            <li class="next page" 
+                :class="{disabled: current === total}" 
+                @click="onPagerNext"
+            >
+                <y-svg 
+                    type="v" 
+                    :width="14"
+                ></y-svg>
+                
+            </li>
+        </template>
     </ul>
 </template>
 <script>
@@ -95,7 +129,7 @@ export default {
             hoverddnext: false,
             pageCount: 1,
             current: this.defaultCurrent,
-            pages: null
+            pages: this.defaultCurrent
         }
     },
     props: {
@@ -112,6 +146,10 @@ export default {
             default: 5
         },
         showQuickJumper: {
+            type: Boolean,
+            default: false
+        },
+        simple: {
             type: Boolean,
             default: false
         }
@@ -174,6 +212,16 @@ export default {
                 }
             }
             this.$emit('current-change', value)
+            this.pages = this.current
+        },
+        'pages': function (value, oldValue) {
+            const reg = /^-?(0|[1-9][0-9]*)(\.[0-9]*)?$/
+            if ((!isNaN(value) && reg.test(value)) || value === null || value === '') {
+                this.pages = value
+            } else {
+                this.pages = oldValue
+                // this.pages = oldValue
+            }
         }
     },
     computed: {

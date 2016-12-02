@@ -2,7 +2,7 @@
     <transition appear name="y-tag" @before-enter="beforeEnter">
         <span class="y-tag" :class="type ? 'y-tag-' + type : ''" v-if="show">
             <slot></slot>
-            <y-svg type="x" class="close" @click.native="del" :width="14"></y-svg>
+            <y-svg type="x" class="close" @click.native="del" :width="10"></y-svg>
         </span>
     </transition>
 </template>

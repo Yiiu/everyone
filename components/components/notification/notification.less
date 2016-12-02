@@ -1,4 +1,18 @@
-@import "../../style/color";
+@import "~style/color";
+
+.colors (@color) {
+    background: fade(@color, 90%);
+    path {
+        fill: darken(@color, 30%);
+    }
+}
+
+.path (@color) {
+    path {
+        fill: @color
+    }
+}
+
 .notification-box {
     position: fixed;
     right: 20px;
@@ -52,52 +66,38 @@
                 color: #fff !important;
             }
             &.success {
-                path {
-                    fill: @yellow;
-                }
+                .colors(@o-green)
             }
             &.info {
-                background: fade(@blue, 90%);
+                .colors(@o-blue)
             }
             &.warning {
-                background: fade(@yellow, 90%);
+                .colors(@o-yellow)
             }
             &.danger {
-                background: fade(@red, 90%);
+                .colors(@o-red)
             }
         }
         &.success {
-            .notification-info {
-                path {
-                    fill: @o-green;
-                }
-            }
+            .path(@green)
         }
         &.info {
-            .notification-info {
-                path {
-                    fill: @o-blue;
-                }
-            }
+            .path(@blue)
         }
         &.warning {
-            .notification-info {
-                path {
-                    fill: @o-yellow;
-                }
-            }
+            .path(@yellow)
         }
         &.danger {
-            .notification-info {
-                path {
-                    fill: @o-red;
-                }
-            }
+            .path(@red)
         }
     }
 }
+
 .notification-list {
     transition: all .5s cubic-bezier(.55,0,.1,1);
+}
+.notification-enter, .notification-active {
+    will-change: opacity;
 }
 .notification-list-enter, .notification-list-leave-active  {
     transform: translateX(100%);
@@ -107,5 +107,5 @@
   transition: transform 1s;
 }
 .notification-list-leave-active {
-  position: absolute;
+    position: absolute;
 }

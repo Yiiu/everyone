@@ -20,6 +20,7 @@ import Preview from './components/preview'
 import Select from './components/select'
 import Option from './components/option'
 import Pagination from './components/pagination'
+import Input from './components/input'
 
 import Tag from './components/tag'
 
@@ -52,6 +53,7 @@ const install = (Vue) => {
     Vue.component(Tag.name, Tag)
     Vue.component(Svg.name, Svg)
     Vue.component(Pagination.name, Pagination)
+    Vue.component(Input.name, Input)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -77,5 +79,6 @@ module.exports = {
     Select,
     Option,
     Tag,
-    Pagination
+    Pagination,
+    Input
 }

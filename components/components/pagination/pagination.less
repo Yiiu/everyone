@@ -1,6 +1,7 @@
 
 .y-pagination {
     display: flex;
+    align-items: center;
     li {
         cursor: pointer;
         display: inline-block;
@@ -86,6 +87,27 @@
                 font-size: 14px;
                 padding: 4px 6px;
             }
+        }
+    }
+    &.simple {
+        .y-pagination-slash {
+            margin: 0 8px;
+        }
+        .y-pagination-options {
+            margin: 0;
+            .y-pagination-jumper {
+                input {
+                    padding: 5px 8px;
+                    width: 26px;
+                }
+            }
+        }
+        .page {
+            border: none;
+        }
+        .next {
+            margin: 0;
+            margin-left: 8px;
         }
     }
 }

@@ -1,87 +1,113 @@
-pre{
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 4px;
-    font-size: 16px;
-    overflow-x: overlay;
-    overflow-y: hidden;
-    font-family: 'Roboto','Open Sans',"微软雅黑","Helvetica Neue",Helvetica,"PingFang SC","Microsoft Yahei","WenQuanYi Micro Hei",Arial,Verdana,sans-serif !important;
+.hljs {
+    font-family: Consolas, Menlo, Courier, monospace !important;
     * {
-        font-family:'Roboto', 'Open Sans',"微软雅黑","Helvetica Neue",Helvetica,"PingFang SC","Microsoft Yahei","WenQuanYi Micro Hei",Arial,Verdana,sans-serif !important;
+        font-size: 14px !important;
+        line-height: 1.7;
     }
-    code {
-        // 函数
-        .hljs-function{
-            color: #3e999f;
-            // function
-            .hljs-keyword {
-                color: #8959a8;
-            }
-            // 标题
-            .hljs-title {
-                color: #4271ae;
-            }
-            .hljs-params {
-                color: #f5871f;
-            }
+}
+
+.xml {
+    .hljs-tag {
+        .hljs-name {
+            color: #DD4A68
         }
-        // 变量
-        .hljs-keyword {
-            color: #8959a8;
-        }
-        .hljs-regexp{
-            color: #f5871f;
-        }
-        .hljs-built_in{
-            color: #4271ae;
-        }
-        .hljs-number {
-            color: #f5871f;
-        }
-        // 注释
-        .hljs-comment {
-            color: #afafaf;
+        .hljs-attr {
+            color: #690
         }
         .hljs-string {
-            color: #718c00;
+            color: #07a
         }
     }
-    // css less
-    code {
-        // 标签
-        .hljs-selector-tag {
-            color: #df5b66;
-        }
-        // class
-        .hljs-selector-class {
-            color: #8959a8;
-        }
-        // 样式
-        .hljs-attribute {
-            color: #c99e00;
-        }
-        .hljs-variable {
-            color: #8959a8;
-        }
-    }
-    // html
-    code {
-        //html
-        .hljs-meta {
-            color: #df5866;
-        }
-        // 标签
-        .hljs-tag {
-            color: #3e999f;
-            .hljs-name {
-                color: #df5866;
-            }
-            .hljs-attr {
-                color: #8959a8;
-            }
-            .hljs-string {
-                color: #718c00;
-            }
-        }
-    }
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #bc9458;
+    font-style: italic
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+    color: #07a
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+    color: #690
+}
+
+.hljs-subst {
+    color: #519f50
+}
+
+.hljs-tag
+.hljs-name {
+    color: #DD4A68
+}
+
+.hljs-type {
+    color: #da4939
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+    color: #690
+}
+
+.hljs-params {
+    color: #d0d0ff
+}
+
+.hljs-attribute {
+    color: #07a
+}
+
+.hljs-meta {
+    color: #9b859d
+}
+
+.hljs-title,
+.hljs-section {
+    color: #ffc66d
+}
+
+.hljs-addition {
+    background-color: #144212;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%
+}
+
+.hljs-deletion {
+    background-color: #600;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%
+}
+
+.hljs-selector-class {
+    color: #9b703f
+}
+
+.hljs-selector-id {
+    color: #8b98ab
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
+
+.hljs-strong {
+    font-weight: bold
+}
+
+.hljs-link {
+    text-decoration: underline
 }

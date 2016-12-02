@@ -10,7 +10,7 @@
             height: 24px;
             line-height: 24px;
             top: 50%;
-            margin-top: -12px;
+            margin-top: -11px;
             right: 0;
             position: absolute;
             svg {
@@ -41,10 +41,11 @@
         }
     }
     .y-select-input {
+        transition: .3s all;
         cursor: pointer;
         width: 100%;
         outline: none;
-        border: 1px solid #ccc;
+        border: 1px solid #d9d9d9;
         padding: 6px 28px 6px 6px;
         border-radius: 4px;
         font-size: 14px;
@@ -53,11 +54,14 @@
             color: #ccc;
             user-select: none;
         }
+        &:hover {
+            border-color: #40a5ed;
+        }
     }
 }
 .y-select-dropdown {
     position: absolute;
-    border: 1px solid #ccc;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     overflow: hidden;
     background: #fff;
@@ -70,6 +74,7 @@
         cursor: pointer;
         &.active {
             background: #f9f9f9 !important;
+            font-weight: 700;
         }
         &:hover {
             background: #e4f8ff;
@@ -86,9 +91,9 @@
 .y-select-enter-active, .y-select-leave-active {
     transform-origin:0% 0%;
     will-change: opacity;
-    transition: transform .2s  cubic-bezier(.645,.045,.355,1), opacity .2s  cubic-bezier(.645,.045,.355,1);
+    transition: transform .2s  cubic-bezier(0.755, 0.05, 0.855, 0.06), opacity .2s  cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
 .y-select-enter, .y-select-leave-active {
     opacity: 0;
-    transform: scale3d(1,.8,1) !important;
+    transform: scale3d(1,.5,1) !important;
 }

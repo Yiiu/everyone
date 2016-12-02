@@ -4,7 +4,7 @@ var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var path = require('path')
 var pkg = require(path.join(__dirname, '../package.json'))
 
-var config = require('./webpack.com.base.conf')          // 默认的打包设置
+var config = require('./webpack.base.conf')          // 默认的打包设置
 
 var SOURCE_MAP = false
 

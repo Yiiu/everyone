@@ -1,7 +1,7 @@
 <template>
     <button class="y-btn" :class="style">
         <transition name="opacity">
-            <y-svg v-if="loading" :width="18" color="#fff" type="loading"></y-svg>
+            <y-svg v-if="loading" :width="14" color="#fff" type="loading"></y-svg>
         </transition>
         <slot></slot>
     </button>

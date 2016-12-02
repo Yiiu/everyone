@@ -11,8 +11,8 @@
             </div>
         </div>
         <transition name="code">
-            <div class="coding-code" ref="code" v-show="codeShow">
-                <pre><code>{{code}}</code></pre>
+            <div class="coding-code" v-show="codeShow">
+                <pre><code :class="lang" ref="code">{{code}}</code></pre>
             </div>
         </transition>
   </div>
@@ -29,7 +29,8 @@ export default {
     props: {
         code: String,
         title: String,
-        content: String
+        content: String,
+        lang: String
     },
     mounted () {
         this.$nextTick(() => {
@@ -99,6 +100,7 @@ export default {
         border-top: 1px dashed #e9e9e9;
         pre {
             background: #fff;
+            margin: 0;
         }
     }
     &:hover {

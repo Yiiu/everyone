@@ -1,4 +1,6 @@
-@import "../../style/color";
+@import "~style/color";
+
+
 .y-alert {
     position: relative;
     padding: 8px 8px 8px 16px;
@@ -16,9 +18,13 @@
     >.y-alert-c {
         padding-right: 40px;
         .y-title {
-            font-size: 18px;
+            color: #404040;
+            margin-bottom: 4px;
+            font-size: 14px;
             font-weight: 700;
-            padding: 6px 0;
+        }
+        .y-content {
+            font-size: 14px;
         }
         span {
             color: @gray;
@@ -29,59 +35,35 @@
         top: 50%;
         right: 0;
         margin-right: 12px;
-        margin-top: -9px;
+        margin-top: -7px;
         font-size: 14px;
         line-height: 20px;
         cursor: pointer;
     }
 }
 .y-alert-info {
-    .alert-color(lighten(@blue, 35%));
-    svg {
-        path {
-            fill: @blue;
-        }
-    }
-    .y-alert-close {
-        color: @blue;
-    }
+    .alert-color(lighten(@o-blue, 34%), @o-blue)
 }
 .y-alert-success {
-    .alert-color(lighten(@green, 28%));
-    svg {
-        path {
-            fill: @green;
-        }
-    }
-    .y-alert-close {
-        color: @green;
-    }
+    .alert-color(lighten(@o-green, 34%), @o-green)
 }
 .y-alert-warning {
-    .alert-color(lighten(@yellow, 25%));
-    svg {
-        path {
-            fill: @yellow;
-        }
-    }
-    .y-alert-close {
-        color: @yellow;
-    }
+    .alert-color(lighten(@o-yellow, 30%), @o-yellow)
 }
 .y-alert-danger {
-    .alert-color(lighten(@o-red, 40%));
+    .alert-color(lighten(@o-red, 47%), @o-red)
+}
+.alert-color(@color, @colors){
+    background: @color;
+    border: 1px darken(@color, 10%) solid;
     svg {
         path {
-            fill: @o-red;
+            fill: @colors;
         }
     }
     .y-alert-close {
-        color: @o-red;
+        color: @colors;
     }
-}
-.alert-color(@color){
-    background: @color;
-    border: 1px darken(@color, 10%) solid;
 }
 /* 必需 */
 .alert-op-enter-active, .alert-op-leave-active {

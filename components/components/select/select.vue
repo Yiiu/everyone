@@ -15,13 +15,13 @@
                 :disabled="!disabled ? null : 'disabled'"
             >
             <div class="ion-chevron-down ion dr">
-                <y-svg type="v" :class="{active:show}" v-show="clearable ? !hover : true" @click.native.stop="clicks" :width="16"></y-svg>
-                <y-svg type="x" @click.native="delVaule" :class="{active:show}" v-show="hover && clearable" :width="16"></y-svg>
+                <y-svg type="v" :class="{active:show}" v-show="clearable ? !hover : true" @click.native.stop="clicks" :width="12"></y-svg>
+                <y-svg type="x" @click.native="delVaule" :class="{active:show}" v-show="hover && clearable" :width="12"></y-svg>
             </div>
         </div>
         <transition name="y-select">
             <ul class="y-select-dropdown" v-show="show" ref="dropdown">
-                <slot v-on:asdfs="asdf"></slot>
+                <slot></slot>
             </ul>
         </transition>
     </div>

@@ -5,6 +5,7 @@
         :code="init"
         title="简单的radio"
         content="跟原生的radio一样，只需要在组件上绑定v-model。"
+        lang="html"
     >
         <y-radio label="你是智障" v-model="test">你是智障</y-radio>
         <y-radio label="你不是智障" v-model="test">你不是智障</y-radio>
@@ -14,6 +15,7 @@
         :code="disabled"
         title="禁用，默认"
         content="可以使用checked来指定默认选项，使用disabled来禁用radio"
+        lang="html"
     >
         <y-radio label="1" v-model="test1" checked disabled>disabled</y-radio>
         <y-radio label="2" v-model="test1" disabled>disabled</y-radio>
@@ -22,6 +24,7 @@
         :code="group"
         title="group"
         content="使用group"
+        lang="html"
     >
         <y-radio-group v-model="test2">
             <y-radio label="1" >1</y-radio>
@@ -34,6 +37,7 @@
         :code="btn"
         title="单选按钮"
         content="单选按钮，跟radio一样，也可以禁用，设置默认。"
+        lang="html"
     >
         <y-radio-group v-model="test3">
             <y-radio-button label="1" checked>disabled</y-radio-button>

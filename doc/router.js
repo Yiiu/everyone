@@ -24,6 +24,7 @@ const select = resolve => require(['./md/select.md'], resolve)
 const tag = resolve => require(['./md/tag.md'], resolve)
 const svg = resolve => require(['./md/svg.md'], resolve)
 const pagination = resolve => require(['./md/pagination.md'], resolve)
+const input = resolve => require(['./md/input.md'], resolve)
 
 Vue.use(Router)
 
@@ -117,6 +118,10 @@ let router = new Router({
         {
             path: '/pagination',
             component: pagination
+        },
+        {
+            path: '/input',
+            component: input
         }
     ]
 })

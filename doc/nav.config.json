@@ -3,6 +3,10 @@
         {
             "name": "首页",
             "path": "/"
+        },
+        {
+            "name": "GITHUB",
+            "path": "https://github.com/Yiiu/everyone"
         }
     ],
     "leftnav":[
@@ -36,6 +40,11 @@
                 {
                     "title": "Form Controls",
                     "components": [
+                        {
+                            "name": "Input",
+                            "cn": "输入框",
+                            "path": "/input"
+                        },
                         {
                             "name": "Checkbox",
                             "cn": "多选框",

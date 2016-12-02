@@ -5,6 +5,7 @@
         :code="type"
         title="三种样式"
         content="button有三种样式:primary,ghost,dashed"
+        lang="html"
     >
         <y-button type="primary">一个按钮</y-button>
         <y-button type="ghost">一个按钮</y-button>
@@ -14,6 +15,7 @@
         :code="state"
         title="两种状态"
         content="可以添加disabled和loading选择按钮状态"
+        lang="html"
     >
         <y-button type="primary" disabled>一个按钮</y-button>
         <y-button type="primary" loading>一个按钮</y-button>
@@ -22,6 +24,7 @@
         :code="on"
         title="原生事件"
         content="可以给按钮添加原生事件。"
+        lang="html"
     >
         <y-button type="ghost" @click.native="test">一个按钮</y-button>
     </coding>
@@ -29,6 +32,7 @@
         :code="color"
         title="颜色"
         content="有四种颜色可选，默认蓝色。"
+        lang="html"
     >
         <y-button type="primary">一个按钮</y-button>
         <y-button type="ghost">一个按钮</y-button>
