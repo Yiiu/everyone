@@ -1,2 +1,0 @@
-webpackJsonp([19,23],{383:function(t,e,n){var o,r,s=n(414);r=o=o||{},"object"!=typeof o.default&&"function"!=typeof o.default||(r=o=o.default),"function"==typeof r&&(r=r.options),r.render=s.render,r.staticRenderFns=s.staticRenderFns,t.exports=o},414:function(t,e){t.exports={render:function(){var t=this;return t._h("section",[t._h("h1",["Input 输入框"])," ",[t._h("y-input",{attrs:{placeholder:"asdf"}})]])},staticRenderFns:[]}},455:function(t,e,n){t.exports=n(383)}});
-//# sourceMappingURL=19.e4e9b5141eec7f8f14b4.js.map
