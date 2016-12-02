@@ -4,10 +4,6 @@
             "name": "首页",
             "path": "/"
         },
-        {
-            "name": "GITHUB",
-            "path": "https://github.com/Yiiu/everyone"
-        }
     ],
     "leftnav":[
         {

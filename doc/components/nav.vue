@@ -3,6 +3,7 @@
         <div class="box">
             <ul>
                 <li v-for="i in data"><router-link :to="i.path">{{i.name}}</router-link></li>
+                <li v-for="i in data"><a href="https://github.com/Yiiu/everyone">github</a></li>
             </ul>
         </div>
     </nav>
