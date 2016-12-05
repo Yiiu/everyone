@@ -1,5 +1,5 @@
 <template>
-    <div class="notification" :class="[type, {'notification-bg':!icon}]">
+    <div class="notification" :class="[type, icon?'lg':'sm']">
         <y-svg :type="svgClass" v-if="icon" :width="38" class="notification-info"></y-svg>
         <div class="notification-c">
             <h2 slot="title">{{title}}</h2>

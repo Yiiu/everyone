@@ -54,6 +54,7 @@ const install = (Vue) => {
     Vue.component(Svg.name, Svg)
     Vue.component(Pagination.name, Pagination)
     Vue.component(Input.name, Input)
+    Vue.component(Modal.modal.name, Modal.modal)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

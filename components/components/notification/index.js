@@ -5,6 +5,23 @@ const install = (Vue) => {
 
     let instance
 
+    function info (options, type) {
+        if (typeof options === 'string') {
+            let title = options
+            options = {}
+            options.content = title
+            options.type = type
+        } else {
+            options.type = type
+        }
+
+        if (!options.time) {
+            options.time = 0
+        }
+
+        Notification(options)
+    }
+
     var Notification = (options) => {
         options = options || {}
 
@@ -14,7 +31,7 @@ const install = (Vue) => {
             options.content = title
         }
 
-        if (!options.time) {
+        if (options.time === null) {
             options.time = 1000
         }
 
@@ -32,69 +49,18 @@ const install = (Vue) => {
             instance.data.push(options)
         }
     }
+
     Notification.success = (options) => {
-        if (typeof options === 'string') {
-            let title = options
-            options = {}
-            options.content = title
-            options.type = 'success'
-        } else {
-            options.type = 'success'
-        }
-
-        if (!options.time) {
-            options.time = 1000
-        }
-
-        Notification(options)
+        info(options, 'success')
     }
     Notification.info = (options) => {
-        if (typeof options === 'string') {
-            let title = options
-            options = {}
-            options.content = title
-            options.type = 'info'
-        } else {
-            options.type = 'info'
-        }
-
-        if (!options.time) {
-            options.time = 1000
-        }
-
-        Notification(options)
+        info(options, 'info')
     }
     Notification.warning = (options) => {
-        if (typeof options === 'string') {
-            let title = options
-            options = {}
-            options.content = title
-            options.type = 'warning'
-        } else {
-            options.type = 'warning'
-        }
-
-        if (!options.time) {
-            options.time = 1000
-        }
-
-        Notification(options)
+        info(options, 'warning')
     }
     Notification.danger = (options) => {
-        if (typeof options === 'string') {
-            let title = options
-            options = {}
-            options.content = title
-            options.type = 'danger'
-        } else {
-            options.type = 'danger'
-        }
-
-        if (!options.time) {
-            options.time = 1000
-        }
-
-        Notification(options)
+        info(options, 'danger')
     }
 
     Vue.prototype.$notify = Notification

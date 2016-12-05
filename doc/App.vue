@@ -114,7 +114,9 @@ body {
     }
     table{
         font-size: 16px;
-        border:1px solid #e9e9e9
+        border:1px solid #e9e9e9;
+        width: 100%;
+        overflow: auto;
     }
     table thead{
         background:#f7f7f7
@@ -131,7 +133,8 @@ body {
     }
     table tbody tr td{
         padding:12px 18px;
-        border-left:1px solid #e9e9e9
+        border-left:1px solid #e9e9e9;
+        min-width: 120px;
     }
     img {
         width: 106%;
@@ -167,7 +170,7 @@ body {
         padding: 0;
         font-size: inherit;
         color: inherit;
-        white-space: pre-wrap;
+        white-space: pre;
         background-color: transparent;
         border-radius: 0;
     }

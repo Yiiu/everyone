@@ -6,7 +6,7 @@
         title="简单tooltips"
         content="最简单的tooltips，只有一个content，也可以使用v-tool指令来使用，可以让代码更加清晰"
     >
-        <y-tooltips content="我是一个tooltips">
+        <y-tooltips content="我是一个tooltips" class-name="test">
             <y-button slot="html">最简单的tooltips</y-button>
         </y-tooltips>
         <y-tooltips content="我是一个tooltips" ref="tests">

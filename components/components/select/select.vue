@@ -1,5 +1,5 @@
 <template>
-    <div class="y-select">
+    <div class="y-select" :class="{disabled: disabled}">
         <div class="y-select-i" 
             @mouseenter="hover = true"
             @mouseleave="hover = false"

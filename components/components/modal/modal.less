@@ -1,34 +1,78 @@
 @import "../../style/color";
-.modal-box {
+.y-modal-box {
     background: rgba(255,255,255,.8);
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 991;
     transition: all .3s ease;
+    text-align: center;
+    .y-modal {
+        text-align: left;
+        transition: all .3s ease;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &.y-modal-align-center {
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            width: 0;
+        }
+        .y-modal-content {
+            top: 0 !important;
+        }
+    }
+    &.confirm {
+        .y-modal-content {
+            padding: 24px 42px;
+            .m-body {
+                padding-left: 40px;
+            }
+        }
+    }
 }
-.modal-content {
+.y-modal-content {
+    position: relative;
+    top: 0;
+    margin: 0 auto;
     transition: all .3s ease;
-    padding: 0px 22px;
+    padding: 22px;
     width: 400px;
     border: 1px #ebebeb solid;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 0 40px -5px #ccc;
     box-sizing: border-box;
+    display: inline-block;
+    @media (max-width: 768px) {
+        & {
+            width: 100%;
+            margin: 0 12px;
+        }
+    }
     .m-header {
-        margin-top: 14px;
         h1,h2,h3,h4,h5 {
-            display: inline-block;
-            font-size: 22px;
+            vertical-align: middle;
+            display: flex;
+            height: 22px;
+            align-items: center;
+            font-size: 18px;
             font-weight: 700;
             color: #566270;
             margin: 0;
+            svg {
+                margin-right: 12px;
+            }
+            path {
+                fill: #fa0;
+            }
         }
         .notes {
             font-size: 12px;
@@ -38,13 +82,14 @@
     .m-body {
         margin-top: 16px;
         margin-bottom: 26px;
+        font-size: 16px;
         *{
             color: #898989;
         }
     }
     .m-footer {
-        float: right;
-        margin-bottom: 18px;
+        display: block;
+        text-align: right;
         .y-btn {
             margin-left: 12px;
         }
@@ -52,22 +97,13 @@
 }
 .mdc-enter{
     opacity: 0;
-    .modal-content {
+    .y-modal {
         transform: scale(1.2);
     }
 }
 .mdc-leave-active  {
     opacity: 0;
-    .modal-content {
+    .y-modal {
         transform: scale(.8);
     }
-}
-
-
-
-.mask-transition {
-  transition: all .3s ease;
-}
-.mask-enter, .mask-leave {
-    opacity: 0;
 }

@@ -7,7 +7,18 @@
         :code="code1"
         title="基本"
         content="不带回调"
-    >
+    >   
+        <y-modal v-model="testa" center @on-ok="test1">
+            <template slot="title">asdfasdf</template>
+            <template slot="center">asdfadf</template>
+        </y-modal>
+        <y-button type="primary" @click.native="testa = true">一个基本的弹出框</y-button>
+    </coding>
+    <coding
+        :code="code1"
+        title="基本"
+        content="不带回调"
+    >   
         <y-button type="primary" @click.native="test1">一个基本的弹出框</y-button>
     </coding>
     <coding
@@ -72,14 +83,19 @@ export default {
 .then(()=>{
     this.$notify("我偏不！")
 })
-`
+`,
+            testa: false
         }
     },
     methods:{
         test1(){
-            this.$modal({
-                "title":"我是一个弹出框",
-                "content":"hello world!",
+            this.$confirm({
+                title: "我是一个弹出框",
+                content: "hello world!",
+                top: 123,
+                onOk: () => {
+                    console.log(1)
+                }
             })
         },
         test2(){
@@ -112,7 +128,6 @@ export default {
                 this.$notify("我偏不！")
             })
         }
-
     }
 }
 </script>

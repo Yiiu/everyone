@@ -5,7 +5,7 @@
             <transition :name="`tooltips-${classs[1] ? classs[0]+classs[1]:classs[0]}`">
                 <div class="y-tooltips"
                     ref="tool"
-                    :class="classNames"
+                    :class="[classNames, className]"
                     v-show="show"
                 >
                     <div class="y-tooltips-delta" v-if="!delta"></div>
@@ -48,9 +48,8 @@ export default {
             type: Number,
             default: 5
         },
-        delta: {
-            type: Boolean
-        }
+        delta: Boolean,
+        className: {}
     },
     data () {
         return {

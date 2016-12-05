@@ -12,7 +12,9 @@
         </div>
         <transition name="code">
             <div class="coding-code" v-show="codeShow">
-                <pre><code :class="lang" ref="code">{{code}}</code></pre>
+                <div>
+                    <pre><code :class="lang" ref="code">{{code}}</code></pre>
+                </div>
             </div>
         </transition>
   </div>
@@ -101,6 +103,8 @@ export default {
         pre {
             background: #fff;
             margin: 0;
+            overflow: auto;
+            line-height: 1.5;
         }
     }
     &:hover {

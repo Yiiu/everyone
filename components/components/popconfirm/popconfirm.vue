@@ -99,11 +99,7 @@ export default {
     },
     watch: {
         'show': function (value) {
-            if (value) {
-                this.$emit('input', value)
-            } else {
-                this.$emit('input', value)
-            }
+            this.$emit('input', value)
         },
         // value更新
         'value': function (value) {

@@ -11,6 +11,9 @@
     path {
         fill: @color
     }
+    &.lg:before {
+        background: @color;
+    }
 }
 
 .notification-box {
@@ -55,7 +58,7 @@
             font-size: 52px;
             margin-left: 12px;
         }
-        &.notification-bg{
+        &.sm{
             padding: 4px;
             border: none;
             .notification-del {
@@ -89,6 +92,18 @@
         }
         &.danger {
             .path(@red)
+        }
+        &.lg:before {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 3px;
+            background: #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
         }
     }
 }
