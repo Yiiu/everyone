@@ -1,6 +1,6 @@
 {
   "name": "everyone",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A beautiful Vue.js UI",
   "main": "./dist/everyone.js",
   "keywords": [

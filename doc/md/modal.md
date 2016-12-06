@@ -6,41 +6,46 @@
     <coding
         :code="code1"
         title="基本"
-        content="不带回调"
-    >   
-        <y-modal v-model="testa" center @on-ok="test1">
+        content="基本的modal，使用v-model控制状态。"
+    >
+        <y-modal v-model="testa" center @on-ok="$notify('你点击的确认')">
             <template slot="title">asdfasdf</template>
             <template slot="center">asdfadf</template>
         </y-modal>
         <y-button type="primary" @click.native="testa = true">一个基本的弹出框</y-button>
     </coding>
     <coding
-        :code="code1"
-        title="基本"
-        content="不带回调"
+        :code="code2"
+        title="$confirm"
+        content="不带回调。"
     >   
         <y-button type="primary" @click.native="test1">一个基本的弹出框</y-button>
     </coding>
     <coding
-        :code="code2"
-        title="带回调"
-        content="$modal返回的是一个promises，可以用then,catch来设置回调"
+        :code="code3"
+        title="信息提示"
+        content="假如你只需要提示客户信息，那么这样会很好。"
     >
-        <y-button type="primary" @click.native="test2">带有回调的弹出框</y-button>
+        <y-button type="primary" @click.native="alert('info')">一条信息</y-button>
+        <y-button type="primary" @click.native="alert('success')">一条信息</y-button>
+        <y-button type="primary" @click.native="alert('error')">一条信息</y-button>
+        <y-button type="primary" @click.native="alert('warning')">一条信息</y-button>
     </coding>
     <coding
         :code="code3"
-        title="按钮"
-        content="设置按钮文本和是否显示"
+        title="自定义位置"
+        content="自定义modal的位置。"
     >
-        <y-button type="primary" @click.native="test3">我的确认取消跟别人的不一样</y-button>
-    </coding>
-    <coding
-        :code="code4"
-        title="提示"
-        content="假如你只需要提示客户信息，那么这样会很好"
-    >
-        <y-button type="primary" @click.native="test4">一条信息</y-button>
+        <y-modal v-model="testb" center>
+            <template slot="title">asdfasdf</template>
+            <template slot="center">asdfadf</template>
+        </y-modal>
+        <y-modal v-model="testc" :top="100">
+            <template slot="title">asdfasdf</template>
+            <template slot="center">asdfadf</template>
+        </y-modal>
+        <y-button type="primary" @click.native="testb = true">center</y-button>
+        <y-button type="primary" @click.native="testc = true">top：100</y-button>
     </coding>
 </template>
 
@@ -49,42 +54,56 @@ export default {
     data(){
         return {
             code1:
-`this.$modal({
-    "title":"我是一个弹出框",
-    "content":"hello world!",
-})
+`<y-modal v-model="testa" center @on-ok="$notify('你点击的确认')">
+    <template slot="title">asdfasdf</template>
+    <template slot="center">asdfadf</template>
+</y-modal>
+<y-button type="primary" @click.native="testa = true">一个基本的弹出框</y-button>
 `,
             code2:
-`this.$modal({
-    "title":"我是一个弹出框",
-    "content":"我是一个带有回调函数的弹出框",
-}).then((value)=>{
-    this.$notify("我是确认的回调函数")
-}).catch((value)=>{
-    this.$notify("我是取消的回调函数")
-})
-`,
-            code3:
-`this.$modal({
-    "title":"我是一个弹出框",
-    "content":"我是一个带有回调函数的弹出框",
-    "okBtn":{
-        "show": true,
-        "text": "yes"
+`<y-button type="primary" @click.native="test1">一个基本的弹出框</y-button>
+
+this.$confirm({
+    title: "我是一个弹出框",
+    content: "hello world!",
+    top: 123,
+    onOk: () => {
+        this.$notify("你点击的确认")
     },
-    "backBtn": {
-        "show": true,
-        "text": "no"
+    onCancel: () => {
+        this.$notify("你点击的取消")
     }
 })
 `,
-            code4:
-`this.$modal("不要在上班的时候直播！")
-.then(()=>{
-    this.$notify("我偏不！")
-})
+            code3:
+`<y-button type="primary" @click.native="alert('info')">一条信息</y-button>
+<y-button type="primary" @click.native="alert('success')">一条信息</y-button>
+<y-button type="primary" @click.native="alert('error')">一条信息</y-button>
+<y-button type="primary" @click.native="alert('warning')">一条信息</y-button>
+
+alert(type){
+    this.$modal[type]({
+        "title":"我是一个弹出框",
+        "content":"我是一个带有回调函数的弹出框",
+        center: true
+    })
+}
 `,
-            testa: false
+            code3:
+`<y-modal v-model="testb" center>
+    <template slot="title">asdfasdf</template>
+    <template slot="center">asdfadf</template>
+</y-modal>
+<y-modal v-model="testc" :top="100">
+    <template slot="title">asdfasdf</template>
+    <template slot="center">asdfadf</template>
+</y-modal>
+<y-button type="primary" @click.native="testb = true">center</y-button>
+<y-button type="primary" @click.native="testc = true">top：100</y-button>
+`,
+            testa: false,
+            testb: false,
+            testc: false
         }
     },
     methods:{
@@ -94,53 +113,47 @@ export default {
                 content: "hello world!",
                 top: 123,
                 onOk: () => {
-                    console.log(1)
-                }
-            })
-        },
-        test2(){
-            this.$modal({
-                "title":"我是一个弹出框",
-                "content":"我是一个带有回调函数的弹出框",
-            }).then((value)=>{
-                this.$notify("我是确认的回调函数")
-            }).catch((value)=>{
-                this.$notify.warning("我是取消的回调函数")
-            })
-        },
-        test3(){
-            this.$modal({
-                "title":"我是一个弹出框",
-                "content":"我是一个带有回调函数的弹出框",
-                "okBtn":{
-                    "show": true,
-                    "text": "yes"
+                    this.$notify("你点击的确认")
                 },
-                "backBtn": {
-                    "show": true,
-                    "text": "no"
+                onCancel: () => {
+                    this.$notify("你点击的取消")
                 }
             })
         },
-        test4(){
-            this.$modal("不要在上班的时候直播！")
-            .then(()=>{
-                this.$notify("我偏不！")
+        alert(type){
+            this.$modal[type]({
+                "title":"我是一个弹出框",
+                "content":"我是一个带有回调函数的弹出框",
+                center: true
             })
-        }
+        },
     }
 }
 </script>
 
 ## 参数设置
 
+|    属性    |               说明              |    类型    | 默认值  | 可选值 |
+| ---------- | ------------------------------- | ---------- | ------- | ------ |
+| title      | 标题                            | `String`   | -       | -      |
+| content    | 内容                            | `String`   | -       | -      |
+| center     | 居中显示modal                   | `Boolean`  | `false` | -      |
+| top        | modal距离浏览器顶部             | `Number`   | `40`    | -      |
+| okText     | 确认按钮文本                    | `String`   | `确认`  | -      |
+| cancelText | 取消按钮文本                    | `String`   | `取消`  | -      |
+| onOk       | 确认按钮回调事件（同@on-ok）    | `Function` | -       | -      |
+| onCancel   | 取消按钮回调事件（同@on-cancel) | `Function` | -       | -      |
 
-|   属性  |         说明         |    类型    |          默认值           | 可选值 |
-| ------- | -------------------- | ---------- | ------------------------- | ------ |
-| title   | 标题                 | `String`   | -                         | -      |
-| content | 内容                 | `String`   | -                         | -      |
-| vis     | 按钮事件是否默认关闭 | `Boolean`  | `true`                    | -      |
-| okBtn   | 右边按钮选项         | `Object`   | `{show:true,text:"确认"}` | -      |
-| backBtn | 左边按钮选项         | `Object`   | `{show:true,text:"取消"}` | -      |
-| .then   | 右边按钮回调事件     | `Function` | -                         | -      |
-| .catch  | 右边按钮回调时间     | `Function` | -                         | -      |
+## Events
+
+|  事件名称 |       说明       | 回调参数 |
+| --------- | ---------------- | -------- |
+| on-ok     | 确认按钮回调事件 | -        |
+| on-cancel | 取消按钮回调事件 | -        |
+
+## slot
+
+| slot名称 | 说明 |
+| -------- | ---- |
+| title    | 标题 |
+| center   | 内容 |

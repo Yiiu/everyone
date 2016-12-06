@@ -5,37 +5,36 @@ const install = (Vue) => {
 
     let ModalCtr = Vue.extend(modal)
 
-    var Modal = (options) => {
-        if (typeof options === 'string') {
-            let content = options
-            options = {}
+    function type (options, types) {
+        instance = new ModalCtr()
 
-            options.content = content
+        options.type = 'alert'
+        options.icon = types
 
-            options.backBtn = {
-                'show': false
-            }
+        for (let i in options) {
+            instance[i] = options[i]
         }
-
-        instance = new ModalCtr({
-            data: options
-        })
 
         instance.vm = instance.$mount()
 
         document.body.appendChild(instance.vm.$el)
 
         instance.show = true
+    }
 
-        return new Promise(function (resolve, reject) {
-            instance.callback = function (value, is) {
-                if (value === 'resolve') {
-                    resolve(is)
-                } else {
-                    reject(is)
-                }
-            }
-        })
+    let Modal = {
+        info (options) {
+            type(options, 'info')
+        },
+        success (options) {
+            type(options, 'checkmark')
+        },
+        error (options) {
+            type(options, 'close')
+        },
+        warning (options) {
+            type(options, 'help')
+        }
     }
     let confirm = (options) => {
         options.type = 'confirm'

@@ -14,8 +14,6 @@ import Modal from './components/modal'
 import Tooltips from './components/tooltips'
 import Popover from './components/popover'
 import Popconfirm from './components/popconfirm'
-import Dialog from './components/dialog'
-import Editor from './components/editor'
 import Preview from './components/preview'
 import Select from './components/select'
 import Option from './components/option'
@@ -46,8 +44,6 @@ const install = (Vue) => {
     Vue.component(Tooltips.name, Tooltips)
     Vue.component(Popover.name, Popover)
     Vue.component(Popconfirm.name, Popconfirm)
-    Vue.component(Editor.name, Editor)
-    Vue.component(Dialog.name, Dialog)
     Vue.component(Select.name, Select)
     Vue.component(Option.name, Option)
     Vue.component(Tag.name, Tag)
@@ -81,5 +77,6 @@ module.exports = {
     Option,
     Tag,
     Pagination,
-    Input
+    Input,
+    Svg
 }

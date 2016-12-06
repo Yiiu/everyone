@@ -3,15 +3,13 @@
         <div class="y-modal-box" 
             v-if="show" 
             @click.self="del" 
-            :class="[{'y-modal-align-center': center}, type]"
+            :class="[{'y-modal-align-center': center}, `y-modal-${type}`]"
         >   
-            <div class="y-modal">
-                <div class="y-modal-content"
-                    :style="{top: `${top}px`}"
-                >   
+            <div class="y-modal" :style="{top: `${top}px`}">
+                <div class="y-modal-content">   
                     <div class="m-header">
                         <h2>
-                            <y-svg type="help" v-if="type === 'confirm'"></y-svg>
+                            <y-svg :type="icon" v-if="type === 'confirm' || type === 'alert'" :width="26" :class="`y-modal-${icon}`"></y-svg>
                             <template v-if="!$slots.title">{{title}}</template>
                             <slot name="title"></slot>
                         </h2>
@@ -25,6 +23,7 @@
                             type="ghost"
                             @click.native="next('reject')"
                             v-text="cancelText"
+                            v-if="type !== 'alert'"
                         ></y-button>
                         <y-button
                             type="primary"
@@ -43,12 +42,18 @@ export default {
     data () {
         return {
             show: false,
-            global: false
+            global: false,
+            client: [],
+            scroll: null
         }
     },
     props: {
         value: Boolean,
         type: String,
+        icon: {
+            type: String,
+            default: 'info'
+        },
         title: String,
         content: String,
         center: {
@@ -71,7 +76,6 @@ export default {
         onCancel: Function
     },
     mounted () {
-        console.log(this)
         this.$nextTick(function () {
             document.body.appendChild(this.$el)
         })
@@ -87,13 +91,26 @@ export default {
             }
         },
         del () {
-            if (this.type !== 'confirm') {
+            if (this.type === null) {
                 this.show = false
             }
         }
     },
     watch: {
         show: function (value) {
+            if (value) {
+                this.scroll = document.body.scrollTop
+                document.body.style.zoom = 1
+                document.body.style.position = 'fixed'
+                document.body.style.width = '100%'
+                document.body.style.top = -this.scroll + 'px'
+            } else {
+                document.body.style.zoom = null
+                document.body.style.position = null
+                document.body.style.width = null
+                document.body.style.top = null
+                document.body.scrollTop = this.scroll
+            }
             if (this.global) {
                 if (!value) {
                     this.$el.addEventListener('transitionend', () => {
