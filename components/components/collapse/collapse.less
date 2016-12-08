@@ -1,0 +1,46 @@
+.y-collapse {
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    overflow: hidden;
+    .y-collapse-item {
+        border-top: 1px solid #d9d9d9;
+        svg.arrow {
+            transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+        }
+        &.y-collapse-open {
+            svg.arrow {
+                transform: rotate(0deg);
+            }
+        }
+        &.y-collapse-close {
+            svg.arrow {
+                transform: rotate(-90deg);
+            }
+        }
+        &:first-child {
+            border-top: 0;
+        }
+        .y-collapse-header {
+            padding: 0 16px;
+            height: 38px;
+            line-height: 38px;
+            vertical-align: middle;
+            cursor: pointer;
+            svg {
+                margin-right: 12px;
+            }
+        }
+        .y-collapse-content {
+            padding: 0 16px;
+            background: #fff;
+            overflow: hidden;
+            .y-collapse-content-box {
+                padding: 16px 0;
+            }
+            &-enter-active, &-leave-active {
+                transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+            }
+        }
+    }
+}

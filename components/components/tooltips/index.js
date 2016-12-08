@@ -2,7 +2,7 @@ import tooltips from './tooltips'
 import directive from './directive'
 
 tooltips.install = (Vue) => {
-    Vue.directive('tool', directive)
+    Vue.directive('pop', directive)
 }
 tooltips.directive = directive
 

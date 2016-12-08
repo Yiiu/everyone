@@ -19,6 +19,8 @@ import Select from './components/select'
 import Option from './components/option'
 import Pagination from './components/pagination'
 import Input from './components/input'
+import Collapse from './components/collapse'
+import Panel from './components/panel'
 
 import Tag from './components/tag'
 
@@ -50,6 +52,8 @@ const install = (Vue) => {
     Vue.component(Svg.name, Svg)
     Vue.component(Pagination.name, Pagination)
     Vue.component(Input.name, Input)
+    Vue.component(Collapse.name, Collapse)
+    Vue.component(Panel.name, Panel)
     Vue.component(Modal.modal.name, Modal.modal)
 }
 

@@ -3,7 +3,7 @@
         <div class="y-modal-box" 
             v-if="show" 
             @click.self="del" 
-            :class="[{'y-modal-align-center': center}, `y-modal-${type}`]"
+            :class="[{'y-modal-align-center': center}, type ? `y-modal-${type}` : '']"
         >   
             <div class="y-modal" :style="{top: `${top}px`}">
                 <div class="y-modal-content">   
@@ -91,7 +91,7 @@ export default {
             }
         },
         del () {
-            if (this.type === null) {
+            if (!this.type) {
                 this.show = false
             }
         }

@@ -110,6 +110,11 @@
                             "name": "Pagination",
                             "cn": "分页",
                             "path": "/pagination"
+                        },
+                        {
+                            "name": "Collapse",
+                            "cn": "折叠面板",
+                            "path": "/collapse"
                         }
                     ]
                 },

@@ -17,7 +17,6 @@ const tooltips = resolve => require(['./md/tooltips.md'], resolve)
 const popover = resolve => require(['./md/popover.md'], resolve)
 const popconfirm = resolve => require(['./md/popconfirm.md'], resolve)
 const dropdown = resolve => require(['./md/dropdown.md'], resolve)
-const dialog = resolve => require(['./md/dialog.md'], resolve)
 const editor = resolve => require(['./md/editor.md'], resolve)
 const preview = resolve => require(['./md/preview.md'], resolve)
 const select = resolve => require(['./md/select.md'], resolve)
@@ -25,6 +24,7 @@ const tag = resolve => require(['./md/tag.md'], resolve)
 const svg = resolve => require(['./md/svg.md'], resolve)
 const pagination = resolve => require(['./md/pagination.md'], resolve)
 const input = resolve => require(['./md/input.md'], resolve)
+const collapse = resolve => require(['./md/collapse.md'], resolve)
 
 Vue.use(Router)
 
@@ -92,10 +92,6 @@ let router = new Router({
             component: dropdown
         },
         {
-            path: '/dialog',
-            component: dialog
-        },
-        {
             path: '/editor',
             component: editor
         },
@@ -122,6 +118,10 @@ let router = new Router({
         {
             path: '/input',
             component: input
+        },
+        {
+            path: '/collapse',
+            component: collapse
         }
     ]
 })
