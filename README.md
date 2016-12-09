@@ -34,37 +34,35 @@ import 'everyone/dist/everyone.css'	// 引入css文件
 
 ### Use one component
 
-### 引入单个组件
-
 - webpack.base.conf.js
 
-```js
-{
-    module: {
-        loaders: [
-            {
-                test: /everyone.src.*?js$/,
-                loader: 'babel'
-            }
-        ]
-    },
-    resolve: {
-        alias: {
-            'everyone-ui': 'everyone/components'
-        }
-    }
-}
-```
+	```js
+	{
+	    module: {
+	        loaders: [
+	            {
+	                test: /everyone.src.*?js$/,
+	                loader: 'babel'
+	            }
+	        ]
+	    },
+	    resolve: {
+	        alias: {
+	            'everyone-ui': 'everyone/components'
+	        }
+	    }
+	}
+	```
 
 - Manually import
 
-```js
-import Vue from 'vue'
-import 'muse-components/styles/base.less' // 加载基础的样式
-import button from 'everyone-ui/button'
-// ..
-Vue.component(button.name, button)
-```
+	```js
+	import Vue from 'vue'
+	import 'muse-components/styles/base.less' // 加载基础的样式
+	import button from 'everyone-ui/button'
+	// ..
+	Vue.component(button.name, button)
+	```
 
 
 ### happy use
