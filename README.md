@@ -58,7 +58,6 @@ import 'everyone/dist/everyone.css'	// 引入css文件
 
 	```js
 	import Vue from 'vue'
-	import 'muse-components/styles/base.less' // 加载基础的样式
 	import button from 'everyone-ui/button'
 	// ..
 	Vue.component(button.name, button)
