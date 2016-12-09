@@ -1,7 +1,7 @@
 <template>
     <span>
         <slot name="slot"></slot>
-        <transition :name="`tooltips-${position[1] ? position[0]+position[1]:position[0]}`">
+        <transition name="tooltips" @enter="enter">
             <div class="y-tooltips"
                 ref="pop"
                 :class="[classNames, className]"
@@ -20,7 +20,17 @@
 import mixin from '../minxins/popover'
 export default {
     name: 'y-tooltips',
-    mixins: [mixin]
+    mixins: [mixin],
+    props: {
+        title: {
+            type: String,
+            default: ''
+        },
+        content: {
+            type: String,
+            default: ''
+        }
+    }
 }
 </script>
 <style lang="less">

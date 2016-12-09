@@ -6,7 +6,7 @@
         title="简单tooltips"
         content="最简单的tooltips，只有一个content，也可以使用v-tool指令来使用，可以让代码更加清晰"
     >
-        <y-tooltips content="我是一个tooltips" class-name="test">
+        <y-tooltips content="我是一个tooltips" class-name="test" placement="bottom-right">
             <y-button slot="slot">最简单的tooltips</y-button>
         </y-tooltips>
         <y-tooltips content="我是一个tooltips" ref="tests">
@@ -193,11 +193,12 @@ export default {
 
 ## 参数设置
 
-| 属性         | 说明                      | 类型     | 默认值  | 可选值                                                                                                        |
-| ---------    | ----------------          | -------- | ------- | -------------------                                                                                           |
-| slot::html    | 触发目标（必须）          | `slot`   | -       | -                                                                                                             |
+|     属性     |            说明           |   类型   | 默认值  |                                                    可选值                                                     |
+| ------------ | ------------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------- |
+| slot::html   | 触发目标（必须）          | `slot`   | -       | -                                                                                                             |
 | slot:content | 气泡内容（与content互斥） | `slot`   | -       | -                                                                                                             |
 | content      | 气泡内容                  | `String` | -       | -                                                                                                             |
 | placement    | 气泡位置                  | `String` | `top`   | `top`,`top-left`,`top-right`,`bottom-left`,`bottom-right`,`left-top`,`left-bottom`,`right-top`,`right-bottom` |
 | theme        | 气泡主题                  | `String` | `blue`  | `blue`,`dark`                                                                                                 |
 | trigger      | 触发方式                  | `String` | `click` | `click`,`hover`,`focus`                                                                                       |
+| offset       | 偏移量                    | `Number` | `5`     |                                                                                                               |

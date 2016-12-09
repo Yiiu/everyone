@@ -1,16 +1,8 @@
-import { In, getLeft, getTop } from '../utils'
+import { In } from '../utils'
 
 export default {
     props: {
         value: Boolean,
-        title: {
-            type: String,
-            default: ''
-        },
-        content: {
-            type: String,
-            default: ''
-        },
         placement: {
             type: String,
             default: 'top'
@@ -34,7 +26,10 @@ export default {
         return {
             show: false,
             slot: Object,
-            pop: Object
+            pop: Object,
+            offsetNum: [0, 0],
+            slotSize: [],
+            popSize: []
         }
     },
     // 默认value
@@ -44,8 +39,8 @@ export default {
     destroyed () {
         document.body.removeChild(this.pop)
         document.removeEventListener('click', this.ifEl)
-        window.removeEventListener('scroll', this.Offset)
-        window.removeEventListener('resize', this.Offset)
+        window.removeEventListener('scroll', this.offsetPosition)
+        window.removeEventListener('resize', this.offsetPosition)
     },
     mounted () {
         this.$nextTick(function () {
@@ -59,32 +54,64 @@ export default {
 
             // this.slot
             this.$el.parentElement.replaceChild(this.slot, this.$el)
-            this.Offset()
+            this.offsetPosition()
             this.events()
         })
     },
     methods: {
         Offset () {
-            let html = [this.slot.offsetHeight, this.slot.offsetWidth]
-            let left = getLeft(this.slot)
-            let top = getTop(this.slot)
-
-            if (this.position[0] === 'top') {
-                top -= this.offset
-            } else if (this.position[0] === 'bottom') {
-                top += this.offset
-            } else if (this.position[0] === 'left') {
-                left += this.offset
-            } else if (this.position[0] === 'right') {
-                left -= this.offset
-            }
-
-            this.pop.style.top = `${top + (html[0] * this.tops)}px`
-
-            this.pop.style.left = `${left + (html[1] * this.lefts)}px`
+            this.pop.style.top = `${this.offsetNum[1] + this.slot.offsetTop}px`
+            this.pop.style.left = `${this.offsetNum[0] + this.slot.offsetLeft}px`
         },
+        enter () {
+            this.offsetPosition()
+        },
+        offsetPosition () {
+            this.slotSize = [this.slot.offsetHeight, this.slot.offsetWidth]
+            setTimeout(() => {
+                this.popSize = [this.pop.offsetHeight, this.pop.offsetWidth]
+
+                if (['top', 'bottom'].indexOf(this.position[0]) !== -1) {
+                    if (this.position[0] === 'top') {
+                        this.offsetNum[1] = -this.popSize[0] - this.offset
+                    } else {
+                        this.offsetNum[1] = this.slotSize[0] + this.offset
+                    }
+                } else {
+                    if (this.position[0] === 'left') {
+                        this.offsetNum[0] = this.slotSize[1] + this.offset
+                    } else {
+                        this.offsetNum[0] = -this.popSize[1] - this.offset
+                    }
+                }
+
+                if (this.position[1]) {
+                    if (['top', 'bottom'].indexOf(this.position[1]) !== -1) {
+                        if (this.position[1] === 'top') {
+                            this.offsetNum[1] = 0
+                        } else {
+                            this.offsetNum[1] = this.slotSize[0] - this.popSize[0]
+                        }
+                    } else {
+                        if (this.position[1] === 'left') {
+                            this.offsetNum[0] = 0
+                        } else {
+                            this.offsetNum[0] = this.slotSize[1] - this.popSize[1]
+                        }
+                    }
+                } else {
+                    if (this.position[0] === 'top' || this.position[0] === 'bottom') {
+                        this.offsetNum[0] = (this.slotSize[1] - this.popSize[1]) / 2
+                    } else if (this.position[0] === 'left' || this.position[0] === 'right') {
+                        this.offsetNum[1] = (this.slotSize[0] - this.popSize[0]) / 2
+                    }
+                }
+                this.Offset()
+            })
+        },
+
         on () {
-            this.Offset()
+            this.offsetPosition()
             this.show = true
         },
         Open () {
@@ -141,61 +168,23 @@ export default {
         },
         classNames () {
             return this.position[1] ? `${this.position[0]}-${this.position[1]} ${this.theme}` : `${this.position[0]} ${this.theme}`
-        },
-        tops () {
-            if (this.position[0] === 'top') {
-                return 0
-            } else if (this.position[0] === 'bottom') {
-                return 1
-            } else if (
-                this.position[0] === 'left' && !this.position[1] ||
-                this.position[0] === 'right' && !this.position[1]
-            ) {
-                return 0.5
-            } else if (
-                this.position[1] === 'top' ||
-                this.position[1] === 'bottom'
-            ) {
-                if (this.position[1] === 'top') {
-                    return 0
-                } else {
-                    return 1
-                }
-            }
-        },
-        lefts () {
-            if (this.position[0] === 'top' && !this.position[1] || this.position[0] === 'bottom' && !this.position[1]) {
-                return 0.5
-            } else if (this.position[0] === 'top' && this.position[1] || this.position[0] === 'bottom' && this.position[1]) {
-                if (this.position[1] === 'left') {
-                    return 0
-                } else {
-                    return 1
-                }
-            } else if (this.position[0] === 'left' || this.position[0] === 'right') {
-                if (this.position[0] === 'left') {
-                    return 1
-                } else {
-                    return 0
-                }
-            }
         }
     },
     watch: {
         'show': function (value) {
             if (value) {
-                this.Offset()
+                this.offsetPosition()
                 if (this.trigger === 'click') {
                     document.addEventListener('click', this.ifEl)
                 }
                 this.$emit('input', value)
-                window.addEventListener('scroll', this.Offset)
-                window.addEventListener('resize', this.Offset)
+                window.addEventListener('scroll', this.offsetPosition)
+                window.addEventListener('resize', this.offsetPosition)
             } else {
                 this.$emit('input', value)
                 document.removeEventListener('click', this.ifEl)
-                window.removeEventListener('scroll', this.Offset)
-                window.removeEventListener('resize', this.Offset)
+                window.removeEventListener('scroll', this.offsetPosition)
+                window.removeEventListener('resize', this.offsetPosition)
             }
         },
         // value更新

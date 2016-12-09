@@ -6,8 +6,8 @@
             :placement="placement"
             v-model="show"
         >
-            <template slot="html">
-                <slot name="html"></slot>
+            <template slot="slot">
+                <slot name="slot"></slot>
             </template>
             <template slot="content">
                 <div class="y-tooltips-title">
@@ -79,22 +79,14 @@ export default {
     },
     methods: {
         onOk () {
-            if (this.okCbk) {
-                this.okCbk()
+            this.$emit('ok-cbk')
 
-                this.show = false
-            } else {
-                this.show = false
-            }
+            this.show = false
         },
         onBack () {
-            if (this.backCbk) {
-                this.backCbk()
+            this.$emit('cancel-cbk')
 
-                this.show = false
-            } else {
-                this.show = false
-            }
+            this.show = false
         }
     },
     watch: {

@@ -73,8 +73,7 @@
         border-right: 4px solid transparent;
     }
     &.bottom {
-        padding-top: 4px;;
-        transform: translate3d(-50%,0%, 0);
+        padding-top: 4px;
         .y-tooltips-delta {
             margin-left: -4px;
             top: 0;
@@ -83,7 +82,6 @@
     }
     &.bottom-left {
         padding-top: 4px;
-        transform: translate3d(0%,0%, 0);
         .y-tooltips-delta {
             margin-left: -4px;
             top: 0;
@@ -92,7 +90,6 @@
     }
     &.bottom-right {
         padding-top: 4px;
-        transform: translate3d(-100%,0%, 0);
         .y-tooltips-delta {
             margin-left: -5px;
             top: 0;
@@ -101,7 +98,6 @@
     }
     &.top {
         padding-bottom: 4px;
-        transform: translate3d(-50%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -111,7 +107,6 @@
     }
     &.top-left {
         padding-bottom: 4px;
-        transform: translate3d(0%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -121,7 +116,6 @@
     }
     &.top-right {
         padding-bottom: 4px;
-        transform: translate3d(-100%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(180deg);
             margin-left: -4px;
@@ -131,17 +125,15 @@
     }
     &.left {
         padding-left: 4px;
-        transform: translate3d(0%,-50%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
             top: 50%;
-            left: -2px;
+            left: -1px;
         }
     }
     &.left-top {
         padding-left: 4px;
-        transform: translate3d(0%,0%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
@@ -151,7 +143,6 @@
     }
     &.left-bottom {
         padding-left: 4px;
-        transform: translate3d(0%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(-90deg);
             margin-top: -2px;
@@ -161,17 +152,15 @@
     }
     &.right {
         padding-right: 4px;
-        transform: translate3d(-100%,-50%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
             top: 50%;
-            right: -2px;
+            right: -1px;
         }
     }
     &.right-top {
         padding-right: 4px;
-        transform: translate3d(-100%,0%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -181,7 +170,6 @@
     }
     &.right-bottom {
         padding-right: 4px;
-        transform: translate3d(-100%,-100%, 0);
         .y-tooltips-delta {
             transform: rotate(90deg);
             margin-top: -2px;
@@ -192,73 +180,7 @@
 }
 // 过渡动画
 
-.tooltips-top-enter, .tooltips-top-leave-active {
+.tooltips-enter, .tooltips-leave-active {
     opacity: 0;
-    margin-top: 8px;
-    transform: translate3d(-50%, -100%, 0) scale3d(.8,.8,1) !important;
-}
-.tooltips-topleft-enter, .tooltips-topleft-leave-active {
-    opacity: 0;
-    margin-top: 8px;
-    transform: translate3d(-8%, -100%, 0) scale3d(.8,.8,1) !important;
-}
-.tooltips-topright-enter, .tooltips-topright-leave-active {
-    opacity: 0;
-    margin-top: 8px;
-    transform: translate3d(-92%, -100%, 0) scale3d(.8,.8,1) !important;
-}
-
-
-.tooltips-bottom-enter, .tooltips-bottom-leave-active {
-    opacity: 0;
-    margin-top: -8px;
-    transform: translate3d(-50%, 0%, 0px) scale3d(.8,.8,1) !important;
-}
-
-.tooltips-bottomleft-enter, .tooltips-bottomleft-leave-active {
-    opacity: 0;
-    margin-top: -8px;
-    transform: translate3d(-8%, 0%, 0px) scale3d(.8,.8,1) !important;
-}
-
-.tooltips-bottomright-enter, .tooltips-bottomright-leave-active {
-    opacity: 0;
-    margin-top: -8px;
-    transform: translate3d(-92%, 0, 0px) scale3d(.8,.8,1) !important;
-}
-
-
-.tooltips-left-enter, .tooltips-left-leave-active {
-    opacity: 0;
-    margin-left: -8px;
-    transform: translate3d(0%, -50%, 0px) scale3d(.8,.8,1) !important;
-}
-
-.tooltips-lefttop-enter, .tooltips-lefttop-leave-active {
-    opacity: 0;
-    margin-left: -8px;
-    transform: translate3d(0%, -8%, 0px) scale3d(.8,.8,1) !important;
-}
-
-.tooltips-leftbottom-enter, .tooltips-leftbottom-leave-active {
-    opacity: 0;
-    margin-left: -8px;
-    transform: translate3d(0%, -92%, 0px) scale3d(.8,.8,1) !important;
-}
-
-
-.tooltips-right-enter, .tooltips-right-leave-active {
-    opacity: 0;
-    margin-left: 8px;
-    transform: translate3d(-100%, -50%, 0px) scale3d(.8,.8,1) !important;
-}
-.tooltips-righttop-enter, .tooltips-righttop-leave-active {
-    opacity: 0;
-    margin-left: 8px;
-    transform: translate3d(-92%, -0%, 0px) scale3d(.8,.8,1) !important;
-}
-.tooltips-rightbottom-enter, .tooltips-rightbottom-leave-active {
-    opacity: 0;
-    margin-left: 8px;
-    transform: translate3d(-92%, -100%, 0px) scale3d(.8,.8,1) !important;
+    transform: scale3d(.8,.8,1) !important;
 }

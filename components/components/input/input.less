@@ -1,4 +1,5 @@
 .y-input-wrapper {
+    display: inline-block;
     .y-input {
         position: relative;
         display: inline-block;
@@ -15,6 +16,15 @@
         border-radius: 4px;
         outline: none;
         transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        &.y-input-lg {
+            padding: 6px 7px;
+            height: 32px;
+        }
+        &.y-input-sm {
+            padding: 1px 7px;
+            height: 22px;
+            border-radius: 2px;
+        }
         &:hover {
             border-color: #40a5ed;
         }
@@ -22,6 +32,57 @@
             border-color: #40a5ed;
             outline: 0;
             box-shadow: 0 0 0 2px fade(#40a5ed, 20%);
+        }
+    }
+    .y-input-group-addon-before, .y-input-group-addon-after {
+        padding: 4px 7px;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1;
+        color: #666;
+        text-align: center;
+        background-color: #eee;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        position: relative;
+        display: table-cell;
+        width: 1px;
+    }
+    .y-input-group-addon-before {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        &:first-child {
+            border-right: 0;
+        }
+        &:first-child {
+            border-right: 0;
+        }
+    }
+    .y-input-group-addon-after {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        &:last-child {
+            border-left: 0;
+        }
+    }
+    &.y-input-group {
+        position: relative;
+        display: table;
+        border-collapse: separate;
+        width: 100%;
+        .y-input {
+            display: table-cell;
+            &:first-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            &:last-child {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            &:not(:first-child):not(:last-child) {
+                border-radius: 0;
+            }
         }
     }
 }

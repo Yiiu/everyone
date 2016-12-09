@@ -5,8 +5,8 @@
             :trigger="trigger"
             :placement="placement"
         >
-        	<template slot="html">
-                <slot name="html"></slot>
+        	<template slot="slot">
+                <slot name="slot"></slot>
             </template>
             <template slot="content">
                 <div class="y-tooltips-title" v-text="title"></div>

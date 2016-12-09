@@ -25,6 +25,7 @@ const svg = resolve => require(['./md/svg.md'], resolve)
 const pagination = resolve => require(['./md/pagination.md'], resolve)
 const input = resolve => require(['./md/input.md'], resolve)
 const collapse = resolve => require(['./md/collapse.md'], resolve)
+const datePicker = resolve => require(['./md/date-picker.md'], resolve)
 
 Vue.use(Router)
 
@@ -122,6 +123,10 @@ let router = new Router({
         {
             path: '/collapse',
             component: collapse
+        },
+        {
+            path: '/datepicker',
+            component: datePicker
         }
     ]
 })

@@ -22,6 +22,8 @@ import Input from './components/input'
 import Collapse from './components/collapse'
 import Panel from './components/panel'
 
+import DataPicker from './components/date-picker'
+
 import Tag from './components/tag'
 
 import Svg from './components/svg'
@@ -55,6 +57,7 @@ const install = (Vue) => {
     Vue.component(Collapse.name, Collapse)
     Vue.component(Panel.name, Panel)
     Vue.component(Modal.modal.name, Modal.modal)
+    Vue.component(DataPicker.name, DataPicker)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

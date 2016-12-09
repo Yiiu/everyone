@@ -115,6 +115,11 @@
                             "name": "Collapse",
                             "cn": "折叠面板",
                             "path": "/collapse"
+                        },
+                        {
+                            "name": "DatePicker",
+                            "cn": "折叠面板",
+                            "path": "/datepicker"
                         }
                     ]
                 },

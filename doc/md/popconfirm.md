@@ -9,9 +9,9 @@
     >
         <y-popconfirm
             title="是否删除该文件？"
-            :ok-cbk="dels1"
+            @ok-cbk="dels1"
         >
-            <y-button slot="html">hello</y-button>
+            <y-button slot="slot">hello</y-button>
         </y-popconfirm>
     </coding>
     <coding
@@ -23,10 +23,10 @@
             title="是否删除该文件？"
             v-model="test"
         >
-            <y-button slot="html">hello</y-button>
+            <y-button slot="slot">hello</y-button>
             <div class="footer" slot="btn">
-                <y-button slot="btn" type="ghost" @click.native="test = false">取消</y-button>
-                <y-button slot="btn" @click.native="test = false">确认</y-button>
+                <y-button type="ghost" @click.native="test = false">取消</y-button>
+                <y-button @click.native="test = false">确认</y-button>
             </div>
         </y-popconfirm>
     </coding>

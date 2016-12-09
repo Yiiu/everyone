@@ -64,6 +64,24 @@
             </div>
             <p>reload</p>
         </div>
+        <div class="svg-item">
+            <div class="content">
+                <y-svg type="arrow"></y-svg>
+            </div>
+            <p>arrow</p>
+        </div>
+        <div class="svg-item">
+            <div class="content">
+                <y-svg type="more"></y-svg>
+            </div>
+            <p>more</p>
+        </div>
+        <div class="svg-item">
+            <div class="content">
+                <y-svg type="vv"></y-svg>
+            </div>
+            <p>vv</p>
+        </div>
     </div>
 </template>
 <style lang="less">

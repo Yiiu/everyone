@@ -3,11 +3,11 @@
 <template>
     <coding :code="code" title="popover" content="简单的popover，可以内嵌html。">
         <y-popover title="Title">
-            <y-button slot="html">123</y-button>
-            <template slot="content">
+            <y-button slot="slot">123</y-button>
+            <div slot="content">
                 <p>asdfasdf</p>
                 <p>asdfasdf</p>
-            </template>
+            </div>
         </y-popover>
     </coding>
 </template>
