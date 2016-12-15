@@ -1,9 +1,8 @@
 import notify from './notification.vue'
+let instance
 
 const install = (Vue) => {
     let NotifyCtr = Vue.extend(notify)
-
-    let instance
 
     function info (options, type) {
         if (typeof options === 'string') {

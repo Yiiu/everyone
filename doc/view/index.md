@@ -2,7 +2,7 @@
 
 > 一个基于vue2的antd风组件库。
 
-# 使用方法
+## 使用方法
 
 ## 安装
 
@@ -10,7 +10,7 @@
 $ npm install -save everyone
 ```
 
-### 全部引入
+## 全部引入
 
 ```js
 import everyone from 'everyone' // 引入组件
@@ -22,7 +22,7 @@ Vue.use(everyone)
 ```js
 import 'everyone/dist/everyone.css' // 引入css文件
 ```
-### 引入单个组件
+## 引入单个组件
 
 > 更改webpack配置（vue-cli是在webpack.base.conf.js文件）
 

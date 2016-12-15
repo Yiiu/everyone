@@ -1,6 +1,7 @@
 import modal from './modal.vue'
 
 const install = (Vue) => {
+    console.log(Vue.prototype)
     let instance
 
     let ModalCtr = Vue.extend(modal)
@@ -15,9 +16,7 @@ const install = (Vue) => {
             instance[i] = options[i]
         }
 
-        instance.vm = instance.$mount()
-
-        document.body.appendChild(instance.vm.$el)
+        instance.vm = instance.$mount('#test')
 
         instance.show = true
     }
@@ -45,10 +44,11 @@ const install = (Vue) => {
         }
 
         instance.global = true
-
         instance.vm = instance.$mount()
 
-        document.body.appendChild(instance.vm.$el)
+        console.log(document.getElementById('test'))
+
+        // document.getElementById('test').appendChild(instance.vm.$el)
 
         instance.show = true
     }

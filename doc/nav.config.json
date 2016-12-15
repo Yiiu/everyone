@@ -1,11 +1,15 @@
 {
     "nav":[
         {
-            "name": "首页",
+            "name": "组件",
             "path": "/"
         }
     ],
     "leftnav":[
+        {
+            "name": "使用",
+            "path": "/"
+        },
         {
             "name": "颜色",
             "path": "/color"

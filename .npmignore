@@ -5,3 +5,7 @@ build
 doc
 docs
 static
+.eslintignore
+.eslintrc.js
+index.html
+.babelrc

@@ -1,2 +1,0 @@
-webpackJsonp([21,24],{379:function(t,e,n){var o,r,i=n(432);r=o=o||{},"object"!=typeof o.default&&"function"!=typeof o.default||(r=o=o.default),"function"==typeof r&&(r=r.options),r.render=i.render,r.staticRenderFns=i.staticRenderFns,t.exports=o},432:function(t,e){t.exports={render:function(){var t=this;return t._h("section",[[t._h("y-editor")]])},staticRenderFns:[]}},456:function(t,e,n){t.exports=n(379)}});
-//# sourceMappingURL=21.e03323e8cda6316f59d5.js.map

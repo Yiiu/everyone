@@ -22,11 +22,13 @@ import Input from './components/input'
 import Collapse from './components/collapse'
 import Panel from './components/panel'
 
-import DataPicker from './components/date-picker'
+import DatePicker from './components/date-picker'
 
 import Tag from './components/tag'
 
 import Svg from './components/svg'
+
+let modalComponent = Modal.modal
 
 const install = (Vue) => {
     // Vue.use(click)
@@ -56,8 +58,8 @@ const install = (Vue) => {
     Vue.component(Input.name, Input)
     Vue.component(Collapse.name, Collapse)
     Vue.component(Panel.name, Panel)
-    Vue.component(Modal.modal.name, Modal.modal)
-    Vue.component(DataPicker.name, DataPicker)
+    Vue.component(modalComponent.name, modalComponent)
+    Vue.component(DatePicker.name, DatePicker)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -68,6 +70,7 @@ module.exports = {
     install,
     Alert,
     Modal,
+    modalComponent,
     Button,
     Message,
     Notification,

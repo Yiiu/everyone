@@ -59,25 +59,44 @@ body {
     h1,h2,h3,h4,h5,h6 {
         font-weight: 400;
         margin: 0;
-        margin-bottom: 12px !important;
+        margin-bottom: 24px !important;
     }
     h1 {
-        font-size: 34px;
-        padding: 0;
-        margin: 0;
-        margin-top: 24px;
+        font-size: 28px;
+        line-height: 40px;
+        margin-bottom: 24px;
+        margin-top: 8px;
     }
     h2 {
-        font-size: 26px;
-        margin-top: 24px;
-    }
-    h3,h4,h5 {
         font-size: 22px;
         margin-top: 24px;
     }
-    h6 {
+    h3 {
+        font-size: 18px;
         margin-top: 24px;
-        font-size: 20px;
+    }
+    h4 {
+        font-size: 16px;
+        margin-top: 24px;
+    }
+    h5 {
+        font-size: 14px;
+        margin-top: 24px;
+    }
+    h6 {
+        font-size: 12px;
+        margin-top: 24px;
+    }
+    ul {
+        li {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 4px;
+            line-height: 24px;
+            li {
+                list-style-type: circle;
+            }
+        }
     }
     ol {
         list-style-type: decimal;
@@ -89,17 +108,20 @@ body {
         background: #e7e7e7 repeating-linear-gradient(-45deg,#fff,#fff .25rem,transparent .25rem,transparent .5rem);
     }
     p {
-        margin: 0;
-        margin-bottom: 18px;
+        margin: 1em 0;
         font-size: 16px;
         line-height: 1.6;
     }
     pre {
-        background-color: fade(#000, 2%);
+        background-color: #f7f7f7;
         padding: 12px;
         font-size: 16px;
         line-height: 22px;
         margin-bottom: 18px;
+        box-shadow: 0px 2px 0px rgba(170,170,170,0.1);
+        border-radius: 4px;
+        padding: 1em;
+        margin: 1.2em 0;
     }
     img {
         display: block;
@@ -149,10 +171,12 @@ body {
         }
     }
     blockquote {
-        padding: 24px 20px;
-        margin: 0 0 20px;
-        font-size: 17.5px;
+        padding: 12px 20px;
+        margin: 0 0 10px;
+        font-size: 90%;
         border-left: 5px solid #eee;
+        color: #999;
+        margin: 1em 0;
         p {
             color: fade(#000, 60%);
             padding: 0;

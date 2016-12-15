@@ -1,7 +1,7 @@
 <template>
     <span>
         <slot name="slot"></slot>
-        <transition name="tooltips" @enter="enter">
+        <transition name="tooltips" @before-enter="enter">
             <div class="y-tooltips"
                 ref="pop"
                 :class="[classNames, className]"

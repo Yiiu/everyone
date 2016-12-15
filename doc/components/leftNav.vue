@@ -1,11 +1,8 @@
 <template>
     <div class="left-nav">
         <ul class="menu">
-            <li>
-                <a href="#">首页</a>
-            </li>
             <li v-for="data in components">
-                <router-link :to="data.path">{{data.name}}</router-link>
+                <router-link :to="data.path" exact>{{data.name}}</router-link>
                 <div class="child" v-if="data.child !== ''">
                     <ul v-for="child in data.child">
                         <div class="title">

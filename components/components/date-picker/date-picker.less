@@ -1,0 +1,88 @@
+.y-date-picker-container {
+    position: absolute;
+    background: #fff;
+    .y-date-picker {
+        position: relative;
+        outline: none;
+        width: 231px;
+        list-style: none;
+        font-size: 12px;
+        text-align: left;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+        background-clip: padding-box;
+        line-height: 1.5;
+        .y-date-picker-input-wrap {
+            height: 34px;
+            padding: 6px;
+            border-bottom: 1px solid #e9e9e9;
+            input {
+                border: 0;
+                width: 100%;
+                cursor: auto;
+                outline: 0;
+                height: 22px;
+            }
+        }
+        .y-date-picker-header {
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            border-bottom: 1px solid #e9e9e9;
+            position: relative;
+            .y-date-picker-btn {
+                position: absolute;
+                cursor: pointer;
+                &:hover {
+                    svg {
+                        path {
+                            fill: #40a5ed;
+                        }
+                    }
+                }
+            }
+            .y-date-picker-prev-year-btn {
+                left: 12px;
+            }
+            .y-date-picker-prev-month-btn {
+                left: 32px;
+                svg {
+                    transform: rotateZ(90deg);
+                }
+            }
+            .y-date-picker-next-year-btn {
+                right: 32px;
+                svg {
+                    transform: rotateZ(-90deg);
+                }
+            }
+            .y-date-picker-next-month-btn {
+                right: 12px;
+                svg {
+                    transform: rotateZ(180deg);
+                }
+            }
+        }
+        .y-date-picker-body {
+            padding: 4px 8px;
+            table.y-date-picker-table {
+                border-collapse: collapse;
+                max-width: 100%;
+                background-color: transparent;
+                width: 100%;
+                thead {
+                    tr {
+                        th {
+                            line-height: 18px;
+                            width: 33px;
+                            padding: 6px 0;
+                            text-align: center;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const index = resolve => require(['./view/index.md'], resolve)
 const font = resolve => require(['./view/font.md'], resolve)
 const color = resolve => require(['./view/color.md'], resolve)
+const components = resolve => require(['./view/components.vue'], resolve)
 
 const button = resolve => require(['./md/button.md'], resolve)
 const modal = resolve => require(['./md/modal.md'], resolve)
@@ -43,6 +44,10 @@ let router = new Router({
         {
             path: '/color',
             component: color
+        },
+        {
+            path: '/components',
+            component: components
         },
         {
             path: '/button',
