@@ -82,6 +82,12 @@
             </div>
             <p>vv</p>
         </div>
+        <div class="svg-item">
+            <div class="content">
+                <y-svg type="search"></y-svg>
+            </div>
+            <p>search</p>
+        </div>
     </div>
 </template>
 <style lang="less">

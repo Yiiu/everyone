@@ -7,3 +7,12 @@
 .opacity-enter, .opacity-leave-enter, .opacity-leave-active {
   opacity: 0
 }
+.y-slide-up-enter-active, .y-slide-up-leave-active {
+    transform-origin:0% 0%;
+    will-change: opacity;
+    transition: transform .2s  cubic-bezier(0.755, 0.05, 0.855, 0.06), opacity .2s  cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.y-slide-up-enter, .y-slide-up-leave-active {
+    opacity: 0;
+    transform: scale3d(1,.9,1) !important;
+}

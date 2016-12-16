@@ -1,5 +1,7 @@
+@import "~style/color";
 .y-input-wrapper {
     display: inline-block;
+    position: relative;
     .y-input {
         position: relative;
         display: inline-block;
@@ -82,6 +84,18 @@
             }
             &:not(:first-child):not(:last-child) {
                 border-radius: 0;
+            }
+        }
+    }
+    .y-input-icon {
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        margin-top: -8px;
+        &:hover {
+            path {
+                transition: 0.3s all;
+                fill: @blue;
             }
         }
     }

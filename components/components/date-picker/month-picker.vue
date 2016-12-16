@@ -5,17 +5,17 @@
         </span>
         <transition @before-enter="enter" name="y-slide-up">
             <div ref="pop" class="y-date-picker-container" v-show="show">
-                <y-date @close="close" v-model="current" :now="now" :present="present" @year="setYear" @month="setMonth"></y-date>
+                <y-month @close="close" v-model="current"></y-date>
             </div>
         </transition>
     </span>
 </template>
 <script>
 import mixin from '../minxins/popover'
-import yDate from './picker/date.vue'
+import yMonth from './picker/month.vue'
 export default {
     mixins: [mixin],
-    name: 'y-date-picker',
+    name: 'y-month-picker',
     data () {
         return {
             // 选择的
@@ -25,23 +25,16 @@ export default {
                 year: new Date().getFullYear(),
                 month: new Date().getMonth()
             },
-            // 本地事件
             now: [new Date().getFullYear(), new Date().getMonth(), new Date().getDate()]
         }
     },
     method: {
         close () {
             this.show = false
-        },
-        setMonth (value) {
-            this.present.month = value
-        },
-        setYear (value) {
-            this.present.year = value
         }
     },
     components: {
-        yDate
+        yMonth
     }
 }
 </script>

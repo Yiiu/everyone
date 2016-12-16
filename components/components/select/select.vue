@@ -19,7 +19,7 @@
                 <y-svg type="x" @click.native="delVaule" :class="{active:show}" v-show="hover && clearable" :width="12"></y-svg>
             </div>
         </div>
-        <transition name="y-select">
+        <transition name="y-slide-up">
             <ul class="y-select-dropdown" v-show="show" ref="dropdown">
                 <slot></slot>
             </ul>

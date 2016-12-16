@@ -23,6 +23,7 @@ import Collapse from './components/collapse'
 import Panel from './components/panel'
 
 import DatePicker from './components/date-picker'
+import MonthPicker from './components/month-picker'
 
 import Tag from './components/tag'
 
@@ -60,6 +61,7 @@ const install = (Vue) => {
     Vue.component(Panel.name, Panel)
     Vue.component(modalComponent.name, modalComponent)
     Vue.component(DatePicker.name, DatePicker)
+    Vue.component(MonthPicker.name, MonthPicker)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
