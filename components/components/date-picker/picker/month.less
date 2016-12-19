@@ -1,0 +1,28 @@
+@import "~style/color";
+.y-date-picker-panel {
+    .y-month-picker-body {
+        .y-month-picker-tbody {
+            li {
+                width: 33.3%;
+                line-height: 32px;
+                padding: 12px 0px;
+                div {
+                    width: 44px;
+                    height: auto;
+                    line-height: 32px;
+                    &:hover {
+                        color: @blue;
+                    }
+                }
+                &.y-month-picker-tbody-selected {
+                    >div {
+                        border-color: @blue;
+                        font-weight: 700;
+                        background: @blue;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

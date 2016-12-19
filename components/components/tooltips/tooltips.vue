@@ -1,7 +1,7 @@
 <template>
     <span>
         <slot name="slot"></slot>
-        <transition name="tooltips" @before-enter="enter">
+        <transition name="tooltips" @before-enter="enter" @after-enter="test">
             <div class="y-tooltips"
                 ref="pop"
                 :class="[classNames, className]"
@@ -29,6 +29,11 @@ export default {
         content: {
             type: String,
             default: ''
+        }
+    },
+    methods: {
+        test () {
+            console.log(1)
         }
     }
 }
