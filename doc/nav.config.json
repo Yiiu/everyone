@@ -122,7 +122,7 @@
                         },
                         {
                             "name": "DatePicker",
-                            "cn": "折叠面板",
+                            "cn": "日期选择框",
                             "path": "/datepicker"
                         }
                     ]

@@ -1,7 +1,7 @@
 <template>
     <span>
         <span ref="slot">
-            <y-input v-model="current.text"></y-input>
+            <y-input v-model="current.text" read></y-input>
         </span>
         <transition name="y-slide-up" @before-enter="enter" @after-leave="after">
             <div ref="pop" class="y-date-picker-container" v-show="show">
@@ -12,6 +12,7 @@
                     <y-date
                         v-model="current"
                         v-show="component === 'date'"
+                        :disabled="disabledDate"
                         :now="now"
                         :year="year"
                         :month="month"
@@ -20,9 +21,11 @@
                         @setyear="setYear"
                         @setmonth="setMonth"
                         @component="setComponent"
+                        :en="en"
                     ></y-date>
                     <y-year
                         v-show="component === 'year'"
+                        :disabled="disabledDate"
                         :now="now"
                         :year="year"
                         :month="month"
@@ -30,9 +33,11 @@
                         @setyear="setYear"
                         @setmonth="setMonth"
                         @component="setComponent"
+                        :en="en"
                     ></y-year>
                     <y-month 
                         v-show="component === 'month'"
+                        :disabled="disabledDate"
                         :now="now"
                         :year="year"
                         :month="month"
@@ -40,6 +45,7 @@
                         @setyear="setYear"
                         @setmonth="setMonth"
                         @component="setComponent"
+                        :en="en"
                     ></y-month>
                 </div>
             </div>
@@ -54,6 +60,30 @@ import yYear from './picker/year.vue'
 export default {
     name: 'y-date-picker',
     mixins: [mixin],
+    props: {
+        disabledDate: {
+            type: Object,
+            validator: function (value) {
+                if (!value.end) {
+                    value.end = [9999, 9999, 9999]
+                }
+                if (!value.star) {
+                    value.star = [0, 0, 0]
+                }
+                return value
+            },
+            default: function () {
+                return {
+                    star: [0, 0, 0],
+                    end: [9999, 9999, 9999]
+                }
+            }
+        },
+        en: {
+            type: Boolean,
+            default: false
+        }
+    },
     data () {
         return {
             // 选择的
@@ -79,6 +109,7 @@ export default {
         after () {
             this.component = 'date'
             this.onStage = 'date'
+            this.text(this.current)
             if (this.current.year) {
                 this.year = this.current.year
             } else {
@@ -101,6 +132,13 @@ export default {
         },
         setComponent (value) {
             this.component = value
+        },
+        text (value) {
+            if (value.year !== null && value.month !== null && value.date !== null) {
+                this.current.text = `${value.year}-${value.month + 1}-${value.date}`
+            } else {
+                this.current.text = ''
+            }
         }
     },
     components: {
@@ -116,9 +154,7 @@ export default {
             this.onStage = oldValue
         },
         current: function (value) {
-            if (value.year !== null && value.month !== null && value.date !== null) {
-                this.current.text = `${value.year}-${value.month + 1}-${value.date}`
-            }
+            this.text(value)
         }
     }
 }

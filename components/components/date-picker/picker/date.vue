@@ -36,6 +36,15 @@
                     :title="`${before[0]}-${before[1] + 1}-${item}`" 
                     class="y-date-picker-tbody-before"
                     @click="clickDate(before[0], before[1], item)"
+                    :class="{
+                        'y-date-picker-tbody-disabled' : 
+                            before[0] < disabled.star[0] || 
+                            before[0] <= disabled.star[0] && before[1] < disabled.star[1] - 1 ||
+                            before[0] <= disabled.star[0] && before[1] <= disabled.star[1] - 1 && item < disabled.star[2] ||
+                            before[0] > disabled.end[0] ||
+                            before[0] >= disabled.end[0] && before[1] > disabled.end[1] - 1 ||
+                            before[0] >= disabled.end[0] && before[1] >= disabled.end[1] - 1 && item > disabled.end[2]
+                    }"
                 >
                     <div>{{item}}</div>
                 </li>
@@ -43,7 +52,14 @@
                     v-for="item in myDate.last"
                     :class="{
                         'y-date-picker-tbody-today' : year == now[0] && month == now[1] && item == now[2],
-                        'y-date-picker-tbody-selected' : year == current.year && month == current.month && current.date == item
+                        'y-date-picker-tbody-selected' : year == current.year && month == current.month && current.date == item,
+                        'y-date-picker-tbody-disabled' : 
+                            year < disabled.star[0] || 
+                            year <= disabled.star[0] && month < disabled.star[1] - 1 ||
+                            year <= disabled.star[0] && month <= disabled.star[1] - 1 && item < disabled.star[2] ||
+                            year > disabled.end[0] ||
+                            year >= disabled.end[0] && month > disabled.end[1] - 1 ||
+                            year >= disabled.end[0] && month >= disabled.end[1] - 1 && item > disabled.end[2]
                     }" 
                     :title="`${year}-${month + 1}-${item}`"
                     @click="clickDate(year, month, item)"
@@ -55,13 +71,22 @@
                     :title="`${after[0]}-${after[1] + 1}-${item}`" 
                     class="y-date-picker-tbody-before"
                     @click="clickDate(after[0], after[1], item)"
+                    :class="{
+                        'y-date-picker-tbody-disabled' :
+                            after[0] < disabled.star[0] || 
+                            after[0] <= disabled.star[0] && after[1] < disabled.star[1] - 1 ||
+                            after[0] <= disabled.star[0] && after[1] <= disabled.star[1] - 1 && item < disabled.star[2] ||
+                            after[0] > disabled.end[0] ||
+                            after[0] >= disabled.end[0] && after[1] > disabled.end[1] - 1 ||
+                            after[0] >= disabled.end[0] && after[1] >= disabled.end[1] - 1 && item > disabled.end[2]
+                    }"
                 >
                     <div>{{item}}</div>
                 </li>
             </ul>
         </div>
         <div class="y-date-picker-footer">
-            <span class="y-date-picker-today-btn" @click="clickDate(now[0], now[1], now[2])"><a v-text="today"></a></span>
+            <span class="y-date-picker-today-btn" @click="clickDate(now[0], now[1], now[2])" :title="`${now[0]}-${now[1]}-${now[2]}`"><a v-text="today"></a></span>
         </div>
     </div>
 </template>
@@ -75,7 +100,8 @@ export default {
         },
         now: {},
         year: {},
-        month: {}
+        month: {},
+        disabled: {}
     },
     data () {
         return {
@@ -91,15 +117,33 @@ export default {
             return [1, new Date(y, m, 0).getDate()]
         },
         clickDate (y, m, d) {
-            this.current = {
-                year: y,
-                month: m,
-                date: d
+            if (this.d(y, m, d)) {
+                this.current = {
+                    year: y,
+                    month: m,
+                    date: d
+                }
+                this.$emit('setyear', y)
+                this.$emit('setmonth', m)
+                this.$emit('setdate', d)
+                this.$emit('close')
+            } else {
+                return
             }
-            this.$emit('setyear', y)
-            this.$emit('setmonth', m)
-            this.$emit('setdate', d)
-            this.$emit('close')
+        },
+        d (y, m, d) {
+            if (
+                y < this.disabled.star[0] ||
+                y <= this.disabled.star[0] && m < this.disabled.star[1] - 1 ||
+                y <= this.disabled.star[0] && m <= this.disabled.star[1] - 1 && d < this.disabled.star[2] ||
+                y > this.disabled.end[0] ||
+                y >= this.disabled.end[0] && m > this.disabled.end[1] - 1 ||
+                y >= this.disabled.end[0] && m >= this.disabled.end[1] - 1 && d > this.disabled.end[2]
+            ) {
+                return false
+            } else {
+                return true
+            }
         },
         nextMonth () {
             if (this.month === 11) {
@@ -159,7 +203,7 @@ export default {
             return [year, month]
         },
         beforeDate: function () {
-            let l = this.getDate(this.before[0], this.before[1])
+            let l = this.getDate(this.before[0], this.before[1] + 1)
             let before = new Date(this.year, this.month, 1).getDay()
             let m = []
             for (let i = l[1] - before + 1; i <= l[1]; i++) {
