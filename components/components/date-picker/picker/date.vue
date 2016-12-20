@@ -12,8 +12,8 @@
                 <y-svg type="v" :width="12"></y-svg>
             </a>
             <a>
-                <span @click="monthComponent">{{monthText[month]}}</span>
-                <a>{{year}}</a>
+                <a @click="monthComponent" class="y-date-month-select">{{monthText[month]}}</a>
+                <a @click="yearComponent" class="y-date-year-select">{{year}}</a>
             </a>
             <a role="button" class="y-date-picker-next-month-btn y-date-picker-btn"
                 @click="nextMonth"
@@ -43,7 +43,7 @@
                     v-for="item in myDate.last"
                     :class="{
                         'y-date-picker-tbody-today' : year == now[0] && month == now[1] && item == now[2],
-                        'y-date-picker-tbody-selected' : current.year == year && current.month == month && current.day == item
+                        'y-date-picker-tbody-selected' : year == current.year && month == current.month && current.date == item
                     }" 
                     :title="`${year}-${month + 1}-${item}`"
                     @click="clickDate(year, month, item)"
@@ -61,7 +61,7 @@
             </ul>
         </div>
         <div class="y-date-picker-footer">
-            <span class="y-date-picker-today-btn" @click="clickDate(now[0], now[1] + 1, now[2])"><a v-text="today"></a></span>
+            <span class="y-date-picker-today-btn" @click="clickDate(now[0], now[1], now[2])"><a v-text="today"></a></span>
         </div>
     </div>
 </template>
@@ -82,11 +82,7 @@ export default {
             dayText: this.en ? ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'] : ['日', '一', '二', '三', '四', '五', '六'],
             monthText: this.en ? ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] : ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
             today: this.en ? 'Today' : '今天',
-            current: {
-                year: null,
-                month: null,
-                day: null
-            }
+            current: this.value
         }
     },
     methods: {
@@ -98,12 +94,11 @@ export default {
             this.current = {
                 year: y,
                 month: m,
-                day: d,
-                text: `${y}-${m + 1}-${d}`
+                date: d
             }
-            console.log(m)
             this.$emit('setyear', y)
             this.$emit('setmonth', m)
+            this.$emit('setdate', d)
             this.$emit('close')
         },
         nextMonth () {
@@ -130,14 +125,9 @@ export default {
         },
         monthComponent () {
             this.$parent.component = 'month'
-        }
-    },
-    watch: {
-        value: function (value) {
-            this.current = value
         },
-        current: function (value) {
-            this.$emit('input', value)
+        yearComponent () {
+            this.$parent.component = 'year'
         }
     },
     computed: {
@@ -180,6 +170,14 @@ export default {
         afterDate: function () {
             let before = new Date(this.year, this.month + 1, 0).getDate()
             return 42 - before - this.beforeDate.length
+        }
+    },
+    watch: {
+        current: function (value) {
+            this.$emit('input', value)
+        },
+        value: function (value) {
+            this.current = value
         }
     }
 }

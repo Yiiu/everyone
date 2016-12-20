@@ -7,7 +7,7 @@
                 <y-svg type="vv" :width="12"></y-svg>
             </a>
             <a>
-                <a @click="yearOn">{{years}}</a>
+                <a @click="yearOn" class="y-date-year-select">{{year}}</a>
             </a>
             <a role="button" class="y-date-picker-next-year-btn y-date-picker-btn"
                 @click="nextYear"
@@ -33,27 +33,24 @@
 <script>
 export default {
     props: {
-        value: {},
         en: {
             type: Boolean,
             default: false
         },
         month: {},
-        present: {},
         year: {},
         now: {}
     },
     data () {
         return {
             dayText: this.en ? ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'] : ['日', '一', '二', '三', '四', '五', '六'],
-            monthText: this.en ? ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] : ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-            years: this.year
+            monthText: this.en ? ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] : ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
         }
     },
     methods: {
         set (value) {
             this.$emit('setmonth', value)
-            this.$emit('setyear', this.years)
+            this.$emit('setyear', this.year)
             if (this.$parent.$options._componentTag === 'y-date-picker') {
                 this.$emit('component', 'date')
             } else {
@@ -61,18 +58,13 @@ export default {
             }
         },
         nextYear (value) {
-            this.years++
+            this.$emit('setyear', this.year + 1)
         },
         prevYear (value) {
-            this.years--
+            this.$emit('setyear', this.year - 1)
         },
         yearOn () {
             this.$emit('component', 'year')
-        }
-    },
-    watch: {
-        year: function (value) {
-            this.years = value
         }
     }
 }

@@ -1,10 +1,13 @@
 # DataPicker 日期选择框
 
 <template>
-	<coding>
+	<coding
+		title="基本"
+		content="最简单的用法"
+	>
 		<y-date-picker placement="bottom-left" :offset="-22"></y-date-picker>	
+		<y-month-picker placement="bottom-left" :offset="-22"></y-month-picker>	
 	</coding>
 	<coding>
-		<y-month-picker placement="bottom-left" :offset="-22"></y-month-picker>	
 	</coding>
 </template>
