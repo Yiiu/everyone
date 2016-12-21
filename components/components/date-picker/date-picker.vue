@@ -110,12 +110,12 @@ export default {
             this.component = 'date'
             this.onStage = 'date'
             this.text(this.current)
-            if (this.current.year) {
+            if (this.current.year !== null) {
                 this.year = this.current.year
             } else {
                 this.year = new Date().getFullYear()
             }
-            if (this.current.month) {
+            if (this.current.month !== null) {
                 this.month = this.current.month
             } else {
                 this.month = new Date().getMonth()

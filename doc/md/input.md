@@ -55,6 +55,14 @@
             <y-input placeholder="asdf" v-model="test3"></y-input>
             <y-input placeholder="asdf" v-model="test4" type="password"></y-input>
         </coding>
+        <coding
+            title="textarea"
+            content="多行文本"
+            :code="code5"
+            lang="html"
+        >
+            <y-input type="textarea"></y-input>
+        </coding>
     </div>
 </template>
 <script>

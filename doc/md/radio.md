@@ -17,8 +17,9 @@
         content="可以使用checked来指定默认选项，使用disabled来禁用radio"
         lang="html"
     >
-        <y-radio label="1" v-model="test1" checked disabled>disabled</y-radio>
-        <y-radio label="2" v-model="test1" disabled>disabled</y-radio>
+        <y-radio label="1" v-model="test1" checked :disabled="disableds">disabled</y-radio>
+        <y-radio label="2" v-model="test1" :disabled="disableds">disabled</y-radio>
+        <y-button @click.native="disableds = !disableds">disabled</y-button>
     </coding>
     <coding
         :code="group"
@@ -86,8 +87,8 @@ export default {
             test1:"1",
             test2:"",
             test3:"",
+            disableds: false,
             init:init,
-            disabled:disabled,
             group:group,
             btn:btn
         }

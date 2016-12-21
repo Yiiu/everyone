@@ -1,6 +1,5 @@
 @import "~style/color";
 
-
 .y-alert {
     position: relative;
     padding: 8px 8px 8px 16px;
@@ -11,7 +10,6 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    transition: all .3s ease;
     >svg {
         margin-right: 6px;
     }
@@ -65,7 +63,17 @@
         color: @colors;
     }
 }
+
+.alert-up-enter-active, .alert-up-leave-active {
+    transition: transform .2s, opacity .2s, padding .2s, height .2s, margin .2s; 
+    will-change: opacity;
+}
 /* 必需 */
-.alert-op-enter-active, .alert-op-leave-active {
+.alert-up-enter-active, .alert-up-leave-active {
     opacity: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transform-origin: 0% 0%;
+    transform: scale3d(1,0,1);
 }

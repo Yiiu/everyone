@@ -7,8 +7,9 @@
         content="可以禁止checkbox的默认事件"
         lang="html"
     >
-        <y-checkbox v-model="test" label="523" :disabled="true">disabled</y-checkbox>
-        <y-checkbox v-model="test" label="1" :disabled="true">disabled</y-checkbox>
+        <y-checkbox v-model="test" label="523" :disabled="disableds">disabled</y-checkbox>
+        <y-checkbox v-model="test" label="1" :disabled="disableds">disabled</y-checkbox>
+        <y-button @click.native="disableds = !disableds">disabled</y-button>
     </coding>
     <coding
         :code="label"
@@ -54,11 +55,12 @@ let group =
 export default {
 	data(){
 		return {
-			test:"523",
+			test:["523"],
 			test1:"可用",
 			test2:"",
 			test3:['523'],
             disabled:disabled,
+            disableds: false,
             label:label,
             group:group
 		}

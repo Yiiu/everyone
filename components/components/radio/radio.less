@@ -32,14 +32,19 @@
             }
             &.checked {
                 border-color: @blue;
-                background: @blue;
+                background: #fff;
                 &:after {
                     transform: scale(1);
+                    background-color: @blue;
                 }
             }
             &.disabled {
-                background: #cecece !important;
-                border-color: #ccc;
+                cursor: not-allowed;
+                border-color: #d9d9d9 !important;
+                background-color: #f3f3f3 !important;
+                &:after {
+                    background-color: #cccccc;
+                }
             }
         }
         input {

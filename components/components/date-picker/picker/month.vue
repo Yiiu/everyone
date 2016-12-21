@@ -21,7 +21,7 @@
                     :class="{'y-month-picker-tbody-selected': month === item - 1}"
                     @click="set(item - 1)"
                 >
-                    <div>{{monthText[item - 1]}}</div>
+                    <div>{{en ? monthText[item - 1].substr(0, 3) : monthText[item - 1]}}</div>
                 </li>
             </ul>
         </div>

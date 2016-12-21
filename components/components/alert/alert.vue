@@ -1,5 +1,12 @@
 <template>
-    <transition name="alert-op">
+    <transition name="alert-up" 
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:after-enter="afterEnter"
+        v-on:before-leave="beforeLeave"
+        v-on:leave="leave"
+        appear
+    >
         <div class="y-alert" :class="[Class]" v-if="show">
             <y-svg :type="svgClass" :width="20"></y-svg>
             <div class="y-alert-c" ref="contents">
@@ -51,6 +58,30 @@ export default {
     methods: {
         closeOn () {
             this.show = false
+        },
+        beforeEnter (el) {
+            el.style.height = 0 + 'px'
+        },
+        enter (el) {
+            if (el.scrollHeight !== 0) {
+                el.style.height = el.scrollHeight + 'px'
+            }
+        },
+        afterEnter (el) {
+            el.style.height = ''
+        },
+        beforeLeave (el) {
+            if (el.scrollHeight !== 0) {
+                console.log(1)
+                el.style.height = el.scrollHeight + 'px'
+            }
+        },
+        leave (el) {
+            if (el.scrollHeight !== 0) {
+                setTimeout(() => {
+                    el.style.height = 0 + 'px'
+                })
+            }
         }
     },
     computed: {
