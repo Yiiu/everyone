@@ -69,5 +69,3 @@ import 'everyone/dist/everyone.css'	// 引入css文件
 ```html
 <y-button type="dashed">一个按钮</y-button>
 ```
-
-updating:)......
