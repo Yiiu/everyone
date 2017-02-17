@@ -18,7 +18,8 @@
         lang="html"
     >
         <y-button type="primary" disabled>一个按钮</y-button>
-        <y-button type="primary" loading>一个按钮</y-button>
+        <y-button type="primary" :loading="loading">一个按钮</y-button>
+        <y-button type="primary" @click.native="clickLoading">{{loading ? '不加载' : '加载'}}</y-button>
     </coding>
     <coding
         :code="on"
@@ -27,6 +28,18 @@
         lang="html"
     >
         <y-button type="ghost" @click.native="test">一个按钮</y-button>
+    </coding>
+    <coding
+        :code="group"
+        title="button-group"
+        content="按钮组"
+        lang="html"
+    >
+        <y-button-group>
+            <y-button type="primary">一个按钮</y-button>
+            <y-button type="ghost">一个按钮</y-button>
+            <y-button type="dashed">一个按钮</y-button>
+        </y-button-group>
     </coding>
     <coding
         :code="color"
@@ -62,6 +75,15 @@ let type =
     <y-button type="dashed">一个按钮</y-button>
 </template>
 `
+let group =
+`<template>
+    <y-button-group>
+        <y-button type="primary">一个按钮</y-button>
+        <y-button type="ghost">一个按钮</y-button>
+        <y-button type="dashed">一个按钮</y-button>
+    </y-button-group>
+</template>
+`
 let state =
 `<template>
     <y-button type="primary" disabled>一个按钮</y-button>
@@ -95,12 +117,17 @@ export default {
             type:type,
             state:state,
             on:on,
+            group:group,
             color:color,
+            loading: false
         }
     },
     methods:{
         test(){
             this.$notify({"title":"test","content":"sfafasdf","time":1000,"icon":true})
+        },
+        clickLoading () {
+            this.loading = !this.loading
         }
     }
 }

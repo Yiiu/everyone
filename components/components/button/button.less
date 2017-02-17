@@ -1,5 +1,6 @@
 @import "../../style/color";
 .y-btn {
+    position: relative;
     transition: 0.3s all;
     text-align: center;
     font-size: 14px;
@@ -15,12 +16,22 @@
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    &:active {
-
-        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
-    }
 }
-
+.y-btn-clicked:after {
+    content: "";
+    transition: .3s all;
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    bottom: -1px;
+    z-index: 0;
+    border: 0px solid @blue;
+    opacity: .4;
+    border-radius: inherit;
+    display: block;
+    animation: buttonEffect 0.36s ease-out forwards;
+}
 .y-btn.lg {
     padding: 4px 15px 5px;
     font-size: 14px;
@@ -56,9 +67,14 @@
 }
 
 .y-btn.loading {
+    padding-left: 29px;
+    pointer-events: none;
+    position: relative;
     svg {
-        position: relative;
-        top: 3px;
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        margin-top: -6px;
         animation: loading 1s infinite linear;
     }
 }
@@ -77,9 +93,16 @@
     }
 }
 
-
-
-
+@keyframes buttonEffect {
+  to {
+    opacity: 0;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    border-width: 6px;
+  }
+}
 
 
 
@@ -87,9 +110,12 @@
 .btn-primarys(@Color, @FColor){
     color: @FColor;
     background: @Color;
-    border-color: @Color;
+    border-color: transparent;
     &:hover {
-        background: lighten(@Color, 5%);
+        background: lighten(@Color, 8%);
+    }
+    &:active {
+        background: darken(@Color, 8%);
     }
 }
 .btn-ghosts(@Color, @FColor, @HFColor:@gray){
@@ -97,6 +123,10 @@
     color: @FColor;
     &:hover{
         border-color: lighten(@Color, 10%) ;
+    }
+    &:active {
+        border-color: darken(@Color, 8%);
+        color: darken(@Color, 8%);
     }
 }
 

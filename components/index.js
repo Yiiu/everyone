@@ -4,6 +4,7 @@ import Loading from './components/loading'
 
 import Alert from './components/alert'
 import Button from './components/button'
+import ButtonGroup from './components/button-group'
 import Radio from './components/radio'
 import RadioGroup from './components/radio-group'
 import RadioButton from './components/radio-button'
@@ -43,6 +44,7 @@ const install = (Vue) => {
 
     Vue.component(Alert.name, Alert)
     Vue.component(Button.name, Button)
+    Vue.component(ButtonGroup.name, ButtonGroup)
     Vue.component(Radio.name, Radio)
     Vue.component(RadioGroup.name, RadioGroup)
     Vue.component(RadioButton.name, RadioButton)

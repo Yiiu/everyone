@@ -1,0 +1,26 @@
+.y-btn-group {
+    font-size: 0;
+    .y-btn {
+        position: relative;
+        z-index: 1;
+        &:first-child {
+            padding-left: 14px;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+        &:last-child {
+            padding-right: 14px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+        &:not(:last-child) {
+            margin-right: -1px;
+        }
+        &:not(:last-child):not(:first-child) {
+            border-radius: 0;
+        }
+        &:hover, &:focus, &:active, &.active {
+            z-index: 2;
+        }
+    }
+}

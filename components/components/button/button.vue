@@ -1,8 +1,6 @@
 <template>
-    <button class="y-btn" :class="style">
-        <transition name="opacity">
-            <y-svg v-if="loading" :width="14" color="#fff" type="loading"></y-svg>
-        </transition>
+    <button class="y-btn" :class="[style, clicked ? 'y-btn-clicked': null]" @click="click" :disabled="disabled">
+        <y-svg v-if="loading" :width="14" color="#fff" type="loading"></y-svg>
         <slot></slot>
     </button>
 </template>
@@ -31,11 +29,24 @@ export default {
             default: 'blue'
         }
     },
+    data () {
+        return {
+            clicked: false
+        }
+    },
+    methods: {
+        click () {
+            this.clicked = !this.clicked
+            this.$el.addEventListener('animationend', () => {
+                this.clicked = false
+            })
+        }
+    },
     computed: {
         'style': function () {
             let style = ``
 
-            style += `btn-${this.type} ${this.color} `
+            style += `btn-${this.type} ${this.color}`
 
             if (this.size !== '') {
                 style += ` ${this.size}`
