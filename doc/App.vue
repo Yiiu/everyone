@@ -5,8 +5,8 @@
             <left-nav></left-nav>
             <div class="container md">
                 <transition name="opacity" mode="out-in">
-                <router-view></router-view>
-                </tranisition>
+                    <router-view></router-view>
+                </transition>
             </div>
         </div>
     </div>
